@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTheme } from '@designable/react'
 import { HomeOutlined, UserOutlined } from '@ant-design/icons'
-import { Breadcrumb } from 'antd'
+import { Breadcrumb, Divider } from 'antd'
 
 const logo = {
   dark: '//img.alicdn.com/imgextra/i2/O1CN01NTUDi81fHLQvZCPnc_!!6000000003981-55-tps-1141-150.svg',
@@ -12,15 +12,14 @@ const logo = {
 export const LogoWidget: React.FC = () => {
   const url = logo[useTheme()]
   return (
-    <div style={{ display: 'flex', alignItems: 'center', fontSize: 14 }}>
+    <div style={{ display: 'flex', alignItems: 'center', fontSize: 14, paddingLeft:"8px" }}>
+      <HomeOutlined />
+      <Divider type="vertical" />
       <Breadcrumb>
         <Breadcrumb.Item href="">
-          <HomeOutlined />
+          <span>外贸管理</span>
         </Breadcrumb.Item>
-        <Breadcrumb.Item href="">
-          <span>Application List</span>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item>Application</Breadcrumb.Item>
+        <Breadcrumb.Item>订单编辑</Breadcrumb.Item>
       </Breadcrumb>
     </div>
   )
