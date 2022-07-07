@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTheme } from '@designable/react'
-import { HomeOutlined, UserOutlined } from '@ant-design/icons'
+import { HomeOutlined, MenuOutlined, UserOutlined } from '@ant-design/icons'
 import { Breadcrumb, Divider } from 'antd'
 
 const logo = {
@@ -13,7 +13,7 @@ export const BreadcrumbWidget: React.FC = () => {
   const url = logo[useTheme()]
   return (
     <div style={{ display: 'flex', alignItems: 'center', fontSize: 14, paddingLeft:"8px" }}>
-      <HomeOutlined />
+      <MenuOutlined />
       <Divider type="vertical" />
       <Breadcrumb>
         <Breadcrumb.Item href="">
