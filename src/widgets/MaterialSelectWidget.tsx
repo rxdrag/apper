@@ -31,12 +31,12 @@ const menu = (
 export const MaterialSelectWidget: React.FC = () => {
   return (
     <div>
-      <div style={{ padding: "8px", paddingLeft: 0, display: "flex" }}>
+      <div style={{ padding: "8px", display: "flex" }}>
         <Dropdown overlay={menu} trigger={['click']}>
-          <Button type="text" style={{ marginLeft: "-8px" }}>
+          <Button>
             <Space>
               表单组件
-              <DownOutlined />
+              <DownOutlined style={{ fontSize: "10px" }} />
             </Space>
           </Button>
         </Dropdown>
@@ -44,7 +44,7 @@ export const MaterialSelectWidget: React.FC = () => {
         <Button shape="circle" style={{ border: 0 }} icon={<PlusOutlined />} />
       </div>
       <Divider style={{ margin: 0 }} />
-      <div style={{ padding: "8px",  display: "flex" }}>
+      <div style={{ padding: "8px", display: "flex" }}>
         <Search allowClear style={{ flex: 1 }} />
       </div>
     </div>
