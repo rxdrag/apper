@@ -29,7 +29,7 @@ import {
   KeyCode,
 } from '@designable/core'
 import {
-  LogoWidget,
+  BreadcrumbWidget,
   ActionsWidget,
   PreviewWidget,
   SchemaEditorWidget,
@@ -116,7 +116,7 @@ const App = () => {
   )
   return (
     <Designer engine={engine}>
-      <StudioPanel logo={<LogoWidget />} actions={<ActionsWidget />}>
+      <StudioPanel logo={<BreadcrumbWidget />} actions={<ActionsWidget />}>
         <CompositePanel>
           <CompositePanel.Item title="panels.Component" icon="Component">
             <ResourceWidget

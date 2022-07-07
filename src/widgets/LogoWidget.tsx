@@ -9,7 +9,7 @@ const logo = {
     '//img.alicdn.com/imgextra/i2/O1CN01Kq3OHU1fph6LGqjIz_!!6000000004056-55-tps-1141-150.svg',
 }
 
-export const LogoWidget: React.FC = () => {
+export const BreadcrumbWidget: React.FC = () => {
   const url = logo[useTheme()]
   return (
     <div style={{ display: 'flex', alignItems: 'center', fontSize: 14, paddingLeft:"8px" }}>
