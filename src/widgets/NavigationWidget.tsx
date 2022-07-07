@@ -42,7 +42,7 @@ const menu = (
         key: '3',
         label: (
           <a target="_blank" rel="noopener noreferrer" href="#">
-            进入设置
+            设置
           </a>
         ),
         icon: <SettingOutlined />
@@ -51,7 +51,7 @@ const menu = (
   />
 );
 
-export const BreadcrumbWidget: React.FC = () => {
+export const NavigationWidget: React.FC = () => {
   return (
     <div style={{ display: 'flex', alignItems: 'center', fontSize: 14, paddingLeft: "8px" }}>
       <Dropdown overlay={menu}>

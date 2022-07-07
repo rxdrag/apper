@@ -10,7 +10,6 @@ import {
   ResourceWidget,
   HistoryWidget,
   StudioPanel,
-  CompositePanel,
   WorkspacePanel,
   ToolbarPanel,
   ViewportPanel,
@@ -29,7 +28,7 @@ import {
   KeyCode,
 } from '@designable/core'
 import {
-  BreadcrumbWidget,
+  NavigationWidget,
   ActionsWidget,
   PreviewWidget,
   SchemaEditorWidget,
@@ -65,6 +64,8 @@ import {
   FormLayout,
   FormGrid,
 } from '@designable/formily-antd'
+import { CompositePanel } from './panels/CompositePanel'
+import { MaterialSelectWidget } from './widgets/MaterialSelectWidget'
 
 setNpmCDNRegistry('//unpkg.com')
 
@@ -75,6 +76,7 @@ GlobalRegistry.registerDesignerLocales({
       Layouts: '布局组件',
       Arrays: '自增组件',
       Displays: '展示组件',
+      Pages: '页面管理'
     },
   },
   'en-US': {
@@ -83,6 +85,7 @@ GlobalRegistry.registerDesignerLocales({
       Layouts: 'Layouts',
       Arrays: 'Arrays',
       Displays: 'Displays',
+      Pages: 'Pages'
     },
   },
   'ko-KR': {
@@ -116,9 +119,13 @@ const App = () => {
   )
   return (
     <Designer engine={engine}>
-      <StudioPanel logo={<BreadcrumbWidget />} actions={<ActionsWidget />}>
+      <StudioPanel logo={<NavigationWidget />} actions={<ActionsWidget />}>
         <CompositePanel>
-          <CompositePanel.Item title="panels.Component" icon="Component">
+          <CompositePanel.Item
+            title="panels.Component"
+            icon="Component"
+            subTitle={<MaterialSelectWidget />}
+          >
             <ResourceWidget
               title="sources.Inputs"
               sources={[

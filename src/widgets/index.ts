@@ -1,4 +1,4 @@
-export * from './BreadcrumbWidget'
+export * from './NavigationWidget'
 export * from './ActionsWidget'
 export * from './PreviewWidget'
 export * from './SchemaEditorWidget'
