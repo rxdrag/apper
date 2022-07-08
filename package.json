@@ -3,6 +3,11 @@
   "devEngines": {
     "node": "8.x || 9.x || 10.x || 11.x"
   },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  
   "scripts": {
     "build": "rimraf dist && webpack-cli --config config/webpack.prod.ts",
     "start": "webpack-dev-server --config config/webpack.dev.ts"

@@ -32,7 +32,6 @@ import {
   ActionsWidget,
   PreviewWidget,
   SchemaEditorWidget,
-  MarkupSchemaWidget,
 } from './widgets'
 import { saveSchema } from './service'
 import {
@@ -176,7 +175,7 @@ const App = () => {
             <ToolbarPanel>
               <DesignerToolsWidget />
               <ViewToolsWidget
-                use={['DESIGNABLE', 'JSONTREE', 'MARKUP', 'PREVIEW']}
+                use={['DESIGNABLE', 'JSONTREE', 'PREVIEW']}
               />
             </ToolbarPanel>
             <ViewportPanel style={{ height: '100%' }}>
@@ -219,9 +218,6 @@ const App = () => {
                 {(tree, onChange) => (
                   <SchemaEditorWidget tree={tree} onChange={onChange} />
                 )}
-              </ViewPanel>
-              <ViewPanel type="MARKUP" scrollable={false}>
-                {(tree) => <MarkupSchemaWidget tree={tree} />}
               </ViewPanel>
               <ViewPanel type="PREVIEW">
                 {(tree) => <PreviewWidget tree={tree} />}
