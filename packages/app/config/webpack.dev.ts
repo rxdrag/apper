@@ -18,7 +18,7 @@ const createPages = (pages) => {
   })
 }
 
-for (let key in baseConfig.entry) {
+for (const key in baseConfig.entry) {
   if (Array.isArray(baseConfig.entry[key])) {
     baseConfig.entry[key].push(
       require.resolve('webpack/hot/dev-server'),
