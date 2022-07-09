@@ -13,7 +13,6 @@ import {
   WorkspacePanel,
   ToolbarPanel,
   ViewportPanel,
-  ViewPanel,
   SettingsPanel,
   ComponentTreeWidget,
 } from '@designable/react'
@@ -65,6 +64,7 @@ import {
 } from '@designable/formily-antd'
 import { CompositePanel } from './panels/CompositePanel'
 import { MaterialSelectWidget } from './widgets/MaterialSelectWidget'
+import { ViewPanel } from './panels/ViewPanel'
 
 setNpmCDNRegistry('//unpkg.com')
 
