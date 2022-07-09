@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { createForm } from '@formily/core'
 import { createSchemaField } from '@formily/react'
-import { ArrayTable, Form, FormItem, Input, Password, Submit } from '@formily/antd'
+import { ArrayTable, Form, FormGrid, FormItem, Input, Password, Submit } from '@formily/antd'
 import { Tabs, Card as AntdCard, Card } from 'antd'
 import * as ICONS from '@ant-design/icons'
 import { VerifyCode } from './VerifyCode'
@@ -17,7 +17,8 @@ const SchemaField = createSchemaField({
     Password,
     VerifyCode,
     Card,
-    ArrayTable
+    ArrayTable,
+    FormGrid
   },
   scope: {
     icon(name: string) {
@@ -27,26 +28,28 @@ const SchemaField = createSchemaField({
 })
 
 
-const jsonSchema = {
+const jsonSchema ={
   "type": "object",
   "properties": {
-    "29z5kdb8tp7": {
+    "2d2o77wgk16": {
       "type": "void",
-      "x-component": "Card",
-      "x-component-props": {
-        "title": "Title"
-      },
-      "x-designable-id": "29z5kdb8tp7",
+      "x-component": "FormGrid",
+      "x-validator": [],
+      "x-component-props": {},
+      "x-designable-id": "2d2o77wgk16",
       "x-index": 0,
       "properties": {
-        "mecz6ksi5td": {
+        "8flfiim38e5": {
           "type": "void",
-          "x-component": "FormLayout",
-          "x-component-props": {},
-          "x-designable-id": "mecz6ksi5td",
+          "x-component": "FormGrid.GridColumn",
+          "x-validator": [],
+          "x-component-props": {
+            "gridSpan": 8
+          },
+          "x-designable-id": "8flfiim38e5",
           "x-index": 0,
           "properties": {
-            "lpoac1f178r": {
+            "r3boq6qwbbt": {
               "type": "string",
               "title": "Input",
               "x-decorator": "FormItem",
@@ -54,105 +57,36 @@ const jsonSchema = {
               "x-validator": [],
               "x-component-props": {},
               "x-decorator-props": {},
-              "x-designable-id": "lpoac1f178r",
+              "x-designable-id": "r3boq6qwbbt",
               "x-index": 0
-            },
-            "y162bzzggu5": {
-              "type": "string",
-              "title": "Input",
+            }
+          }
+        },
+        "qtn8a6hp1ya": {
+          "type": "void",
+          "x-component": "FormGrid.GridColumn",
+          "x-validator": [],
+          "x-component-props": {},
+          "x-designable-id": "qtn8a6hp1ya",
+          "x-index": 1,
+          "properties": {
+            "yfon23am7fe": {
+              "type": "number",
+              "title": "Rate",
               "x-decorator": "FormItem",
-              "x-component": "Input",
+              "x-component": "Rate",
               "x-validator": [],
               "x-component-props": {},
               "x-decorator-props": {},
-              "x-designable-id": "y162bzzggu5",
-              "x-index": 1
-            },
-            "em5abb51skr": {
-              "type": "string",
-              "title": "Input",
-              "x-decorator": "FormItem",
-              "x-component": "Input",
-              "x-validator": [],
-              "x-component-props": {},
-              "x-decorator-props": {},
-              "x-designable-id": "em5abb51skr",
-              "x-index": 2
+              "x-designable-id": "yfon23am7fe",
+              "x-index": 0
             }
           }
         }
       }
-    },
-    "sic32tf42d9": {
-      "type": "array",
-      "x-decorator": "FormItem",
-      "x-component": "ArrayTable",
-      "x-validator": [],
-      "x-component-props": {},
-      "x-decorator-props": {},
-      "x-designable-id": "sic32tf42d9",
-      "items": {
-        "type": "object",
-        "x-designable-id": "jroqhsh0vhz",
-        "properties": {
-          "2ohb8n4d9es": {
-            "type": "void",
-            "x-component": "ArrayTable.Column",
-            "x-component-props": {
-              "title": "Title"
-            },
-            "x-designable-id": "2ohb8n4d9es",
-            "properties": {
-              "6cldsxh3545": {
-                "type": "void",
-                "x-component": "ArrayTable.SortHandle",
-                "x-designable-id": "6cldsxh3545",
-                "x-index": 0
-              }
-            },
-            "x-index": 0
-          },
-          "7y8nxth0cua": {
-            "type": "void",
-            "x-component": "ArrayTable.Column",
-            "x-component-props": {
-              "title": "Title"
-            },
-            "x-designable-id": "7y8nxth0cua",
-            "properties": {
-              "kqdii33zau9": {
-                "type": "void",
-                "x-component": "ArrayTable.Index",
-                "x-designable-id": "kqdii33zau9",
-                "x-index": 0
-              }
-            },
-            "x-index": 1
-          },
-          "x1k1gsfxw7h": {
-            "type": "void",
-            "x-component": "ArrayTable.Column",
-            "x-component-props": {
-              "title": "Title"
-            },
-            "x-designable-id": "x1k1gsfxw7h",
-            "x-index": 2
-          },
-          "d9ffr8vfnaj": {
-            "type": "void",
-            "x-component": "ArrayTable.Column",
-            "x-component-props": {
-              "title": "Title"
-            },
-            "x-designable-id": "d9ffr8vfnaj",
-            "x-index": 3
-          }
-        }
-      },
-      "x-index": 1
     }
   },
-  "x-designable-id": "dqgvudiuqlx"
+  "x-designable-id": "x733yxvlcec"
 }
 
 export default () => {
