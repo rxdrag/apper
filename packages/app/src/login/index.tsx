@@ -99,10 +99,12 @@ export default () => {
         display: 'flex',
         justifyContent: 'center',
         background: '#eee',
+        alignItems: "center",
         padding: '40px 0',
+        height: '100%'
       }}
     >
-      <Card style={{ width: 400 }}>
+      <Card style={{ width: 400, height: 400 }}>
         <Tabs style={{ overflow: 'visible', marginTop: -10 }}>
           <Tabs.TabPane key="1" tab="账密登录">
             <Form
