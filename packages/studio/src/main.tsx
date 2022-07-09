@@ -108,6 +108,7 @@ const App = () => {
               [KeyCode.Control, KeyCode.S],
             ],
             handler(ctx) {
+              console.log("哈哈", ctx)
               saveSchema(ctx.engine)
             },
           }),

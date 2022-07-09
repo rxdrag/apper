@@ -190,8 +190,8 @@ export const CompositePanel: React.FC<ICompositePanelProps> & {
   )
 }
 
-const Item = () => {
-  return <React.Fragment />
-}
+// const Item = () => {
+//   return <React.Fragment />
+// }
 
-CompositePanel.Item = Item
+//CompositePanel.Item = Item
