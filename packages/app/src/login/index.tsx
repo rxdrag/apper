@@ -54,44 +54,6 @@ const normalSchema = {
   },
 }
 
-const phoneSchema = {
-  type: 'object',
-  properties: {
-    phone: {
-      type: 'string',
-      title: '手机号',
-      required: true,
-      'x-validator': 'phone',
-      'x-decorator': 'FormItem',
-      'x-component': 'Input',
-      'x-component-props': {
-        prefix: "{{icon('PhoneOutlined')}}",
-      },
-    },
-    verifyCode: {
-      type: 'string',
-      title: '验证码',
-      required: true,
-      'x-decorator': 'FormItem',
-      'x-component': 'VerifyCode',
-      'x-component-props': {
-        prefix: "{{icon('LockOutlined')}}",
-      },
-      'x-reactions': [
-        {
-          dependencies: ['.phone#value', '.phone#valid'],
-          fulfill: {
-            state: {
-              'component[1].readyPost': '{{$deps[0] && $deps[1]}}',
-              'component[1].phoneNumber': '{{$deps[0]}}',
-            },
-          },
-        },
-      ],
-    },
-  },
-}
-
 export default () => {
   return (
     <div
@@ -104,7 +66,7 @@ export default () => {
         height: '100%'
       }}
     >
-      <Card style={{ width: 400, height: 400 }}>
+      <Card style={{ width: 400, height: 360 }}>
         <Tabs style={{ overflow: 'visible', marginTop: -10 }}>
           <Tabs.TabPane key="1" tab="账密登录">
             <Form
@@ -114,19 +76,6 @@ export default () => {
               onAutoSubmit={console.log}
             >
               <SchemaField schema={normalSchema} />
-              <Submit block size="large">
-                登录
-              </Submit>
-            </Form>
-          </Tabs.TabPane>
-          <Tabs.TabPane key="2" tab="手机登录">
-            <Form
-              form={phoneForm}
-              layout="vertical"
-              size="large"
-              onAutoSubmit={console.log}
-            >
-              <SchemaField schema={phoneSchema} />
               <Submit block size="large">
                 登录
               </Submit>
