@@ -1,7 +1,7 @@
 import 'antd/dist/antd.less'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Login from './Login2'
+import Login from './Login'
 
 const App = () => {
   return (
