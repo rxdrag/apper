@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { createForm } from '@formily/core'
 import { createSchemaField } from '@formily/react'
 import { Form, FormItem, Input, Password, Submit } from '@formily/antd'
@@ -22,7 +22,7 @@ const SchemaField = createSchemaField({
     VerifyCode,
   },
   scope: {
-    icon(name) {
+    icon(name: string) {
       return React.createElement(ICONS[name])
     },
   },
@@ -55,6 +55,11 @@ const normalSchema = {
 }
 
 export default () => {
+
+  const handleSubmit = useCallback((value:any)=>{
+    console.log("哈哈", value)
+  }, [])
+
   return (
     <div
       style={{
@@ -66,22 +71,18 @@ export default () => {
         height: '100%'
       }}
     >
-      <Card style={{ width: 400, height: 360 }}>
-        <Tabs style={{ overflow: 'visible', marginTop: -10 }}>
-          <Tabs.TabPane key="1" tab="账密登录">
-            <Form
-              form={normalForm}
-              layout="vertical"
-              size="large"
-              onAutoSubmit={console.log}
-            >
-              <SchemaField schema={normalSchema} />
-              <Submit block size="large">
-                登录
-              </Submit>
-            </Form>
-          </Tabs.TabPane>
-        </Tabs>
+      <Card style={{ width: 400, height: 360 }} title="登录">
+        <Form
+          form={normalForm}
+          layout="vertical"
+          size="large"
+          onAutoSubmit={handleSubmit}
+        >
+          <SchemaField schema={normalSchema} />
+          <Submit block size="large">
+            登录
+          </Submit>
+        </Form>
         <div
           style={{
             display: 'flex',
