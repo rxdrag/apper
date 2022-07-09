@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import { createForm } from '@formily/core'
 import { createSchemaField } from '@formily/react'
 import { ArrayTable, Form, FormGrid, FormItem, Input, Password, Submit } from '@formily/antd'
-import { Tabs, Card as AntdCard, Card } from 'antd'
+import { Card, Rate } from 'antd'
 import * as ICONS from '@ant-design/icons'
 import { VerifyCode } from './VerifyCode'
 
@@ -18,7 +18,8 @@ const SchemaField = createSchemaField({
     VerifyCode,
     Card,
     ArrayTable,
-    FormGrid
+    FormGrid,
+    Rate
   },
   scope: {
     icon(name: string) {
