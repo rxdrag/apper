@@ -112,7 +112,7 @@ const App = () => {
             },
           }),
         ],
-        rootComponentName: 'Form',
+        rootComponentName: 'Card',
       }),
     []
   )
