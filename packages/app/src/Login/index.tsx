@@ -1,8 +1,9 @@
 import React, { useCallback } from 'react'
 import { createForm } from '@formily/core'
 import { createSchemaField } from '@formily/react'
-import { ArrayTable, Form, FormItem, Input, Password, Submit, Card } from '@formily/antd'
-import { Tabs, Card as AntdCard } from 'antd'
+import { ArrayTable, Form, FormItem, Input, Password, Submit } from '@formily/antd'
+import { Card } from '@designable/formily-antd'
+import {  Tabs, Card as AntdCard } from 'antd'
 import * as ICONS from '@ant-design/icons'
 import { VerifyCode } from './VerifyCode'
 
@@ -187,7 +188,7 @@ const schema2 = {
 export default () => {
 
   const handleSubmit = useCallback((value:any)=>{
-    console.log("哈哈", value)
+    console.log("哈哈", value)   
   }, [])
 
   return (

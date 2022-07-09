@@ -1,16 +1,13 @@
 import React, { useCallback } from 'react'
 import { createForm } from '@formily/core'
 import { createSchemaField } from '@formily/react'
-import { ArrayTable, Form, FormItem, Input, Password, Submit, Card } from '@formily/antd'
+import { ArrayTable, Form, FormItem, Input, Password, Submit } from '@formily/antd'
+import { Card } from '@designable/formily-antd'
 import { Tabs, Card as AntdCard } from 'antd'
 import * as ICONS from '@ant-design/icons'
 import { VerifyCode } from './VerifyCode'
 
-const normalForm = createForm({
-  validateFirst: true,
-})
-
-const phoneForm = createForm({
+const form = createForm({
   validateFirst: true,
 })
 
@@ -30,33 +27,8 @@ const SchemaField = createSchemaField({
   },
 })
 
-const normalSchema = {
-  type: 'object',
-  properties: {
-    username: {
-      type: 'string',
-      title: '用户名',
-      required: true,
-      'x-decorator': 'FormItem',
-      'x-component': 'Input',
-      'x-component-props': {
-        prefix: "{{icon('UserOutlined')}}",
-      },
-    },
-    password: {
-      type: 'string',
-      title: '密码',
-      required: true,
-      'x-decorator': 'FormItem',
-      'x-component': 'Password',
-      'x-component-props': {
-        prefix: "{{icon('LockOutlined')}}",
-      },
-    },
-  },
-}
 
-const schema2 = {
+const jsonSchema = {
   "type": "object",
   "properties": {
     "29z5kdb8tp7": {
@@ -201,28 +173,17 @@ export default () => {
         height: '100%'
       }}
     >
-      <AntdCard style={{ width: 400, height: 360 }} title="登录">
         <Form
-          form={normalForm}
+          form={form}
           layout="vertical"
           size="large"
           onAutoSubmit={handleSubmit}
         >
-          <SchemaField schema={normalSchema} />
+          <SchemaField schema={jsonSchema} />
           <Submit block size="large">
             登录
           </Submit>
         </Form>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-          }}
-        >
-          <a href="#新用户注册">新用户注册</a>
-          <a href="#忘记密码">忘记密码?</a>
-        </div>
-      </AntdCard>
     </div>
   )
 }
