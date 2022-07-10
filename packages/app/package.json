@@ -24,15 +24,24 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1"
   },
+  "resolutions": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "prettier": "2.x",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "typescript": "4.x"
+  },
   "dependencies": {
-    "@formily/reactive": "^2.0.2",
-    "@formily/reactive-react": "^2.0.2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "@ant-design/pro-components": "^1.1.8",
     "@formily/antd": "^2.1.9",
     "@formily/core": "^2.1.9",
+    "@formily/reactive": "^2.0.2",
+    "@formily/reactive-react": "^2.0.2",
     "@formily/shared": "^2.1.9",
     "antd": "^4.15.2",
-    "react": "^16.8.x",
-    "react-dom": "^16.8.x",
     "react-jss": "^10.4.0"
   }
 }
