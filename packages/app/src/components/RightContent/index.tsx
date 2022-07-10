@@ -3,7 +3,7 @@ import { QuestionCircleOutlined } from '@ant-design/icons';
 import React from 'react';
 import Avatar from './AvatarDropdown';
 // import HeaderSearch from '../HeaderSearch';
-import styles from './index.less';
+import './index.less';
 import HeaderSearch from '../HeaderSearch';
 // import { SelectLang } from '../SelectLang/SelectLang';
 
@@ -17,16 +17,17 @@ const GlobalHeaderRight: React.FC = () => {
   // }
 
   // const { navTheme, layout } = initialState.settings;
-   let className = styles.right;
+   //let className = styles.right;
 
   // if ((navTheme === 'dark' && layout === 'top') || layout === 'mix') {
   //   className = `${styles.right}  ${styles.dark}`;
   // }
+  //console.log("呵呵", styles)
 
   return (
-    <Space className={className}>
+    <Space className={"right"}>
       <HeaderSearch
-        className={`${styles.action} ${styles.search}`}
+        className={`action search`}
         placeholder="站内搜索"
         defaultValue="rxdrag"
         options={[
@@ -51,7 +52,7 @@ const GlobalHeaderRight: React.FC = () => {
         // }}
       /> 
       <span
-        className={styles.action}
+        className={"action"}
         onClick={() => {
           window.open('https://pro.ant.design/docs/getting-started');
         }}
