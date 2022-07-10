@@ -37,9 +37,9 @@ export default () => {
           <svg style={{ width: "40px", height: "40px" }} viewBox="0 0 24 24">
             <defs>
               <linearGradient id="logo_color" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#3ca9f2" />
-                <stop offset="90%" stopColor="#3a29e6" />
-                <stop offset="100%" stopColor="#3ca9f2" />
+                <stop offset="0%" stopColor="#3a29e6" />
+                <stop offset="90%" stopColor="#f155c3" />
+                <stop offset="100%" stopColor="#3a29e6" />
               </linearGradient>
             </defs>
             <path
@@ -106,6 +106,9 @@ export default () => {
           >
             {dom}
           </a>
+        )}
+        headerContentRender={() => (
+          <div>外贸CRM</div>
         )}
         rightContentRender={() => (
           <RightContent />
