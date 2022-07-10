@@ -3,7 +3,7 @@ import type { InputRef } from 'antd';
 import { AutoComplete, Input } from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
 import type { AutoCompleteProps } from 'antd/es/auto-complete';
-import React, { useRef } from 'react';
+import React, { memo, useRef } from 'react';
 
 import classNames from 'classnames';
 import styles from './index.less';
@@ -21,7 +21,7 @@ export type HeaderSearchProps = {
   value?: string;
 };
 
-const HeaderSearch: React.FC<HeaderSearchProps> = (props) => {
+const HeaderSearch: React.FC<HeaderSearchProps> = memo((props) => {
   const {
     className,
     defaultValue,
@@ -97,6 +97,6 @@ const HeaderSearch: React.FC<HeaderSearchProps> = (props) => {
       </AutoComplete>
     </div>
   );
-};
+});
 
 export default HeaderSearch;

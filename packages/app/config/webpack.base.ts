@@ -86,6 +86,10 @@ export default {
               //   dark: true // 开启暗黑模式
               // }),
               javascriptEnabled: true,
+              modules: true,
+              modifyVars: {
+                'root-entry-name': 'default'
+              }
             },
           },
         ],
