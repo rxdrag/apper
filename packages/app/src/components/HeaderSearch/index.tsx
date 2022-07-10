@@ -47,13 +47,12 @@ const HeaderSearch: React.FC<HeaderSearchProps> = memo((props) => {
     ["show"]: searchMode,
   });
 
-
   return (
     <div
       className={classNames(className, "headerSearch")}
       onClick={() => {
         setSearchMode(true);
-        if (searchMode && inputRef.current) {
+        if (inputRef.current) {
           inputRef.current.focus();
         }
       }}
