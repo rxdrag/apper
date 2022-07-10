@@ -21,7 +21,11 @@ const content = (
 );
 
 export default () => {
-  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({ fixSiderbar: true, fixedHeader: true });
+  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({
+    fixSiderbar: true,
+    fixedHeader: true,
+    layout: 'mix',
+  });
   const [pathname, setPathname] = useState('/welcome');
   return (
     <div
@@ -51,21 +55,21 @@ export default () => {
         location={{
           pathname,
         }}
-        menuHeaderRender={(logo, title) => (
-          <div
-            id="customize_menu_header"
-            onClick={() => {
-              window.open('https://rxdrag.com/');
-            }}
-            style={{
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            {logo}
-            {title}
-          </div>
-        )}
+        // menuHeaderRender={(logo, title) => (
+        //   <div
+        //     id="customize_menu_header"
+        //     onClick={() => {
+        //       window.open('https://rxdrag.com/');
+        //     }}
+        //     style={{
+        //       display: "flex",
+        //       alignItems: "center",
+        //     }}
+        //   >
+        //     {logo}
+        //     {title}
+        //   </div>
+        // )}
         waterMarkProps={{
           content: 'Apper',
         }}
@@ -107,9 +111,9 @@ export default () => {
             {dom}
           </a>
         )}
-        headerContentRender={() => (
-          <div>外贸CRM</div>
-        )}
+        // headerContentRender={() => (
+        //   <div>外贸CRM</div>
+        // )}
         rightContentRender={() => (
           <RightContent />
         )}
