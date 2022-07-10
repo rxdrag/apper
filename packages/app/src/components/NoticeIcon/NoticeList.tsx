@@ -2,7 +2,8 @@ import { Avatar, List } from 'antd';
 
 import React from 'react';
 import classNames from 'classnames';
-import styles from './NoticeList.less';
+import './NoticeList.less';
+import { NoticeIconItem, NoticeIconItemType } from '.';
 
 export type NoticeIconTabProps = {
   count?: number;
@@ -10,13 +11,13 @@ export type NoticeIconTabProps = {
   showViewMore?: boolean;
   style?: React.CSSProperties;
   title: string;
-  tabKey: API.NoticeIconItemType;
-  onClick?: (item: API.NoticeIconItem) => void;
+  tabKey: NoticeIconItemType;
+  onClick?: (item: NoticeIconItem) => void;
   onClear?: () => void;
   emptyText?: string;
   clearText?: string;
   viewMoreText?: string;
-  list: API.NoticeIconItem[];
+  list: NoticeIconItem[];
   onViewMore?: (e: any) => void;
 };
 const NoticeList: React.FC<NoticeIconTabProps> = ({
@@ -33,7 +34,7 @@ const NoticeList: React.FC<NoticeIconTabProps> = ({
 }) => {
   if (!list || list.length === 0) {
     return (
-      <div className={styles.notFound}>
+      <div className={"notFound"}>
         <img
           src="https://gw.alipayobjects.com/zos/rmsportal/sAuJeJzSKbUmHfBQRzmZ.svg"
           alt="not found"
@@ -44,19 +45,19 @@ const NoticeList: React.FC<NoticeIconTabProps> = ({
   }
   return (
     <div>
-      <List<API.NoticeIconItem>
-        className={styles.list}
+      <List<NoticeIconItem>
+        className={"list"}
         dataSource={list}
         renderItem={(item, i) => {
-          const itemCls = classNames(styles.item, {
-            [styles.read]: item.read,
+          const itemCls = classNames("item", {
+            ["read"]: item.read,
           });
           // eslint-disable-next-line no-nested-ternary
           const leftIcon = item.avatar ? (
             typeof item.avatar === 'string' ? (
-              <Avatar className={styles.avatar} src={item.avatar} />
+              <Avatar className={"avatar"} src={item.avatar} />
             ) : (
-              <span className={styles.iconElement}>{item.avatar}</span>
+              <span className={"iconElement"}>{item.avatar}</span>
             )
           ) : null;
 
@@ -69,18 +70,18 @@ const NoticeList: React.FC<NoticeIconTabProps> = ({
               }}
             >
               <List.Item.Meta
-                className={styles.meta}
+                className={"meta"}
                 avatar={leftIcon}
                 title={
-                  <div className={styles.title}>
+                  <div className={"title"}>
                     {item.title}
-                    <div className={styles.extra}>{item.extra}</div>
+                    <div className={"extra"}>{item.extra}</div>
                   </div>
                 }
                 description={
                   <div>
-                    <div className={styles.description}>{item.description}</div>
-                    <div className={styles.datetime}>{item.datetime}</div>
+                    <div className={"description"}>{item.description}</div>
+                    <div className={"datetime"}>{item.datetime}</div>
                   </div>
                 }
               />
@@ -88,7 +89,7 @@ const NoticeList: React.FC<NoticeIconTabProps> = ({
           );
         }}
       />
-      <div className={styles.bottomBar}>
+      <div className={"bottomBar"}>
         {showClear ? (
           <div onClick={onClear}>
             {clearText} {title}

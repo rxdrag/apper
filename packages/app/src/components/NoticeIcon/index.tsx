@@ -14,9 +14,9 @@ type NoticeIconList = {
   success?: boolean;
 };
 
-type NoticeIconItemType = 'notification' | 'message' | 'event';
+export type NoticeIconItemType = 'notification' | 'message' | 'event';
 
-type NoticeIconItem = {
+export type NoticeIconItem = {
   id?: string;
   extra?: string;
   key?: string;
@@ -126,7 +126,7 @@ const NoticeIconView: React.FC = () => {
   return (
     <NoticeIcon
       className={"action"}
-      count={currentUser && currentUser.unreadCount}
+      count={5}
       onItemClick={(item) => {
         changeReadState(item.id!);
       }}
