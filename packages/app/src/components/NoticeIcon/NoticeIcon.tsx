@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import type { NoticeIconTabProps } from './NoticeList';
 import NoticeList from './NoticeList';
 import HeaderDropdown from '../HeaderDropdown';
-import styles from './index.less';
+import './index.less';
 import { NoticeIconItem } from '.';
 
 const { TabPane } = Tabs;
@@ -76,7 +76,7 @@ const NoticeIcon: React.FC<NoticeIconProps> & {
     return (
       <>
         <Spin spinning={loading} delay={300}>
-          <Tabs className={styles.tabs} onChange={onTabChange}>
+          <Tabs className={"tabs"} onChange={onTabChange} centered>
             {panes}
           </Tabs>
         </Spin>
@@ -90,12 +90,12 @@ const NoticeIcon: React.FC<NoticeIconProps> & {
     value: props.popupVisible,
     onChange: props.onPopupVisibleChange,
   });
-  const noticeButtonClass = classNames(className, styles.noticeButton);
+  const noticeButtonClass = classNames(className, "noticeButton");
   const notificationBox = getNotificationBox();
-  const NoticeBellIcon = bell || <BellOutlined className={styles.icon} />;
+  const NoticeBellIcon = bell || <BellOutlined className={"icon"} />;
   const trigger = (
     <span className={classNames(noticeButtonClass, { opened: visible })}>
-      <Badge count={count} style={{ boxShadow: 'none' }} className={styles.badge}>
+      <Badge count={count} style={{ boxShadow: 'none' }} className={"badge"}>
         {NoticeBellIcon}
       </Badge>
     </span>
@@ -108,7 +108,7 @@ const NoticeIcon: React.FC<NoticeIconProps> & {
     <HeaderDropdown
       placement="bottomRight"
       overlay={notificationBox}
-      overlayClassName={styles.popover}
+      overlayClassName={"popover"}
       trigger={['click']}
       visible={visible}
       onVisibleChange={setVisible}
