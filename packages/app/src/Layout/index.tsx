@@ -33,7 +33,7 @@ export default () => {
         {...defaultProps}
         title="Apper"
         logo={
-          <svg style={{ width: "48px", height: "48px" }} viewBox="0 0 24 24">
+          <svg style={{ width: "40px", height: "40px" }} viewBox="0 0 24 24">
             <defs>
               <linearGradient id="logo_color" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="#3ca9f2" />
