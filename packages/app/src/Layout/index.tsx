@@ -21,7 +21,7 @@ const content = (
 );
 
 export default () => {
-  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({ fixSiderbar: true });
+  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({ fixSiderbar: true, fixedHeader: true });
   const [pathname, setPathname] = useState('/welcome');
   return (
     <div

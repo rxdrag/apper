@@ -4,6 +4,7 @@ import React from 'react';
 import Avatar from './AvatarDropdown';
 // import HeaderSearch from '../HeaderSearch';
 import styles from './index.less';
+import HeaderSearch from '../HeaderSearch';
 // import { SelectLang } from '../SelectLang/SelectLang';
 
 export type SiderTheme = 'light' | 'dark';
@@ -24,6 +25,7 @@ const GlobalHeaderRight: React.FC = () => {
 
   return (
     <Space className={className}>
+      <HeaderSearch />
       {/* <HeaderSearch
         className={`${styles.action} ${styles.search}`}
         placeholder="站内搜索"
