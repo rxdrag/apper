@@ -6,6 +6,7 @@ import Avatar from './AvatarDropdown';
 import './index.less';
 import HeaderSearch from '../HeaderSearch';
 import NoticeIconView from '../NoticeIcon';
+import SelectLang from '../SelectLang';
 // import { SelectLang } from '../SelectLang/SelectLang';
 
 export type SiderTheme = 'light' | 'dark';
@@ -62,7 +63,7 @@ const GlobalHeaderRight: React.FC = () => {
       </span>
       <NoticeIconView />
       <Avatar menu />
-      {/* <SelectLang className={styles.action} /> */}
+      <SelectLang className={"action"} />
     </Space>
   );
 };
