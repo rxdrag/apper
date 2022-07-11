@@ -1,11 +1,12 @@
 
-import { LikeOutlined, UserOutlined } from '@ant-design/icons';
+import { LikeOutlined } from '@ant-design/icons';
 import type { ProSettings } from '@ant-design/pro-components';
 import { PageContainer, ProLayout, SettingDrawer } from '@ant-design/pro-components';
-import { Avatar, Button, Descriptions, Result, Space, Statistic } from 'antd';
+import { Button, Descriptions, Result, Space, Statistic } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
 import RightContent from '../components/RightContent';
+import 'antd/dist/antd.variable.min.css';
 
 const content = (
   <Descriptions size="small" column={2}>
