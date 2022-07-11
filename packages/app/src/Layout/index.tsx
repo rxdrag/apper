@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { LikeOutlined, UserOutlined } from '@ant-design/icons';
 import type { ProSettings } from '@ant-design/pro-components';
 import { PageContainer, ProLayout, SettingDrawer } from '@ant-design/pro-components';
