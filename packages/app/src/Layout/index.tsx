@@ -1,8 +1,8 @@
 
-import { LikeOutlined } from '@ant-design/icons';
-import type { ProSettings } from '@ant-design/pro-components';
+import { EllipsisOutlined, LikeOutlined } from '@ant-design/icons';
+import { FooterToolbar, ProSettings } from '@ant-design/pro-components';
 import { PageContainer, ProLayout, SettingDrawer } from '@ant-design/pro-components';
-import { Button, Descriptions, Result, Space, Statistic } from 'antd';
+import { Button, Descriptions, Dropdown, Menu, Result, Space, Statistic } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
 import RightContent from '../components/RightContent';
@@ -29,7 +29,7 @@ export default () => {
   const [pathname, setPathname] = useState('/welcome');
   return (
     <div
-      id="test-pro-layout"
+      id="apper-layout"
       style={{
         height: '100vh',
       }}
@@ -125,12 +125,21 @@ export default () => {
             {
               tab: '基本信息',
               key: 'base',
+              closable: false,
             },
             {
               tab: '详细信息',
               key: 'info',
+              closable: false,
             },
           ]}
+          tabProps={{
+            type: 'editable-card',
+            hideAdd: false,
+            onEdit: (e, action) => console.log(e, action)
+          }}
+          onTabChange={(key) => console.log("onTabChange", key)}
+          tabBarExtraContent="测试tabBarExtraContent"
           extraContent={
             <Space size={24}>
               <Statistic title="Feedback" value={1128} prefix={<LikeOutlined />} />
@@ -138,18 +147,33 @@ export default () => {
             </Space>
           }
           extra={[
-            <Button key="3">操作</Button>,
-            <Button key="2">操作</Button>,
+            <Button key="3">操作3</Button>,
+            <Button key="2">操作2</Button>,
             <Button key="1" type="primary">
               主操作
             </Button>,
+            <Dropdown
+              key="dropdown"
+              trigger={['click']}
+              overlay={
+                <Menu>
+                  <Menu.Item key="1">下拉菜单</Menu.Item>
+                  <Menu.Item key="2">下拉菜单2</Menu.Item>
+                  <Menu.Item key="3">下拉菜单3</Menu.Item>
+                </Menu>
+              }
+            >
+              <Button key="4" style={{ padding: '0 8px' }}>
+                <EllipsisOutlined />
+              </Button>
+            </Dropdown>,
           ]}
-          footer={[
-            <Button key="3">重置</Button>,
-            <Button key="2" type="primary">
-              提交
-            </Button>,
-          ]}
+          // footer={[
+          //   <Button key="3">重置</Button>,
+          //   <Button key="2" type="primary">
+          //     提交
+          //   </Button>,
+          // ]}
         >
           <div
             style={{
@@ -167,12 +191,21 @@ export default () => {
               extra={<Button type="primary">Back Home</Button>}
             />
           </div>
+          <FooterToolbar
+            style={{
+              left: 208,
+              width: `calc(100% - 208px)`,
+            }}
+          >
+            <Button key="3">重置</Button>,
+            <Button key="2" type="primary">提交</Button>
+          </FooterToolbar>
         </PageContainer>
       </ProLayout>
       <SettingDrawer
         pathname={pathname}
         enableDarkTheme
-        getContainer={() => document.getElementById('test-pro-layout')}
+        getContainer={() => document.getElementById('apper-layout')}
         settings={settings}
         onSettingChange={(changeSetting) => {
           setSetting(changeSetting);
