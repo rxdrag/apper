@@ -3,10 +3,10 @@
 @pro-header-hover-bg: rgba(0, 0, 0, 0.025);
 
 .menu {
-  :global(.anticon) {
+  .anticon {
     margin-right: 8px;
   }
-  :global(.ant-dropdown-menu-item) {
+  .ant-dropdown-menu-item {
     min-width: 160px;
   }
 }
@@ -30,7 +30,7 @@
     &:hover {
       background: @pro-header-hover-bg;
     }
-    &:global(.opened) {
+    .opened {
       background: @pro-header-hover-bg;
     }
   }
@@ -55,14 +55,14 @@
     &:hover {
       background: #252a3d;
     }
-    &:global(.opened) {
+    .opened {
       background: #252a3d;
     }
   }
 }
 
 @media only screen and (max-width: @screen-md) {
-  :global(.ant-divider-vertical) {
+  .ant-divider-vertical {
     vertical-align: unset;
   }
   .name {

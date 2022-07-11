@@ -1,5 +1,5 @@
 import { Space } from 'antd';
-import { QuestionCircleOutlined } from '@ant-design/icons';
+import { QuestionCircleOutlined, UserOutlined } from '@ant-design/icons';
 import React from 'react';
 import Avatar from './AvatarDropdown';
 // import HeaderSearch from '../HeaderSearch';
