@@ -1,16 +1,16 @@
 import React from 'react'
-import { Button, Card as AntdCard, Descriptions, Statistic, Tabs } from 'antd'
+import { Button, Card as AntdCard, Descriptions, PageHeader, Statistic, Tabs } from 'antd'
 import { createBehavior, createResource, TreeNode } from '@designable/core'
 import { DnFC, DroppableWidget, TreeNodeWidget, useTreeNode } from '@designable/react'
 import { createVoidFieldSchema } from '../Field'
-import { AllSchemas } from '../../schemas'
-import { AllLocales } from '../../locales'
 import { observer } from '@formily/react'
 import { createFieldSchema } from '../Field'
 import { createEnsureTypeItemsNode, findNodeByComponentPath, hasNodeByComponentPath } from '../../shared'
 import { LoadTemplate } from '../../common/LoadTemplate'
 import { FileAddOutlined } from '@ant-design/icons'
-import { Header, HeaderSchema, HeaderLocales } from './Header'
+import { Locales } from './locales'
+import { Schema } from './schema'
+import Extra from './Extra'
 
 const ensureObjectItemsNode = createEnsureTypeItemsNode('object')
 
@@ -75,7 +75,7 @@ const Content: React.FC<{ children: React.ReactNode; extra: React.ReactNode }> =
 
 
 export const Page: DnFC<React.ComponentProps<typeof AntdCard>> & {
-  Header?: React.FC<React.ComponentProps<any>>
+  Extra?: React.FC<React.ComponentProps<any>>
 } = (props) => {
   const { children, title, ...other } = props;
   const node = useTreeNode()
@@ -97,12 +97,24 @@ export const Page: DnFC<React.ComponentProps<typeof AntdCard>> & {
 
   return (
     <div {...other}>
+      <PageHeader
+        className="site-page-header-responsive"
+        onBack={() => window.history.back()}
+        title="Title"
+        subTitle="This is a subtitle"
+        extra={extra && <TreeNodeWidget node={extra} />}
+        footer={
+          <Tabs defaultActiveKey="1">
+            <TabPane tab="Details" key="1" />
+            <TabPane tab="Rule" key="2" />
+          </Tabs>
+        }
 
-      {/* <div>
-          <div>extra:</div>
-          <div>{extra && <TreeNodeWidget node={extra} />}</div>
-        </div> */}
-      {props.children}
+        breadcrumb={{ routes }}
+      >
+        <Content extra={extraContent}>{renderContent()}</Content>
+      </PageHeader>
+      {/* {props.children} */}
       <LoadTemplate
         actions={[
           {
@@ -294,8 +306,7 @@ export const Page: DnFC<React.ComponentProps<typeof AntdCard>> & {
   )
 }
 
-Page.Header = Header
-
+Page.Extra =  Extra
 
 Page.Behavior = createBehavior(
   {
@@ -304,19 +315,19 @@ Page.Behavior = createBehavior(
     selector: (node) => node.props['x-component'] === 'Page',
     designerProps: {
       droppable: true,
-      propsSchema: createVoidFieldSchema(AllSchemas.Page),
+      propsSchema: createVoidFieldSchema(Schema),
     },
-    designerLocales: AllLocales.Page,
+    designerLocales: Locales,
   },
   {
-    name: 'Page.Header',
+    name: 'Page.Extra',
     extends: ['Field'],
-    selector: (node) => node.props['x-component'] === 'Page.Header',
+    selector: (node) => node.props['x-component'] === 'Page.Extra',
     designerProps: {
       droppable: true,
-      propsSchema: createVoidFieldSchema(HeaderSchema),
+      propsSchema: createVoidFieldSchema(Schema.Extra),
     },
-    designerLocales: HeaderLocales,
+    designerLocales: Locales.Extra,
   }
 )
 
@@ -337,7 +348,7 @@ Page.Resource = createResource({
           componentName: 'Field',
           props: {
             type: 'void',
-            'x-component': 'Page.Header',
+            'x-component': 'Page.Extra',
             'x-component-props': {
               title: "ddd",
             },
