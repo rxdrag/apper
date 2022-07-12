@@ -81,7 +81,8 @@ const Content: React.FC<{ children: React.ReactNode; extra: React.ReactNode }> =
 
 
 export const Page: DnFC<IPageProps> & {
-  HeaderExtra?: React.FC<React.ComponentProps<any>>
+  HeaderExtra?: React.FC<React.ComponentProps<any>>,
+  HeaderContent?: React.FC<React.ComponentProps<any>>,
 } = (props) => {
   const { children, title, ...other } = props;
   const node = useTreeNode()
@@ -90,6 +91,8 @@ export const Page: DnFC<IPageProps> & {
     'Page',
     'Page.HeaderExtra',
   ])
+
+  const otherChildren = node.children.filter(child=>child.id != extra?.id)
 
   console.log("props.extra", extra)
   // React.Children.map(children, (child: any, index) => {
@@ -118,7 +121,13 @@ export const Page: DnFC<IPageProps> & {
 
         breadcrumb={{ routes }}
       >
-        <Content extra={extraContent}>{renderContent()}</Content>
+        {
+          otherChildren.map((child)=>{
+            return (
+              <TreeNodeWidget key = {child.id} node={child} />
+            )
+          })
+        }
       </PageHeader>
       {/* {props.children} */}
       <LoadTemplate

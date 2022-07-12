@@ -10,7 +10,7 @@ const HeaderExtra = observer((props) => {
       {...props}
       style={{
         ...props['style'],
-        display:"flex"
+        display: "flex"
       }}
     >
       {props.children}
