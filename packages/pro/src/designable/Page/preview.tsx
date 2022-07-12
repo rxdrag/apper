@@ -11,6 +11,7 @@ import HeaderExtra from './HeaderExtra'
 import HeaderContent from './HeaderContent'
 import { BookOutlined } from '@ant-design/icons'
 import Content from './Content'
+import TabPanel from './TabPanel'
 
 export interface IPageProps {
   title?: string;
@@ -36,38 +37,7 @@ const routes = [
   },
 ];
 
-const renderContent = (column = 2) => (
-  <Descriptions size="small" column={column}>
-    <Descriptions.Item label="Created">Lili Qu</Descriptions.Item>
-    <Descriptions.Item label="Association">
-      <a>421421</a>
-    </Descriptions.Item>
-    <Descriptions.Item label="Creation Time">2017-01-10</Descriptions.Item>
-    <Descriptions.Item label="Effective Time">2017-10-10</Descriptions.Item>
-    <Descriptions.Item label="Remarks">
-      Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
-    </Descriptions.Item>
-  </Descriptions>
-);
 
-const extraContent = (
-  <div
-    style={{
-      display: 'flex',
-      width: 'max-content',
-      justifyContent: 'flex-end',
-    }}
-  >
-    <Statistic
-      title="Status"
-      value="Pending"
-      style={{
-        marginRight: 32,
-      }}
-    />
-    <Statistic title="Price" prefix="$" value={568.08} />
-  </div>
-);
 
 export const Page: DnFC<IPageProps> & {
   HeaderExtra?: React.FC<React.ComponentProps<any>>,
@@ -276,6 +246,7 @@ export const Page: DnFC<IPageProps> & {
 Page.HeaderExtra = HeaderExtra
 Page.HeaderContent = HeaderContent
 Page.Content = Content
+Page.TabPanel = TabPanel
 
 Page.Behavior = createBehavior(
   {
@@ -317,6 +288,16 @@ Page.Behavior = createBehavior(
       propsSchema: createVoidFieldSchema(Schema.Content),
     },
     designerLocales: Locales.Content,
+  },
+  {
+    name: 'Page.TabPanel',
+    extends: ['Field'],
+    selector: (node) => node.props['x-component'] === 'Page.TabPanel',
+    designerProps: {
+      droppable: true,
+      propsSchema: createVoidFieldSchema(Schema.TabPanel),
+    },
+    designerLocales: Locales.TabPanel,
   }
 )
 
