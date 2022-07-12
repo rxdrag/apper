@@ -1,226 +1,120 @@
 import React from 'react'
-import { Table } from '@alifd/next'
-import { TableProps } from '@alifd/next/types/table'
-import { TreeNode, createBehavior, createResource } from '@designable/core'
-import {
-  useTreeNode,
-  TreeNodeWidget,
-  DroppableWidget,
-  useNodeIdProps,
-  DnFC,
-} from '@designable/react'
-import { ArrayBase } from '@formily/next'
+import { Button, Card as AntdCard, Descriptions, Statistic, Tabs } from 'antd'
+import { createBehavior, createResource, TreeNode } from '@designable/core'
+import { DnFC, DroppableWidget, TreeNodeWidget, useTreeNode } from '@designable/react'
+import { createVoidFieldSchema } from '../Field'
+import { AllSchemas } from '../../schemas'
+import { AllLocales } from '../../locales'
 import { observer } from '@formily/react'
-import { LoadTemplate } from '@designable/formily-antd/esm/common/LoadTemplate'
-import cls from 'classnames'
-import {
-  queryNodesByComponentPath,
-  hasNodeByComponentPath,
-  findNodeByComponentPath,
-  createEnsureTypeItemsNode,
-} from '@designable/formily-antd/esm/shared'
-import { useDropTemplate } from '@designable/formily-antd/esm/hooks'
-import { createArrayBehavior } from '@designable/formily-antd/esm/components/ArrayBase'
-import './styles.less'
-import { createVoidFieldSchema } from '@designable/formily-antd/esm/components/Field'
-import { PageContainerSchema } from './schema'
-import { PageContainerLocales } from './locales'
+import { createFieldSchema } from '../Field'
+import { createEnsureTypeItemsNode, findNodeByComponentPath, hasNodeByComponentPath } from '../../shared'
+import { LoadTemplate } from '../../common/LoadTemplate'
+import { FileAddOutlined } from '@ant-design/icons'
+import { Header, HeaderSchema, HeaderLocales } from './Header'
 
 const ensureObjectItemsNode = createEnsureTypeItemsNode('object')
 
-export const PageContainer: DnFC<TableProps> = observer((props) => {
+const { TabPane } = Tabs;
+const routes = [
+  {
+    path: 'index',
+    breadcrumbName: 'First-level Menu',
+  },
+  {
+    path: 'first',
+    breadcrumbName: 'Second-level Menu',
+  },
+  {
+    path: 'second',
+    breadcrumbName: 'Third-level Menu',
+  },
+];
+
+const renderContent = (column = 2) => (
+  <Descriptions size="small" column={column}>
+    <Descriptions.Item label="Created">Lili Qu</Descriptions.Item>
+    <Descriptions.Item label="Association">
+      <a>421421</a>
+    </Descriptions.Item>
+    <Descriptions.Item label="Creation Time">2017-01-10</Descriptions.Item>
+    <Descriptions.Item label="Effective Time">2017-10-10</Descriptions.Item>
+    <Descriptions.Item label="Remarks">
+      Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
+    </Descriptions.Item>
+  </Descriptions>
+);
+
+const extraContent = (
+  <div
+    style={{
+      display: 'flex',
+      width: 'max-content',
+      justifyContent: 'flex-end',
+    }}
+  >
+    <Statistic
+      title="Status"
+      value="Pending"
+      style={{
+        marginRight: 32,
+      }}
+    />
+    <Statistic title="Price" prefix="$" value={568.08} />
+  </div>
+);
+
+const Content: React.FC<{ children: React.ReactNode; extra: React.ReactNode }> = ({
+  children,
+  extra,
+}) => (
+  <div className="content">
+    <div className="main">{children}</div>
+    <div className="extra">{extra}</div>
+  </div>
+);
+
+
+export const Page: DnFC<React.ComponentProps<typeof AntdCard>> & {
+  Header?: React.FC<React.ComponentProps<any>>
+} = (props) => {
+  const { children, title, ...other } = props;
   const node = useTreeNode()
-  const nodeId = useNodeIdProps()
-  useDropTemplate('PageContainer', (source) => {
-    const sortHandleNode = new TreeNode({
-      componentName: 'Field',
-      props: {
-        type: 'void',
-        'x-component': 'PageContainer.Column',
-        'x-component-props': {
-          title: `Title`,
-        },
-      },
-      children: [
-        {
-          componentName: 'Field',
-          props: {
-            type: 'void',
-            'x-component': 'PageContainer.SortHandle',
-          },
-        },
-      ],
-    })
-    const indexNode = new TreeNode({
-      componentName: 'Field',
-      props: {
-        type: 'void',
-        'x-component': 'PageContainer.Column',
-        'x-component-props': {
-          title: `Title`,
-        },
-      },
-      children: [
-        {
-          componentName: 'Field',
-          props: {
-            type: 'void',
-            'x-component': 'PageContainer.Index',
-          },
-        },
-      ],
-    })
-    const columnNode = new TreeNode({
-      componentName: 'Field',
-      props: {
-        type: 'void',
-        'x-component': 'PageContainer.Column',
-        'x-component-props': {
-          title: `Title`,
-        },
-      },
-      children: source.map((node) => {
-        node.props.title = undefined
-        return node
-      }),
-    })
 
-    const operationNode = new TreeNode({
-      componentName: 'Field',
-      props: {
-        type: 'void',
-        'x-component': 'PageContainer.Column',
-        'x-component-props': {
-          title: `Title`,
-        },
-      },
-      children: [
-        {
-          componentName: 'Field',
-          props: {
-            type: 'void',
-            'x-component': 'PageContainer.Remove',
-          },
-        },
-        {
-          componentName: 'Field',
-          props: {
-            type: 'void',
-            'x-component': 'PageContainer.MoveDown',
-          },
-        },
-        {
-          componentName: 'Field',
-          props: {
-            type: 'void',
-            'x-component': 'PageContainer.MoveUp',
-          },
-        },
-      ],
-    })
-    const objectNode = new TreeNode({
-      componentName: 'Field',
-      props: {
-        type: 'object',
-      },
-      children: [sortHandleNode, indexNode, columnNode, operationNode],
-    })
-    const additionNode = new TreeNode({
-      componentName: 'Field',
-      props: {
-        type: 'void',
-        title: 'Addition',
-        'x-component': 'PageContainer.Addition',
-      },
-    })
-    return [objectNode, additionNode]
-  })
-  const columns = queryNodesByComponentPath(node, [
-    'PageContainer',
-    '*',
-    'PageContainer.Column',
+  const extra = findNodeByComponentPath(node, [
+    'Page',
+    'Page.Extra',
   ])
-  const additions = queryNodesByComponentPath(node, [
-    'PageContainer',
-    'PageContainer.Addition',
-  ])
-  const defaultRowKey = () => {
-    return node.id
-  }
 
-  const renderTable = () => {
-    if (node.children.length === 0) return <DroppableWidget />
-    return (
-      <ArrayBase disabled>
-        <Table
-          size="small"
-          hasBorder
-          {...props}
-          className={cls('ant-formily-array-table', props.className)}
-          style={{ marginBottom: 10, ...props.style }}
-          primaryKey={defaultRowKey()}
-          dataSource={[{ id: '1' }]}
-        >
-          {columns.map((node) => {
-            const children = node.children.map((child) => {
-              return <TreeNodeWidget node={child} key={child.id} />
-            })
-            const props = node.props['x-component-props']
-            return (
-              <Table.Column
-                {...node.props['x-component-props']}
-                dataIndex={node.id}
-                title={
-                  <div data-content-editable="x-component-props.title">
-                    {props.title}
-                  </div>
-                }
-                className={`data-id:${node.id}`}
-                key={node.id}
-                data-designer-node-id={node.id}
-                cell={(_, key: number) => {
-                  return (
-                    <ArrayBase.Item key={key} index={key} record={null}>
-                      {children.length > 0 ? children : 'Droppable'}
-                    </ArrayBase.Item>
-                  )
-                }}
-              />
-            )
-          })}
-          {columns.length === 0 && (
-            <Table.Column cell={() => <DroppableWidget />} />
-          )}
-        </Table>
-        {additions.map((child) => {
-          return <TreeNodeWidget node={child} key={child.id} />
-        })}
-      </ArrayBase>
-    )
-  }
-
-  useDropTemplate('PageContainer.Column', (source) => {
-    return source.map((node) => {
-      node.props.title = undefined
-      return node
-    })
-  })
+  console.log("props.extra", extra)
+  // React.Children.map(children, (child: any, index) => {
+  //   //console.log("哈哈", child?.['type'], child?.['type']?.['displayName'])
+  //   return (
+  //     <div>
+  //       {child}
+  //     </div>
+  //   );
+  // });
 
   return (
-    <div {...nodeId} className="dn-page-container">
-      {renderTable()}
+    <div {...other}>
+
+      {/* <div>
+          <div>extra:</div>
+          <div>{extra && <TreeNodeWidget node={extra} />}</div>
+        </div> */}
+      {props.children}
       <LoadTemplate
         actions={[
           {
-            title: node.getMessage('addIndex'),
-            icon: 'AddIndex',
+            title: node.getMessage('addExtra'),
+            icon: 'AddOperation',
             onClick: () => {
               if (
                 hasNodeByComponentPath(node, [
-                  'PageContainer',
+                  'ArrayTable',
                   '*',
-                  'PageContainer.Column',
-                  'PageContainer.Index',
+                  'ArrayTable.Column',
+                  'ArrayTable.SortHandle',
                 ])
               )
                 return
@@ -228,7 +122,7 @@ export const PageContainer: DnFC<TableProps> = observer((props) => {
                 componentName: 'Field',
                 props: {
                   type: 'void',
-                  'x-component': 'PageContainer.Column',
+                  'x-component': 'ArrayTable.Column',
                   'x-component-props': {
                     title: `Title`,
                   },
@@ -238,16 +132,51 @@ export const PageContainer: DnFC<TableProps> = observer((props) => {
                     componentName: 'Field',
                     props: {
                       type: 'void',
-                      'x-component': 'PageContainer.Index',
+                      'x-component': 'ArrayTable.SortHandle',
+                    },
+                  },
+                ],
+              })
+              ensureObjectItemsNode(node).prepend(tableColumn)
+            },
+          },
+          {
+            title: node.getMessage('addIndex'),
+            icon: 'AddIndex',
+            onClick: () => {
+              if (
+                hasNodeByComponentPath(node, [
+                  'ArrayTable',
+                  '*',
+                  'ArrayTable.Column',
+                  'ArrayTable.Index',
+                ])
+              )
+                return
+              const tableColumn = new TreeNode({
+                componentName: 'Field',
+                props: {
+                  type: 'void',
+                  'x-component': 'ArrayTable.Column',
+                  'x-component-props': {
+                    title: `Title`,
+                  },
+                },
+                children: [
+                  {
+                    componentName: 'Field',
+                    props: {
+                      type: 'void',
+                      'x-component': 'ArrayTable.Index',
                     },
                   },
                 ],
               })
               const sortNode = findNodeByComponentPath(node, [
-                'PageContainer',
+                'ArrayTable',
                 '*',
-                'PageContainer.Column',
-                'PageContainer.SortHandle',
+                'ArrayTable.Column',
+                'ArrayTable.SortHandle',
               ])
               if (sortNode) {
                 sortNode.parent.insertAfter(tableColumn)
@@ -261,14 +190,14 @@ export const PageContainer: DnFC<TableProps> = observer((props) => {
             icon: 'AddColumn',
             onClick: () => {
               const operationNode = findNodeByComponentPath(node, [
-                'PageContainer',
+                'ArrayTable',
                 '*',
-                'PageContainer.Column',
+                'ArrayTable.Column',
                 (name) => {
                   return (
-                    name === 'PageContainer.Remove' ||
-                    name === 'PageContainer.MoveDown' ||
-                    name === 'PageContainer.MoveUp'
+                    name === 'ArrayTable.Remove' ||
+                    name === 'ArrayTable.MoveDown' ||
+                    name === 'ArrayTable.MoveUp'
                   )
                 },
               ])
@@ -276,7 +205,7 @@ export const PageContainer: DnFC<TableProps> = observer((props) => {
                 componentName: 'Field',
                 props: {
                   type: 'void',
-                  'x-component': 'PageContainer.Column',
+                  'x-component': 'ArrayTable.Column',
                   'x-component-props': {
                     title: `Title`,
                   },
@@ -291,30 +220,30 @@ export const PageContainer: DnFC<TableProps> = observer((props) => {
           },
           {
             title: node.getMessage('addOperation'),
-            icon: 'AddOperation',
+            icon: <FileAddOutlined />,
             onClick: () => {
               const oldOperationNode = findNodeByComponentPath(node, [
-                'PageContainer',
+                'ArrayTable',
                 '*',
-                'PageContainer.Column',
+                'ArrayTable.Column',
                 (name) => {
                   return (
-                    name === 'PageContainer.Remove' ||
-                    name === 'PageContainer.MoveDown' ||
-                    name === 'PageContainer.MoveUp'
+                    name === 'ArrayTable.Remove' ||
+                    name === 'ArrayTable.MoveDown' ||
+                    name === 'ArrayTable.MoveUp'
                   )
                 },
               ])
               const oldAdditionNode = findNodeByComponentPath(node, [
-                'PageContainer',
-                'PageContainer.Addition',
+                'ArrayTable',
+                'ArrayTable.Addition',
               ])
               if (!oldOperationNode) {
                 const operationNode = new TreeNode({
                   componentName: 'Field',
                   props: {
                     type: 'void',
-                    'x-component': 'PageContainer.Column',
+                    'x-component': 'ArrayTable.Column',
                     'x-component-props': {
                       title: `Title`,
                     },
@@ -324,21 +253,21 @@ export const PageContainer: DnFC<TableProps> = observer((props) => {
                       componentName: 'Field',
                       props: {
                         type: 'void',
-                        'x-component': 'PageContainer.Remove',
+                        'x-component': 'ArrayTable.Remove',
                       },
                     },
                     {
                       componentName: 'Field',
                       props: {
                         type: 'void',
-                        'x-component': 'PageContainer.MoveDown',
+                        'x-component': 'ArrayTable.MoveDown',
                       },
                     },
                     {
                       componentName: 'Field',
                       props: {
                         type: 'void',
-                        'x-component': 'PageContainer.MoveUp',
+                        'x-component': 'ArrayTable.MoveUp',
                       },
                     },
                   ],
@@ -351,7 +280,7 @@ export const PageContainer: DnFC<TableProps> = observer((props) => {
                   props: {
                     type: 'void',
                     title: 'Addition',
-                    'x-component': 'PageContainer.Addition',
+                    'x-component': 'ArrayTable.Addition',
                   },
                 })
                 ensureObjectItemsNode(node).insertAfter(additionNode)
@@ -361,35 +290,61 @@ export const PageContainer: DnFC<TableProps> = observer((props) => {
         ]}
       />
     </div>
+
   )
-})
+}
 
-ArrayBase.mixin(PageContainer)
+Page.Header = Header
 
-PageContainer.Behavior = createBehavior(createArrayBehavior('PageContainer'), {
-  name: 'PageContainer.Column',
-  extends: ['Field'],
-  selector: (node) => node.props['x-component'] === 'PageContainer.Column',
-  designerProps: {
-    droppable: true,
-    allowDrop: (node) =>
-      node.props['type'] === 'object' &&
-      node.parent?.props?.['x-component'] === 'PageContainer',
-    propsSchema: createVoidFieldSchema(PageContainerSchema.Column as any),
+
+Page.Behavior = createBehavior(
+  {
+    name: 'Page',
+    extends: ['Field'],
+    selector: (node) => node.props['x-component'] === 'Page',
+    designerProps: {
+      droppable: true,
+      propsSchema: createVoidFieldSchema(AllSchemas.Page),
+    },
+    designerLocales: AllLocales.Page,
   },
-  designerLocales: PageContainerLocales,
-})
+  {
+    name: 'Page.Header',
+    extends: ['Field'],
+    selector: (node) => node.props['x-component'] === 'Page.Header',
+    designerProps: {
+      droppable: true,
+      propsSchema: createVoidFieldSchema(HeaderSchema),
+    },
+    designerLocales: HeaderLocales,
+  }
+)
 
-PageContainer.Resource = createResource({
-  icon: 'ArrayTableSource',
+Page.Resource = createResource({
+  icon: 'CardSource',
   elements: [
     {
       componentName: 'Field',
       props: {
-        type: 'array',
-        'x-decorator': 'FormItem',
-        'x-component': 'PageContainer',
+        type: 'void',
+        'x-component': 'Page',
+        'x-component-props': {
+          title: "",
+        },
       },
+      children: [
+        {
+          componentName: 'Field',
+          props: {
+            type: 'void',
+            'x-component': 'Page.Header',
+            'x-component-props': {
+              title: "ddd",
+            },
+
+          },
+        }
+      ]
     },
   ],
 })
