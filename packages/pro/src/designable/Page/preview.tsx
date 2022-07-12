@@ -49,10 +49,11 @@ export const Page: DnFC<IPageProps> & {
 
   const handleRemoveNode = (target:TreeNode)=>{
     if (target.parent?.id === node.id && target?.props?.['x-component'] === 'Page.TabPanel'){
-      if(queryNodesByComponentPath(node, [
+      const length = queryNodesByComponentPath(node, [
         'Page',
         'Page.TabPanel',
-      ]).length == 1){
+      ]).length 
+      if( !length || length <= 1){
         const content = new TreeNode({
           componentName: 'Field',
           props: {
@@ -158,7 +159,7 @@ export const Page: DnFC<IPageProps> & {
                   type: 'void',
                   'x-component': 'Page.TabPanel',
                   'x-component-props': {
-                    title: `Title`,
+                    title: `Unnamed title`,
                   },
                 },
               })
