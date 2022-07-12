@@ -89,7 +89,16 @@ export const Page: DnFC<IPageProps> & {
     'Page.HeaderContent',
   ])
 
-  const otherChildrenNodes = node.children?.filter(child => child.id !== headerExtra?.id && child.id !== headerContent?.id)
+  const tabs = queryNodesByComponentPath(node, [
+    'Page',
+    'Page.TabPanel',
+  ])
+
+  const otherChildrenNodes = node.children?.filter(child => 
+    child.id !== headerExtra?.id && 
+    child.id !== headerContent?.id &&
+    !tabs?.find(tab=>tab.id === child.id)
+  )
 
   return (
     <div {...other}>
@@ -176,8 +185,14 @@ export const Page: DnFC<IPageProps> & {
         extra={headerExtra && <TreeNodeWidget node={headerExtra} />}
         footer={
           <Tabs defaultActiveKey="1">
-            <TabPane tab="Details" key="1" />
-            <TabPane tab="Rule" key="2" />
+            {
+              tabs.map((tab, index)=>{
+                return (
+                  <TabPane tab={tab?.props?.['x-component-props']?.["title"]} key={index} />
+                )
+              })
+            }
+
           </Tabs>
         }
         breadcrumb={{ routes }}
