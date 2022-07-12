@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import { Descriptions, PageHeader, Statistic, Tabs } from 'antd'
 import { createBehavior, createResource, TreeNode } from '@designable/core'
 import { DnFC, TreeNodeWidget, useTreeNode } from '@designable/react'
@@ -45,15 +45,16 @@ export const Page: DnFC<IPageProps> & {
   TabPanel?: React.FC<IPageTablePanelProps>,
 } = (props) => {
   const { children, title, ...other } = props;
+  const [selectedTabKey, setSelectedTabKey] = useState("1")
   const node = useTreeNode()
 
-  const handleRemoveNode = (target:TreeNode)=>{
-    if (target.parent?.id === node.id && target?.props?.['x-component'] === 'Page.TabPanel'){
+  const handleRemoveNode = (target: TreeNode) => {
+    if (target.parent?.id === node.id && target?.props?.['x-component'] === 'Page.TabPanel') {
       const length = queryNodesByComponentPath(node, [
         'Page',
         'Page.TabPanel',
-      ]).length 
-      if( !length || length <= 1){
+      ]).length
+      if (!length || length <= 1) {
         const content = new TreeNode({
           componentName: 'Field',
           props: {
@@ -70,11 +71,11 @@ export const Page: DnFC<IPageProps> & {
   }
 
   useRemoveNode('Page', (target) => {
-    if (target && Array.isArray(target)){
-      for(const child of target){
+    if (target && Array.isArray(target)) {
+      for (const child of target) {
         handleRemoveNode(child)
       }
-    } else if(target){
+    } else if (target) {
       handleRemoveNode(target as any)
     }
   })
@@ -94,11 +95,17 @@ export const Page: DnFC<IPageProps> & {
     'Page.TabPanel',
   ])
 
-  const otherChildrenNodes = node.children?.filter(child => 
-    child.id !== headerExtra?.id && 
+  const otherChildrenNodes = node.children?.filter(child =>
+    child.id !== headerExtra?.id &&
     child.id !== headerContent?.id &&
-    !tabs?.find(tab=>tab.id === child.id)
+    !tabs?.find(tab => tab.id === child.id)
   )
+
+  const handleSelectTab = (key: string) => {
+    setSelectedTabKey(key);
+  };
+
+  const selectedTab = tabs?.[parseInt(selectedTabKey) - 1]
 
   return (
     <div {...other}>
@@ -173,6 +180,11 @@ export const Page: DnFC<IPageProps> & {
                 },
               })
               node.append(tabPanel)
+              const tabs = queryNodesByComponentPath(node, [
+                'Page',
+                'Page.TabPanel',
+              ])
+              setSelectedTabKey(tabs.length + "")
             },
           },
         ]}
@@ -184,11 +196,11 @@ export const Page: DnFC<IPageProps> & {
         subTitle="This is a subtitle"
         extra={headerExtra && <TreeNodeWidget node={headerExtra} />}
         footer={
-          <Tabs defaultActiveKey="1">
+          <Tabs activeKey={selectedTabKey}  onChange={handleSelectTab}>
             {
-              tabs.map((tab, index)=>{
+              tabs.map((tab, index) => {
                 return (
-                  <TabPane tab={tab?.props?.['x-component-props']?.["title"]} key={index} />
+                  <TabPane tab={tab?.props?.['x-component-props']?.["title"]} key={index + 1} />
                 )
               })
             }
@@ -199,6 +211,7 @@ export const Page: DnFC<IPageProps> & {
       >
         {headerContent && <TreeNodeWidget node={headerContent} />}
       </PageHeader>
+      <TreeNodeWidget node = {selectedTab} />
       {
         otherChildrenNodes?.map((child) => {
           return (
