@@ -13,6 +13,7 @@ import { BookOutlined } from '@ant-design/icons'
 import Content, { IPageContentProps } from './Content'
 import TabPanel, { IPageTablePanelProps } from './TabPanel'
 import { useRemoveNode } from '../hooks/useRemoveNode'
+import Footer, { IPageFooterProps } from './Footer'
 
 export interface IPageProps {
   title?: string;
@@ -43,6 +44,7 @@ export const Page: DnFC<IPageProps> & {
   HeaderContent?: React.FC<IHeaderContentProps>,
   Content?: React.FC<IPageContentProps>,
   TabPanel?: React.FC<IPageTablePanelProps>,
+  Footer?: React.FC<IPageFooterProps>,
 } = (props) => {
   const { children, title, ...other } = props;
   const [selectedTabKey, setSelectedTabKey] = useState("1")
@@ -90,6 +92,11 @@ export const Page: DnFC<IPageProps> & {
     'Page.HeaderContent',
   ])
 
+  const footer = findNodeByComponentPath(node, [
+    'Page',
+    'Page.Footer',
+  ])
+
   const tabs = queryNodesByComponentPath(node, [
     'Page',
     'Page.TabPanel',
@@ -98,6 +105,7 @@ export const Page: DnFC<IPageProps> & {
   const otherChildrenNodes = node.children?.filter(child =>
     child.id !== headerExtra?.id &&
     child.id !== headerContent?.id &&
+    child.id !== footer?.id &&
     !tabs?.find(tab => tab.id === child.id)
   )
 
@@ -187,6 +195,32 @@ export const Page: DnFC<IPageProps> & {
               setSelectedTabKey(tabs.length + "")
             },
           },
+          {
+            title: node.getMessage('addFooter'),
+            icon: "AddPanel",
+            onClick: () => {
+              if (
+                hasNodeByComponentPath(node, [
+                  'Page',
+                  'Page.Footer',
+                ])
+              ){
+                return
+              }
+                
+              const footer = new TreeNode({
+                componentName: 'Field',
+                props: {
+                  type: 'void',
+                  'x-component': 'Page.Footer',
+                  'x-component-props': {
+                    title: `Title`,
+                  },
+                },
+              })
+              node.append(footer)
+            },
+          },
         ]}
       />
       <PageHeader
@@ -219,6 +253,7 @@ export const Page: DnFC<IPageProps> & {
           )
         })
       }
+      <TreeNodeWidget node = {footer} />
     </div>
 
   )
@@ -228,6 +263,7 @@ Page.HeaderExtra = HeaderExtra
 Page.HeaderContent = HeaderContent
 Page.Content = Content
 Page.TabPanel = TabPanel
+Page.Footer = Footer
 
 Page.Behavior = createBehavior(
   {
@@ -279,6 +315,16 @@ Page.Behavior = createBehavior(
       propsSchema: createVoidFieldSchema(Schema.TabPanel),
     },
     designerLocales: Locales.TabPanel,
+  },
+  {
+    name: 'Page.Footer',
+    extends: ['Field'],
+    selector: (node) => node.props['x-component'] === 'Page.Footer',
+    designerProps: {
+      droppable: true,
+      propsSchema: createVoidFieldSchema(Schema.Footer),
+    },
+    designerLocales: Locales.Footer,
   }
 )
 

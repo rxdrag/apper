@@ -5,6 +5,7 @@ export const Schema: ISchema & {
   HeaderContent?: ISchema,
   Content?: ISchema,
   TabPanel?: ISchema,
+  Footer?: ISchema,
  } = {
   type: 'object',
   properties: {
