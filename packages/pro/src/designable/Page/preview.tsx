@@ -17,8 +17,10 @@ import Footer, { IPageFooterProps } from './Footer'
 
 export interface IPageProps {
   title?: string;
-  subTitle?: string;
+  subtitle?: string;
   children?: React.ReactNode;
+  hasBreadcrumb?: boolean;
+  showGoback?: boolean;
 }
 
 const ensureObjectItemsNode = createEnsureTypeItemsNode('object')
@@ -46,10 +48,9 @@ export const Page: DnFC<IPageProps> & {
   TabPanel?: React.FC<IPageTablePanelProps>,
   Footer?: React.FC<IPageFooterProps>,
 } = (props) => {
-  const { children, title, ...other } = props;
+  const { children, title, subtitle, hasBreadcrumb, showGoback, ...other } = props;
   const [selectedTabKey, setSelectedTabKey] = useState("1")
   const node = useTreeNode()
-
   const handleRemoveNode = (target: TreeNode) => {
     if (target.parent?.id === node.id && target?.props?.['x-component'] === 'Page.TabPanel') {
       const length = queryNodesByComponentPath(node, [
@@ -204,10 +205,10 @@ export const Page: DnFC<IPageProps> & {
                   'Page',
                   'Page.Footer',
                 ])
-              ){
+              ) {
                 return
               }
-                
+
               const footer = new TreeNode({
                 componentName: 'Field',
                 props: {
@@ -225,12 +226,12 @@ export const Page: DnFC<IPageProps> & {
       />
       <PageHeader
         className="site-page-header-responsive"
-        onBack={() => window.history.back()}
-        title="Title"
-        subTitle="This is a subtitle"
+        onBack={showGoback ? () => window.history.back() : undefined}
+        title={title}
+        subTitle={subtitle}
         extra={headerExtra && <TreeNodeWidget node={headerExtra} />}
         footer={
-          <Tabs activeKey={selectedTabKey}  onChange={handleSelectTab}>
+          <Tabs activeKey={selectedTabKey} onChange={handleSelectTab}>
             {
               tabs.map((tab, index) => {
                 return (
@@ -241,11 +242,11 @@ export const Page: DnFC<IPageProps> & {
 
           </Tabs>
         }
-        breadcrumb={{ routes }}
+        breadcrumb={hasBreadcrumb ? { routes } : undefined}
       >
         {headerContent && <TreeNodeWidget node={headerContent} />}
       </PageHeader>
-      <TreeNodeWidget node = {selectedTab} />
+      <TreeNodeWidget node={selectedTab} />
       {
         otherChildrenNodes?.map((child) => {
           return (
@@ -253,7 +254,7 @@ export const Page: DnFC<IPageProps> & {
           )
         })
       }
-      <TreeNodeWidget node = {footer} />
+      <TreeNodeWidget node={footer} />
     </div>
 
   )
@@ -337,7 +338,10 @@ Page.Resource = createResource({
         type: 'void',
         'x-component': 'Page',
         'x-component-props': {
-          title: "",
+          title: "Page title",
+          subtitle: "Page subtitle",
+          hasBreadcrumb: true,
+          showGoback: true,
         },
       },
       children: [

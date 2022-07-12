@@ -1,10 +1,10 @@
-export const Locales: any & { 
-  HeaderExtra: any, 
+export const Locales: any & {
+  HeaderExtra: any,
   HeaderContent: any,
   Content: any,
   TabPanel: any,
   Footer: any,
- } = {
+} = {
   'zh-CN': {
     title: '页面容器',
     addExtra: '添加页头扩展',
@@ -15,8 +15,9 @@ export const Locales: any & {
       'x-component-props': {
         type: '类型',
         title: '标题',
-        extra: '右侧扩展',
-        cardTypes: { title: "卡片类型", dataSource: ['内置', '默认'] }
+        subtitle: '子标题',
+        hasBreadcrumb: "显示面包屑导航",
+        showGoback: "显示返回按钮",
       },
     },
   },
