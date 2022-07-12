@@ -4,7 +4,7 @@ import React from "react"
 import './locales'
 import './schema'
 
-const Extra = observer((props) => {
+const HeaderExtra = observer((props) => {
   return (
     <DroppableWidget
       {...props}
@@ -18,4 +18,4 @@ const Extra = observer((props) => {
   )
 })
 
-export default Extra
+export default HeaderExtra

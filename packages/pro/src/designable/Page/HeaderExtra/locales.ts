@@ -1,6 +1,6 @@
 import { Locales } from "../locales";
 
-Locales.Extra = {
+Locales.HeaderExtra = {
   'zh-CN': {
     title: '页头扩展',
     settings: {

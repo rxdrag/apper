@@ -10,7 +10,7 @@ import { LoadTemplate } from '../../common/LoadTemplate'
 import { FileAddOutlined } from '@ant-design/icons'
 import { Locales } from './locales'
 import { Schema } from './schema'
-import Extra from './Extra'
+import HeaderExtra from './HeaderExtra'
 
 export interface IPageProps {
   title?: string;
@@ -81,14 +81,14 @@ const Content: React.FC<{ children: React.ReactNode; extra: React.ReactNode }> =
 
 
 export const Page: DnFC<IPageProps> & {
-  Extra?: React.FC<React.ComponentProps<any>>
+  HeaderExtra?: React.FC<React.ComponentProps<any>>
 } = (props) => {
   const { children, title, ...other } = props;
   const node = useTreeNode()
 
   const extra = findNodeByComponentPath(node, [
     'Page',
-    'Page.Extra',
+    'Page.HeaderExtra',
   ])
 
   console.log("props.extra", extra)
@@ -312,7 +312,7 @@ export const Page: DnFC<IPageProps> & {
   )
 }
 
-Page.Extra = Extra
+Page.HeaderExtra = HeaderExtra
 
 Page.Behavior = createBehavior(
   {
@@ -326,14 +326,14 @@ Page.Behavior = createBehavior(
     designerLocales: Locales,
   },
   {
-    name: 'Page.Extra',
+    name: 'Page.HeaderExtra',
     extends: ['Field'],
-    selector: (node) => node.props['x-component'] === 'Page.Extra',
+    selector: (node) => node.props['x-component'] === 'Page.HeaderExtra',
     designerProps: {
       droppable: true,
-      propsSchema: createVoidFieldSchema(Schema.Extra),
+      propsSchema: createVoidFieldSchema(Schema.HeaderExtra),
     },
-    designerLocales: Locales.Extra,
+    designerLocales: Locales.HeaderExtra,
   }
 )
 
@@ -354,7 +354,7 @@ Page.Resource = createResource({
           componentName: 'Field',
           props: {
             type: 'void',
-            'x-component': 'Page.Extra',
+            'x-component': 'Page.HeaderExtra',
             'x-component-props': {
               title: "ddd",
             },

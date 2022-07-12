@@ -1,4 +1,4 @@
-export const Locales: any & { Extra: any } = {
+export const Locales: any & { HeaderExtra: any } = {
   'zh-CN': {
     title: '页面容器',
     addExtra: '添加扩展',
@@ -20,7 +20,7 @@ export const Locales: any & { Extra: any } = {
       'x-component-props': {
         type: 'Type',
         title: 'Title',
-        extra: 'Extra',
+        extra: 'HeaderExtra',
         cardTypes: [
           { label: 'Inner', value: 'inner' },
           { label: 'Default', value: '' },
