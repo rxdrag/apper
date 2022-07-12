@@ -2,15 +2,21 @@ import React from 'react'
 import { Button, Card as AntdCard, Descriptions, PageHeader, Statistic, Tabs } from 'antd'
 import { createBehavior, createResource, TreeNode } from '@designable/core'
 import { DnFC, DroppableWidget, TreeNodeWidget, useTreeNode } from '@designable/react'
-import { createVoidFieldSchema } from '../Field'
+import { createVoidFieldSchema } from '../../components/Field'
 import { observer } from '@formily/react'
-import { createFieldSchema } from '../Field'
+import { createFieldSchema } from '../../components/Field'
 import { createEnsureTypeItemsNode, findNodeByComponentPath, hasNodeByComponentPath } from '../../shared'
 import { LoadTemplate } from '../../common/LoadTemplate'
 import { FileAddOutlined } from '@ant-design/icons'
 import { Locales } from './locales'
 import { Schema } from './schema'
 import Extra from './Extra'
+
+export interface IPageProps {
+  title?: string;
+  subTitle?: string;
+  children?: React.ReactNode; 
+}
 
 const ensureObjectItemsNode = createEnsureTypeItemsNode('object')
 
@@ -74,7 +80,7 @@ const Content: React.FC<{ children: React.ReactNode; extra: React.ReactNode }> =
 );
 
 
-export const Page: DnFC<React.ComponentProps<typeof AntdCard>> & {
+export const Page: DnFC<IPageProps> & {
   Extra?: React.FC<React.ComponentProps<any>>
 } = (props) => {
   const { children, title, ...other } = props;
@@ -306,7 +312,7 @@ export const Page: DnFC<React.ComponentProps<typeof AntdCard>> & {
   )
 }
 
-Page.Extra =  Extra
+Page.Extra = Extra
 
 Page.Behavior = createBehavior(
   {

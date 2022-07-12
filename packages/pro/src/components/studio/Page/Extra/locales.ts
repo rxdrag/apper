@@ -2,7 +2,7 @@ import { Locales } from "../locales";
 
 Locales.Extra = {
   'zh-CN': {
-    title: '页面扩展',
+    title: '页头扩展',
     settings: {
       'x-component-props': {
         gridSpan: '跨列栏数',
