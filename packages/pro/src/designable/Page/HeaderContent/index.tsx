@@ -5,6 +5,10 @@ import './locales'
 import './schema'
 import '../index.less'
 
+export interface IHeaderContentProps{
+  children?:React.ReactNode
+}
+
 const HeaderContent = observer((props) => {
   return (
     <div className="content">

@@ -7,11 +7,11 @@ import { createEnsureTypeItemsNode, findNodeByComponentPath, hasNodeByComponentP
 import { LoadTemplate } from '../../common/LoadTemplate'
 import { Locales } from './locales'
 import { Schema } from './schema'
-import HeaderExtra from './HeaderExtra'
-import HeaderContent from './HeaderContent'
+import HeaderExtra, { IPageHeaderExtraProps } from './HeaderExtra'
+import HeaderContent, { IHeaderContentProps } from './HeaderContent'
 import { BookOutlined } from '@ant-design/icons'
-import Content from './Content'
-import TabPanel from './TabPanel'
+import Content, { IPageContentProps } from './Content'
+import TabPanel, { IPageTablePanelProps } from './TabPanel'
 
 export interface IPageProps {
   title?: string;
@@ -37,13 +37,11 @@ const routes = [
   },
 ];
 
-
-
 export const Page: DnFC<IPageProps> & {
-  HeaderExtra?: React.FC<React.ComponentProps<any>>,
-  HeaderContent?: React.FC<React.ComponentProps<any>>,
-  Content?: React.FC<React.ComponentProps<any>>,
-  TabPanel?: React.FC<React.ComponentProps<any>>,
+  HeaderExtra?: React.FC<IPageHeaderExtraProps>,
+  HeaderContent?: React.FC<IHeaderContentProps>,
+  Content?: React.FC<IPageContentProps>,
+  TabPanel?: React.FC<IPageTablePanelProps>,
 } = (props) => {
   const { children, title, ...other } = props;
   const node = useTreeNode()
@@ -70,33 +68,22 @@ export const Page: DnFC<IPageProps> & {
             onClick: () => {
               if (
                 hasNodeByComponentPath(node, [
-                  'ArrayTable',
-                  '*',
-                  'ArrayTable.Column',
-                  'ArrayTable.SortHandle',
+                  'Page',
+                  'Page.HeaderExtra',
                 ])
               )
                 return
-              const tableColumn = new TreeNode({
+              const extra = new TreeNode({
                 componentName: 'Field',
                 props: {
                   type: 'void',
-                  'x-component': 'ArrayTable.Column',
+                  'x-component': 'Page.HeaderExtra',
                   'x-component-props': {
                     title: `Title`,
                   },
                 },
-                children: [
-                  {
-                    componentName: 'Field',
-                    props: {
-                      type: 'void',
-                      'x-component': 'ArrayTable.SortHandle',
-                    },
-                  },
-                ],
               })
-              ensureObjectItemsNode(node).prepend(tableColumn)
+              node.insertChildren(0, extra)
             },
           },
           {
@@ -105,112 +92,45 @@ export const Page: DnFC<IPageProps> & {
             onClick: () => {
               if (
                 hasNodeByComponentPath(node, [
-                  'ArrayTable',
-                  '*',
-                  'ArrayTable.Column',
-                  'ArrayTable.Index',
+                  'Page',
+                  'Page.HeaderContent',
                 ])
               )
                 return
-              const tableColumn = new TreeNode({
+              const headerContent = new TreeNode({
                 componentName: 'Field',
                 props: {
                   type: 'void',
-                  'x-component': 'ArrayTable.Column',
+                  'x-component': 'Page.HeaderContent',
                   'x-component-props': {
                     title: `Title`,
                   },
                 },
-                children: [
-                  {
-                    componentName: 'Field',
-                    props: {
-                      type: 'void',
-                      'x-component': 'ArrayTable.Index',
-                    },
-                  },
-                ],
               })
-              const sortNode = findNodeByComponentPath(node, [
-                'ArrayTable',
-                '*',
-                'ArrayTable.Column',
-                'ArrayTable.SortHandle',
-              ])
-              if (sortNode) {
-                sortNode.parent.insertAfter(tableColumn)
-              } else {
-                ensureObjectItemsNode(node).prepend(tableColumn)
-              }
+              node.insertChildren(0, headerContent)
             },
           },
           {
             title: node.getMessage('addPanel'),
             icon: "AddPanel",
             onClick: () => {
-              const oldOperationNode = findNodeByComponentPath(node, [
-                'ArrayTable',
-                '*',
-                'ArrayTable.Column',
-                (name) => {
-                  return (
-                    name === 'ArrayTable.Remove' ||
-                    name === 'ArrayTable.MoveDown' ||
-                    name === 'ArrayTable.MoveUp'
-                  )
+              const content = findNodeByComponentPath(node, [
+                'Page',
+                'Page.Content',
+              ])
+
+              content?.remove()
+              const tabPanel = new TreeNode({
+                componentName: 'Field',
+                props: {
+                  type: 'void',
+                  'x-component': 'Page.TabPanel',
+                  'x-component-props': {
+                    title: `Title`,
+                  },
                 },
-              ])
-              const oldAdditionNode = findNodeByComponentPath(node, [
-                'ArrayTable',
-                'ArrayTable.Addition',
-              ])
-              if (!oldOperationNode) {
-                const operationNode = new TreeNode({
-                  componentName: 'Field',
-                  props: {
-                    type: 'void',
-                    'x-component': 'ArrayTable.Column',
-                    'x-component-props': {
-                      title: `Title`,
-                    },
-                  },
-                  children: [
-                    {
-                      componentName: 'Field',
-                      props: {
-                        type: 'void',
-                        'x-component': 'ArrayTable.Remove',
-                      },
-                    },
-                    {
-                      componentName: 'Field',
-                      props: {
-                        type: 'void',
-                        'x-component': 'ArrayTable.MoveDown',
-                      },
-                    },
-                    {
-                      componentName: 'Field',
-                      props: {
-                        type: 'void',
-                        'x-component': 'ArrayTable.MoveUp',
-                      },
-                    },
-                  ],
-                })
-                ensureObjectItemsNode(node).append(operationNode)
-              }
-              if (!oldAdditionNode) {
-                const additionNode = new TreeNode({
-                  componentName: 'Field',
-                  props: {
-                    type: 'void',
-                    title: 'Addition',
-                    'x-component': 'ArrayTable.Addition',
-                  },
-                })
-                ensureObjectItemsNode(node).insertAfter(additionNode)
-              }
+              })
+              node.append(tabPanel)
             },
           },
         ]}

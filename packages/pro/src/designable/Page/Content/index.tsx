@@ -5,6 +5,10 @@ import './locales'
 import './schema'
 import '../index.less'
 
+export interface IPageContentProps {
+  children?: React.ReactNode
+}
+
 const Content = observer((props) => {
   return (
     <div className="content">

@@ -5,7 +5,12 @@ import './locales'
 import './schema'
 import '../index.less'
 
-const TabPanel = observer((props) => {
+export interface IPageTablePanelProps{
+  title?: string,
+  children?:React.ReactNode
+}
+
+const TabPanel = observer((props:IPageTablePanelProps) => {
   return (
     <div className="content">
       <DroppableWidget
