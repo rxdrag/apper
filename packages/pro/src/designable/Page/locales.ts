@@ -1,8 +1,9 @@
 export const Locales: any & { HeaderExtra: any, HeaderContent: any } = {
   'zh-CN': {
     title: '页面容器',
-    addExtra: '添加扩展',
-    addColumn: '添加列',
+    addExtra: '添加页头扩展',
+    addHeaderContent: '添加页头内容',
+    addPanel: '添加选项卡',
     addIndex: '添加索引',
     addOperation: '添加操作',
     settings: {

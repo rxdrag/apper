@@ -1,17 +1,15 @@
 import React from 'react'
-import { Button, Card as AntdCard, Descriptions, PageHeader, Statistic, Tabs } from 'antd'
+import { Descriptions, PageHeader, Statistic, Tabs } from 'antd'
 import { createBehavior, createResource, TreeNode } from '@designable/core'
-import { DnFC, DroppableWidget, TreeNodeWidget, useTreeNode } from '@designable/react'
+import { DnFC, TreeNodeWidget, useTreeNode } from '@designable/react'
 import { createVoidFieldSchema } from '../../components/Field'
-import { observer } from '@formily/react'
-import { createFieldSchema } from '../../components/Field'
 import { createEnsureTypeItemsNode, findNodeByComponentPath, hasNodeByComponentPath } from '../../shared'
 import { LoadTemplate } from '../../common/LoadTemplate'
-import { FileAddOutlined } from '@ant-design/icons'
 import { Locales } from './locales'
 import { Schema } from './schema'
 import HeaderExtra from './HeaderExtra'
 import HeaderContent from './HeaderContent'
+import { BookOutlined } from '@ant-design/icons'
 
 export interface IPageProps {
   title?: string;
@@ -97,6 +95,8 @@ export const Page: DnFC<IPageProps> & {
     'Page',
     'Page.HeaderContent',
   ])
+
+  const otherChildrenNodes = node.children?.filter(child => child.id !== headerExtra?.id && child.id !== headerContent.id)
   console.log("props.extra", headerExtra)
   // React.Children.map(children, (child: any, index) => {
   //   //console.log("哈哈", child?.['type'], child?.['type']?.['displayName'])
@@ -109,24 +109,6 @@ export const Page: DnFC<IPageProps> & {
 
   return (
     <div {...other}>
-      <PageHeader
-        className="site-page-header-responsive"
-        onBack={() => window.history.back()}
-        title="Title"
-        subTitle="This is a subtitle"
-        extra={headerExtra && <TreeNodeWidget node={headerExtra} />}
-        footer={
-          <Tabs defaultActiveKey="1">
-            <TabPane tab="Details" key="1" />
-            <TabPane tab="Rule" key="2" />
-          </Tabs>
-        }
-
-        breadcrumb={{ routes }}
-      >
-        {headerContent && <TreeNodeWidget node={headerContent} />}
-      </PageHeader>
-      {/* {props.children} */}
       <LoadTemplate
         actions={[
           {
@@ -165,8 +147,8 @@ export const Page: DnFC<IPageProps> & {
             },
           },
           {
-            title: node.getMessage('addIndex'),
-            icon: 'AddIndex',
+            title: node.getMessage('addHeaderContent'),
+            icon: <BookOutlined />,
             onClick: () => {
               if (
                 hasNodeByComponentPath(node, [
@@ -210,41 +192,8 @@ export const Page: DnFC<IPageProps> & {
             },
           },
           {
-            title: node.getMessage('addColumn'),
-            icon: 'AddColumn',
-            onClick: () => {
-              const operationNode = findNodeByComponentPath(node, [
-                'ArrayTable',
-                '*',
-                'ArrayTable.Column',
-                (name) => {
-                  return (
-                    name === 'ArrayTable.Remove' ||
-                    name === 'ArrayTable.MoveDown' ||
-                    name === 'ArrayTable.MoveUp'
-                  )
-                },
-              ])
-              const tableColumn = new TreeNode({
-                componentName: 'Field',
-                props: {
-                  type: 'void',
-                  'x-component': 'ArrayTable.Column',
-                  'x-component-props': {
-                    title: `Title`,
-                  },
-                },
-              })
-              if (operationNode) {
-                operationNode.parent.insertBefore(tableColumn)
-              } else {
-                ensureObjectItemsNode(node).append(tableColumn)
-              }
-            },
-          },
-          {
-            title: node.getMessage('addOperation'),
-            icon: <FileAddOutlined />,
+            title: node.getMessage('addPanel'),
+            icon: "AddPanel",
             onClick: () => {
               const oldOperationNode = findNodeByComponentPath(node, [
                 'ArrayTable',
@@ -313,6 +262,29 @@ export const Page: DnFC<IPageProps> & {
           },
         ]}
       />
+      <PageHeader
+        className="site-page-header-responsive"
+        onBack={() => window.history.back()}
+        title="Title"
+        subTitle="This is a subtitle"
+        extra={headerExtra && <TreeNodeWidget node={headerExtra} />}
+        footer={
+          <Tabs defaultActiveKey="1">
+            <TabPane tab="Details" key="1" />
+            <TabPane tab="Rule" key="2" />
+          </Tabs>
+        }
+        breadcrumb={{ routes }}
+      >
+        {headerContent && <TreeNodeWidget node={headerContent} />}
+      </PageHeader>
+      {
+        otherChildrenNodes?.map((child) => {
+          return (
+            child && <TreeNodeWidget node={child} />
+          )
+        })
+      }
     </div>
 
   )
