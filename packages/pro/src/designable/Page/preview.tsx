@@ -10,6 +10,7 @@ import { Schema } from './schema'
 import HeaderExtra from './HeaderExtra'
 import HeaderContent from './HeaderContent'
 import { BookOutlined } from '@ant-design/icons'
+import Content from './Content'
 
 export interface IPageProps {
   title?: string;
@@ -68,20 +69,11 @@ const extraContent = (
   </div>
 );
 
-const Content: React.FC<{ children: React.ReactNode; extra: React.ReactNode }> = ({
-  children,
-  extra,
-}) => (
-  <div className="content">
-    <div className="main">{children}</div>
-    <div className="extra">{extra}</div>
-  </div>
-);
-
-
 export const Page: DnFC<IPageProps> & {
   HeaderExtra?: React.FC<React.ComponentProps<any>>,
   HeaderContent?: React.FC<React.ComponentProps<any>>,
+  Content?: React.FC<React.ComponentProps<any>>,
+  TabPanel?: React.FC<React.ComponentProps<any>>,
 } = (props) => {
   const { children, title, ...other } = props;
   const node = useTreeNode()
@@ -96,16 +88,7 @@ export const Page: DnFC<IPageProps> & {
     'Page.HeaderContent',
   ])
 
-  const otherChildrenNodes = node.children?.filter(child => child.id !== headerExtra?.id && child.id !== headerContent.id)
-  console.log("props.extra", headerExtra)
-  // React.Children.map(children, (child: any, index) => {
-  //   //console.log("哈哈", child?.['type'], child?.['type']?.['displayName'])
-  //   return (
-  //     <div>
-  //       {child}
-  //     </div>
-  //   );
-  // });
+  const otherChildrenNodes = node.children?.filter(child => child.id !== headerExtra?.id && child.id !== headerContent?.id)
 
   return (
     <div {...other}>
@@ -292,6 +275,7 @@ export const Page: DnFC<IPageProps> & {
 
 Page.HeaderExtra = HeaderExtra
 Page.HeaderContent = HeaderContent
+Page.Content = Content
 
 Page.Behavior = createBehavior(
   {
@@ -323,6 +307,16 @@ Page.Behavior = createBehavior(
       propsSchema: createVoidFieldSchema(Schema.HeaderContent),
     },
     designerLocales: Locales.HeaderContent,
+  },
+  {
+    name: 'Page.Content',
+    extends: ['Field'],
+    selector: (node) => node.props['x-component'] === 'Page.Content',
+    designerProps: {
+      droppable: true,
+      propsSchema: createVoidFieldSchema(Schema.Content),
+    },
+    designerLocales: Locales.Content,
   }
 )
 
@@ -355,6 +349,17 @@ Page.Resource = createResource({
           props: {
             type: 'void',
             'x-component': 'Page.HeaderContent',
+            'x-component-props': {
+              title: "ddd",
+            },
+
+          },
+        },
+        {
+          componentName: 'Field',
+          props: {
+            type: 'void',
+            'x-component': 'Page.Content',
             'x-component-props': {
               title: "ddd",
             },

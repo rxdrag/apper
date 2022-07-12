@@ -1,6 +1,11 @@
 import { ISchema } from '@formily/react'
 
-export const Schema: ISchema & { HeaderExtra?: ISchema, HeaderContent?: ISchema } = {
+export const Schema: ISchema & { 
+  HeaderExtra?: ISchema, 
+  HeaderContent?: ISchema,
+  Content?: ISchema,
+  TabPanel?: ISchema,
+ } = {
   type: 'object',
   properties: {
     // title: {

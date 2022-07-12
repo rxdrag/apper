@@ -1,4 +1,9 @@
-export const Locales: any & { HeaderExtra: any, HeaderContent: any } = {
+export const Locales: any & { 
+  HeaderExtra: any, 
+  HeaderContent: any,
+  Content: any,
+  TabPanel: any,
+ } = {
   'zh-CN': {
     title: '页面容器',
     addExtra: '添加页头扩展',
