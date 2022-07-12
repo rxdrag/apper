@@ -3,7 +3,7 @@ import { Descriptions, PageHeader, Statistic, Tabs } from 'antd'
 import { createBehavior, createResource, TreeNode } from '@designable/core'
 import { DnFC, TreeNodeWidget, useTreeNode } from '@designable/react'
 import { createVoidFieldSchema } from '../../components/Field'
-import { createEnsureTypeItemsNode, findNodeByComponentPath, hasNodeByComponentPath } from '../../shared'
+import { createEnsureTypeItemsNode, findNodeByComponentPath, hasNodeByComponentPath, queryNodesByComponentPath } from '../../shared'
 import { LoadTemplate } from '../../common/LoadTemplate'
 import { Locales } from './locales'
 import { Schema } from './schema'
@@ -12,6 +12,7 @@ import HeaderContent, { IHeaderContentProps } from './HeaderContent'
 import { BookOutlined } from '@ant-design/icons'
 import Content, { IPageContentProps } from './Content'
 import TabPanel, { IPageTablePanelProps } from './TabPanel'
+import { useRemoveNode } from '../hooks/useRemoveNode'
 
 export interface IPageProps {
   title?: string;
@@ -45,6 +46,37 @@ export const Page: DnFC<IPageProps> & {
 } = (props) => {
   const { children, title, ...other } = props;
   const node = useTreeNode()
+
+  const handleRemoveNode = (target:TreeNode)=>{
+    if (target.parent?.id === node.id && target?.props?.['x-component'] === 'Page.TabPanel'){
+      if(queryNodesByComponentPath(node, [
+        'Page',
+        'Page.TabPanel',
+      ]).length == 1){
+        const content = new TreeNode({
+          componentName: 'Field',
+          props: {
+            type: 'void',
+            'x-component': 'Page.Content',
+            'x-component-props': {
+              title: `Title`,
+            },
+          },
+        })
+        node.append(content)
+      }
+    }
+  }
+
+  useRemoveNode('Page', (target) => {
+    if (target && Array.isArray(target)){
+      for(const child of target){
+        handleRemoveNode(child)
+      }
+    } else if(target){
+      handleRemoveNode(target as any)
+    }
+  })
 
   const headerExtra = findNodeByComponentPath(node, [
     'Page',
