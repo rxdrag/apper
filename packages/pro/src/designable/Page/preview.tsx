@@ -11,11 +11,12 @@ import { FileAddOutlined } from '@ant-design/icons'
 import { Locales } from './locales'
 import { Schema } from './schema'
 import HeaderExtra from './HeaderExtra'
+import HeaderContent from './HeaderContent'
 
 export interface IPageProps {
   title?: string;
   subTitle?: string;
-  children?: React.ReactNode; 
+  children?: React.ReactNode;
 }
 
 const ensureObjectItemsNode = createEnsureTypeItemsNode('object')
@@ -87,14 +88,16 @@ export const Page: DnFC<IPageProps> & {
   const { children, title, ...other } = props;
   const node = useTreeNode()
 
-  const extra = findNodeByComponentPath(node, [
+  const headerExtra = findNodeByComponentPath(node, [
     'Page',
     'Page.HeaderExtra',
   ])
 
-  const otherChildren = node.children.filter(child=>child.id != extra?.id)
-
-  console.log("props.extra", extra)
+  const headerContent = findNodeByComponentPath(node, [
+    'Page',
+    'Page.HeaderContent',
+  ])
+  console.log("props.extra", headerExtra)
   // React.Children.map(children, (child: any, index) => {
   //   //console.log("哈哈", child?.['type'], child?.['type']?.['displayName'])
   //   return (
@@ -111,7 +114,7 @@ export const Page: DnFC<IPageProps> & {
         onBack={() => window.history.back()}
         title="Title"
         subTitle="This is a subtitle"
-        extra={extra && <TreeNodeWidget node={extra} />}
+        extra={headerExtra && <TreeNodeWidget node={headerExtra} />}
         footer={
           <Tabs defaultActiveKey="1">
             <TabPane tab="Details" key="1" />
@@ -121,13 +124,7 @@ export const Page: DnFC<IPageProps> & {
 
         breadcrumb={{ routes }}
       >
-        {
-          otherChildren.map((child)=>{
-            return (
-              <TreeNodeWidget key = {child.id} node={child} />
-            )
-          })
-        }
+        {headerContent && <TreeNodeWidget node={headerContent} />}
       </PageHeader>
       {/* {props.children} */}
       <LoadTemplate
@@ -322,6 +319,7 @@ export const Page: DnFC<IPageProps> & {
 }
 
 Page.HeaderExtra = HeaderExtra
+Page.HeaderContent = HeaderContent
 
 Page.Behavior = createBehavior(
   {
@@ -343,6 +341,16 @@ Page.Behavior = createBehavior(
       propsSchema: createVoidFieldSchema(Schema.HeaderExtra),
     },
     designerLocales: Locales.HeaderExtra,
+  },
+  {
+    name: 'Page.HeaderContent',
+    extends: ['Field'],
+    selector: (node) => node.props['x-component'] === 'Page.HeaderContent',
+    designerProps: {
+      droppable: true,
+      propsSchema: createVoidFieldSchema(Schema.HeaderContent),
+    },
+    designerLocales: Locales.HeaderContent,
   }
 )
 
@@ -364,6 +372,17 @@ Page.Resource = createResource({
           props: {
             type: 'void',
             'x-component': 'Page.HeaderExtra',
+            'x-component-props': {
+              title: "ddd",
+            },
+
+          },
+        },
+        {
+          componentName: 'Field',
+          props: {
+            type: 'void',
+            'x-component': 'Page.HeaderContent',
             'x-component-props': {
               title: "ddd",
             },
