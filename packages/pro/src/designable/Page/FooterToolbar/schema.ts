@@ -1,6 +1,6 @@
 import { Schema } from "../schema";
 
-Schema.Footer = {
+Schema.FooterToolbar = {
   type: 'object',
   properties: {
     gridSpan: {

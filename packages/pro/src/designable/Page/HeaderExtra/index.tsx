@@ -1,28 +1,18 @@
 import { DroppableWidget } from "@designable/react"
 import { observer } from "@formily/react"
+import PageHeaderExtra from "../../../executable/Page/PageHeaderExtra"
 import React from "react"
 import './locales'
 import './schema'
+import { IPageHeaderExtraProps } from './../../../executable/Page/PageHeaderExtra';
 
-export interface IPageHeaderExtraProps{
-  children?:React.ReactNode
-}
-
-const HeaderExtra = observer((props) => {
+const HeaderExtra = observer((props:IPageHeaderExtraProps) => {
   return (
-    <div className="apper-extra">
-      <DroppableWidget
-        {...props}
-        style={{
-          ...props['style'],
-          display: "flex",
-          alignItems: "center",
-          flex: 1,
-        }}
-      >
+    <DroppableWidget>
+      <PageHeaderExtra {...props}>
         {props.children}
-      </DroppableWidget>
-    </div>
+      </PageHeaderExtra>
+    </DroppableWidget>
   )
 })
 

@@ -3,7 +3,7 @@ export const Locales: any & {
   HeaderContent: any,
   Content: any,
   TabPanel: any,
-  Footer: any,
+  FooterToolbar: any,
 } = {
   'zh-CN': {
     title: '页面容器',

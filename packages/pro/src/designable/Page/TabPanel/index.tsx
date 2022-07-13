@@ -1,28 +1,17 @@
 import { DroppableWidget } from "@designable/react"
 import { observer } from "@formily/react"
+import PageTabPanel, { IPageTabPanelProps } from "../../../executable/Page/PageTabPanel"
 import React from "react"
 import './locales'
 import './schema'
 
-export interface IPageTablePanelProps{
-  title?: string,
-  children?:React.ReactNode
-}
-
-const TabPanel = observer((props:IPageTablePanelProps) => {
+const TabPanel = observer((props: IPageTabPanelProps) => {
   return (
-    <div className="content">
-      <DroppableWidget
-        {...props}
-        style={{
-          ...props['style'],
-          display: "flex",
-          flex: 1
-        }}
-      >
+    <DroppableWidget>
+      <PageTabPanel {...props}>
         {props.children}
-      </DroppableWidget>
-    </div>
+      </PageTabPanel>
+    </DroppableWidget>
 
   )
 })

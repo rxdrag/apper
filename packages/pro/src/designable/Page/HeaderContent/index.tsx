@@ -1,28 +1,17 @@
 import { DroppableWidget } from "@designable/react"
 import { observer } from "@formily/react"
+import PageHeaderContent, { IPageHeaderContentProps } from "../../../executable/Page/PageHeaderContent"
 import React from "react"
 import './locales'
 import './schema'
 
-export interface IHeaderContentProps{
-  children?:React.ReactNode
-}
-
-const HeaderContent = observer((props) => {
+const HeaderContent = observer((props:IPageHeaderContentProps) => {
   return (
-    <div className="content">
-      <DroppableWidget
-        {...props}
-        style={{
-          ...props['style'],
-          display: "flex",
-          flex: 1
-        }}
-      >
+    <DroppableWidget>
+      <PageHeaderContent {...props}>
         {props.children}
-      </DroppableWidget>
-    </div>
-
+      </PageHeaderContent>
+    </DroppableWidget>
   )
 })
 

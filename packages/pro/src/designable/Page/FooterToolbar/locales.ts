@@ -1,6 +1,6 @@
 import { Locales } from "../locales";
 
-Locales.Footer = {
+Locales.FooterToolbar = {
   'zh-CN': {
     title: '页脚',
     settings: {

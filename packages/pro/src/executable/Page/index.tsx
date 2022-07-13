@@ -6,6 +6,10 @@ import "./index.less"
 import clx from "classnames"
 import { PageHeader } from "./PageHeader";
 import { PageBody } from "./PageBody";
+import PageHeaderExtra, { IPageHeaderExtraProps } from "./PageHeaderExtra";
+import PageHeaderContent, { IPageHeaderContentProps } from "./PageHeaderContent";
+import PageContent, { IPageContentProps } from "./PageContent";
+import { IPageTabPanelProps } from "./PageTabPanel";
 
 const { TabPane } = Tabs;
 
@@ -29,7 +33,13 @@ export const routesPlaceholder = [
   }
 ];
 
-const Page = (props: IPageProps) => {
+const Page:React.FC<IPageProps>& {
+  HeaderExtra?: React.FC<IPageHeaderExtraProps>,
+  HeaderContent?: React.FC<IPageHeaderContentProps>,
+  Content?: React.FC<IPageContentProps>,
+  TabPanel?: React.FC<IPageTabPanelProps>,
+  //FooterToolbar?: React.FC<IPageFooterProps>,
+} = (props: IPageProps) => {
   const { showGoback, title, subtitle, hasBreadcrumb, className, children, ...other } = props
   const [selectedTabKey, setSelectedTabKey] = useState("1")
   const fieldSchema = useFieldSchema()
@@ -47,7 +57,7 @@ const Page = (props: IPageProps) => {
       slots.headerExtra = childSchema
     } else if (childSchema["x-component"] === 'Page.HeaderContent') {
       slots.headerContent = childSchema
-    } else if (childSchema["x-component"] === 'Page.Footer') {
+    } else if (childSchema["x-component"] === 'Page.FooterToolbar') {
       slots.footer = childSchema
     } else if (childSchema["x-component"] === 'Page.TabPanel') {
       slots.tabs.push(childSchema)
@@ -102,5 +112,9 @@ const Page = (props: IPageProps) => {
     </PageContainer>
   )
 }
+
+Page.HeaderExtra = PageHeaderExtra
+Page.HeaderContent = PageHeaderContent
+Page.Content = PageContent
 
 export default Page

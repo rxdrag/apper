@@ -7,19 +7,24 @@ import { createEnsureTypeItemsNode, findNodeByComponentPath, hasNodeByComponentP
 import { LoadTemplate } from '../../common/LoadTemplate'
 import { Locales } from './locales'
 import { Schema } from './schema'
-import HeaderExtra, { IPageHeaderExtraProps } from './HeaderExtra'
-import HeaderContent, { IHeaderContentProps } from './HeaderContent'
+import HeaderExtra from './HeaderExtra'
+import HeaderContent from './HeaderContent'
 import { BookOutlined } from '@ant-design/icons'
-import Content, { IPageContentProps } from './Content'
-import TabPanel, { IPageTablePanelProps } from './TabPanel'
+import Content from './Content'
+import TabPanel from './TabPanel'
 import { useRemoveNode } from '../hooks/useRemoveNode'
-import Footer, { IPageFooterProps } from './Footer'
+import FooterToolbar from './FooterToolbar'
 import { observer } from '@formily/reactive-react'
 import './index.less'
 import { IPageProps, routesPlaceholder } from '../../executable/Page'
 import { PageContainer } from '../../executable/Page/PageContainer'
 import { PageHeader } from '../../executable/Page/PageHeader'
 import { PageBody } from '../../executable/Page/PageBody'
+import { IPageHeaderExtraProps } from '../../executable/Page/PageHeaderExtra'
+import { IPageHeaderContentProps } from '../../executable/Page/PageHeaderContent'
+import { IPageContentProps } from '../../executable/Page/PageContent'
+import { IPageTabPanelProps } from '../../executable/Page/PageTabPanel'
+import { IPageFooterToolbarProps } from '../../executable/Page/PageFooterToolbar'
 
 const ensureObjectItemsNode = createEnsureTypeItemsNode('object')
 
@@ -27,10 +32,10 @@ const { TabPane } = Tabs;
 
 export const Page: DnFC<IPageProps> & {
   HeaderExtra?: React.FC<IPageHeaderExtraProps>,
-  HeaderContent?: React.FC<IHeaderContentProps>,
+  HeaderContent?: React.FC<IPageHeaderContentProps>,
   Content?: React.FC<IPageContentProps>,
-  TabPanel?: React.FC<IPageTablePanelProps>,
-  Footer?: React.FC<IPageFooterProps>,
+  TabPanel?: React.FC<IPageTabPanelProps>,
+  FooterToolbar?: React.FC<IPageFooterToolbarProps>,
 } = observer((props) => {
   const { children, title, subtitle, hasBreadcrumb, showGoback, ...other } = props;
   const [selectedTabKey, setSelectedTabKey] = useState("1")
@@ -79,7 +84,7 @@ export const Page: DnFC<IPageProps> & {
 
   const footer = findNodeByComponentPath(node, [
     'Page',
-    'Page.Footer',
+    'Page.FooterToolbar',
   ])
 
   const tabs = queryNodesByComponentPath(node, [
@@ -189,7 +194,7 @@ export const Page: DnFC<IPageProps> & {
               if (
                 hasNodeByComponentPath(node, [
                   'Page',
-                  'Page.Footer',
+                  'Page.FooterToolbar',
                 ])
               ) {
                 return
@@ -199,7 +204,7 @@ export const Page: DnFC<IPageProps> & {
                 componentName: 'Field',
                 props: {
                   type: 'void',
-                  'x-component': 'Page.Footer',
+                  'x-component': 'Page.FooterToolbar',
                   'x-component-props': {
                     title: `Title`,
                   },
@@ -251,7 +256,7 @@ Page.HeaderExtra = HeaderExtra
 Page.HeaderContent = HeaderContent
 Page.Content = Content
 Page.TabPanel = TabPanel
-Page.Footer = Footer
+Page.FooterToolbar = FooterToolbar
 
 Page.Behavior = createBehavior(
   {
@@ -305,14 +310,14 @@ Page.Behavior = createBehavior(
     designerLocales: Locales.TabPanel,
   },
   {
-    name: 'Page.Footer',
+    name: 'Page.FooterToolbar',
     extends: ['Field'],
-    selector: (node) => node.props['x-component'] === 'Page.Footer',
+    selector: (node) => node.props['x-component'] === 'Page.FooterToolbar',
     designerProps: {
       droppable: true,
-      propsSchema: createVoidFieldSchema(Schema.Footer),
+      propsSchema: createVoidFieldSchema(Schema.FooterToolbar),
     },
-    designerLocales: Locales.Footer,
+    designerLocales: Locales.FooterToolbar,
   }
 )
 

@@ -1,27 +1,17 @@
 import { DroppableWidget } from "@designable/react"
 import { observer } from "@formily/react"
+import PageContent, { IPageContentProps } from "../../../executable/Page/PageContent"
 import React, { Fragment } from "react"
 import './locales'
 import './schema'
 
-export interface IPageContentProps {
-  children?: React.ReactNode
-}
-
-const Content = observer((props) => {
+const Content = observer((props:IPageContentProps) => {
   return (
-    <div className="content">
-      <DroppableWidget
-        {...props}
-        style={{
-          ...props['style'],
-          display: "flex",
-          flex: 1
-        }}
-      >
+    <DroppableWidget>
+      <PageContent  {...props}>
         {props.children}
-      </DroppableWidget>
-    </div>
+      </PageContent>
+    </DroppableWidget>
   )
 })
 
