@@ -9,7 +9,8 @@ import { PageBody } from "./PageBody";
 import PageHeaderExtra, { IPageHeaderExtraProps } from "./PageHeaderExtra";
 import PageHeaderContent, { IPageHeaderContentProps } from "./PageHeaderContent";
 import PageContent, { IPageContentProps } from "./PageContent";
-import { IPageTabPanelProps } from "./PageTabPanel";
+import PageTabPanel, { IPageTabPanelProps } from "./PageTabPanel";
+import PageFooterToolbar, { IPageFooterToolbarProps } from "./PageFooterToolbar";
 
 const { TabPane } = Tabs;
 
@@ -38,7 +39,7 @@ const Page:React.FC<IPageProps>& {
   HeaderContent?: React.FC<IPageHeaderContentProps>,
   Content?: React.FC<IPageContentProps>,
   TabPanel?: React.FC<IPageTabPanelProps>,
-  //FooterToolbar?: React.FC<IPageFooterProps>,
+  FooterToolbar?: React.FC<IPageFooterToolbarProps>,
 } = (props: IPageProps) => {
   const { showGoback, title, subtitle, hasBreadcrumb, className, children, ...other } = props
   const [selectedTabKey, setSelectedTabKey] = useState("1")
@@ -116,5 +117,7 @@ const Page:React.FC<IPageProps>& {
 Page.HeaderExtra = PageHeaderExtra
 Page.HeaderContent = PageHeaderContent
 Page.Content = PageContent
+Page.TabPanel = PageTabPanel
+Page.FooterToolbar = PageFooterToolbar
 
 export default Page
