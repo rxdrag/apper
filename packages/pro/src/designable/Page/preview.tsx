@@ -239,7 +239,7 @@ export const Page: DnFC<IPageProps> & {
               child && <TreeNodeWidget node={child} />
             )
           })
-        }        
+        }
         <TreeNodeWidget node={footer} />
       </PageBody>
     </PageContainer>
