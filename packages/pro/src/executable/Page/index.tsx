@@ -1,7 +1,7 @@
 import { PageHeader, Tabs } from "antd";
 import React, { useRef, useState } from "react"
 import { PageContainer } from "./PageContainer";
-import { Field, RecursionField, useField, useFieldSchema } from '@formily/react';
+import { RecursionField, useFieldSchema } from '@formily/react';
 
 const { TabPane } = Tabs;
 
@@ -64,7 +64,7 @@ const Page = (props: IPageProps) => {
         onBack={showGoback ? () => window.history.back() : undefined}
         title={title}
         subTitle={subtitle}
-        extra={slots.headerExtra && <RecursionField schema={slots.headerExtra} />}
+        extra={slots.headerExtra && <RecursionField schema={slots.headerExtra} name={slots.headerExtra.name}/>}
         footer={
           slots.tabs && <Tabs activeKey={selectedTabKey} onChange={handleSelectTab}>
             {
@@ -79,18 +79,20 @@ const Page = (props: IPageProps) => {
         }
         breadcrumb={hasBreadcrumb ? { routes: routesPlaceholder } : undefined}
       >
-        {slots.headerContent && <RecursionField schema={slots.headerContent} />}
+        {slots.headerContent && <RecursionField schema={slots.headerContent} name={slots.headerContent.name} />}
       </PageHeader>
-      
-      {selectedTab && <RecursionField schema={selectedTab} />}
+
+      {selectedTab && <RecursionField schema={selectedTab} name={selectedTab.name} />}
       {
         slots.otherChildren?.map((child, index) => {
           return (
-            <RecursionField key={index} schema={child} />
+            <div key={index}>
+              <RecursionField key={index} schema={child} name={child.name} />
+            </div>
           )
         })
       }
-      {slots.footer && <RecursionField schema={slots.footer} />}
+      {slots.footer && <RecursionField schema={slots.footer} name={slots.footer.name} />}
     </PageContainer>
   )
 }
