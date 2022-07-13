@@ -1,5 +1,5 @@
-import React, { useCallback, useMemo, useState } from 'react'
-import { Descriptions, PageHeader, Statistic, Tabs } from 'antd'
+import React, { useState } from 'react'
+import { Tabs } from 'antd'
 import { createBehavior, createResource, TreeNode } from '@designable/core'
 import { DnFC, TreeNodeWidget, useTreeNode } from '@designable/react'
 import { createVoidFieldSchema } from '../../components/Field'
@@ -18,6 +18,7 @@ import { observer } from '@formily/reactive-react'
 import './index.less'
 import { IPageProps, routesPlaceholder } from '../../executable/Page'
 import { PageContainer } from '../../executable/Page/PageContainer'
+import { PageHeader } from '../../executable/Page/PageHeader'
 
 const ensureObjectItemsNode = createEnsureTypeItemsNode('object')
 
@@ -209,7 +210,6 @@ export const Page: DnFC<IPageProps> & {
         ]}
       />
       <PageHeader
-        //className="site-page-header-responsive"
         onBack={showGoback ? () => window.history.back() : undefined}
         title={title}
         subTitle={subtitle}

@@ -1,7 +1,10 @@
-import { PageHeader, Tabs } from "antd";
+import { Tabs } from "antd";
 import React, { useRef, useState } from "react"
 import { PageContainer } from "./PageContainer";
 import { RecursionField, useFieldSchema } from '@formily/react';
+import "./index.less"
+import clx from "classnames"
+import { PageHeader } from "./PageHeader";
 
 const { TabPane } = Tabs;
 
@@ -11,6 +14,7 @@ export interface IPageProps {
   children?: React.ReactNode;
   hasBreadcrumb?: boolean;
   showGoback?: boolean;
+  className?: string;
 }
 
 export const routesPlaceholder = [
@@ -25,7 +29,7 @@ export const routesPlaceholder = [
 ];
 
 const Page = (props: IPageProps) => {
-  const { showGoback, title, subtitle, hasBreadcrumb, children, ...other } = props
+  const { showGoback, title, subtitle, hasBreadcrumb, className, children, ...other } = props
   const [selectedTabKey, setSelectedTabKey] = useState("1")
   const fieldSchema = useFieldSchema()
   const slots = {
@@ -60,7 +64,7 @@ const Page = (props: IPageProps) => {
   return (
     <PageContainer>
       <PageHeader
-        //className="site-page-header-responsive"
+        className={clx(className, "rx-page-header-responsive")}
         onBack={showGoback ? () => window.history.back() : undefined}
         title={title}
         subTitle={subtitle}
