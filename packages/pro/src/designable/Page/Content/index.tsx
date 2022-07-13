@@ -3,7 +3,6 @@ import { observer } from "@formily/react"
 import React, { Fragment } from "react"
 import './locales'
 import './schema'
-import '../index.less'
 
 export interface IPageContentProps {
   children?: React.ReactNode

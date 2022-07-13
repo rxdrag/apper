@@ -15,6 +15,7 @@ import TabPanel, { IPageTablePanelProps } from './TabPanel'
 import { useRemoveNode } from '../hooks/useRemoveNode'
 import Footer, { IPageFooterProps } from './Footer'
 import { observer } from '@formily/reactive-react'
+import './index.less'
 
 export interface IPageProps {
   title?: string;
@@ -114,7 +115,9 @@ export const Page: DnFC<IPageProps> & {
   const selectedTab = tabs?.[parseInt(selectedTabKey) - 1]
 
   return (
-    <div {...other}>
+    <div {...other} style={{
+      background: '#F5F7FA',
+    }}>
       <LoadTemplate
         actions={[
           {
@@ -150,10 +153,10 @@ export const Page: DnFC<IPageProps> & {
                   'Page',
                   'Page.HeaderContent',
                 ])
-              ){
+              ) {
                 return
               }
-                
+
               const headerContent = new TreeNode({
                 componentName: 'Field',
                 props: {
@@ -268,7 +271,7 @@ Page.Footer = Footer
 Page.Behavior = createBehavior(
   {
     name: 'Page',
-    extends: ['Field'],
+    extends: [],
     selector: (node) => node.props['x-component'] === 'Page',
     designerProps: {
       droppable: true,

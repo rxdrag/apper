@@ -3,7 +3,7 @@ import { observer } from "@formily/react"
 import React from "react"
 import './locales'
 import './schema'
-import '../index.less'
+
 export interface IPageHeaderExtraProps{
   children?:React.ReactNode
 }
