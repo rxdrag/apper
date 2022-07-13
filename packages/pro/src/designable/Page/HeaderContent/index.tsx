@@ -7,10 +7,14 @@ import './schema'
 
 const HeaderContent = observer((props:IPageHeaderContentProps) => {
   return (
+    props.children
+    ?
+    <PageHeaderContent {...props}>
+      {props.children}
+    </PageHeaderContent>
+    :
     <DroppableWidget>
-      <PageHeaderContent {...props}>
-        {props.children}
-      </PageHeaderContent>
+      {props.children}
     </DroppableWidget>
   )
 })

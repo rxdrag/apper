@@ -7,10 +7,14 @@ import './schema'
 
 const Content = observer((props:IPageContentProps) => {
   return (
+    props.children
+    ?
+    <PageContent {...props}>
+      {props.children}
+    </PageContent>
+    :
     <DroppableWidget>
-      <PageContent  {...props}>
-        {props.children}
-      </PageContent>
+      {props.children}
     </DroppableWidget>
   )
 })

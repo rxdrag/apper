@@ -6,13 +6,17 @@ import './locales'
 import './schema'
 import { IPageHeaderExtraProps } from './../../../executable/Page/PageHeaderExtra';
 
-const HeaderExtra = observer((props:IPageHeaderExtraProps) => {
+const HeaderExtra = observer((props: IPageHeaderExtraProps) => {
   return (
-    <DroppableWidget>
+    props.children
+      ?
       <PageHeaderExtra {...props}>
         {props.children}
       </PageHeaderExtra>
-    </DroppableWidget>
+      :
+      <DroppableWidget>
+        {props.children}
+      </DroppableWidget>
   )
 })
 

@@ -7,12 +7,15 @@ import './schema'
 
 const TabPanel = observer((props: IPageTabPanelProps) => {
   return (
+    props.children
+    ?
+    <PageTabPanel {...props}>
+      {props.children}
+    </PageTabPanel>
+    :
     <DroppableWidget>
-      <PageTabPanel {...props}>
-        {props.children}
-      </PageTabPanel>
+      {props.children}
     </DroppableWidget>
-
   )
 })
 
