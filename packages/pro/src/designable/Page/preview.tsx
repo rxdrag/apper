@@ -240,6 +240,7 @@ export const Page: DnFC<IPageProps> & {
             )
           })
         }
+        <div style={{ flex: 1 }}></div>
         <TreeNodeWidget node={footer} />
       </PageBody>
     </PageContainer>
