@@ -14,6 +14,7 @@ import Content, { IPageContentProps } from './Content'
 import TabPanel, { IPageTablePanelProps } from './TabPanel'
 import { useRemoveNode } from '../hooks/useRemoveNode'
 import Footer, { IPageFooterProps } from './Footer'
+import { observer } from '@formily/reactive-react'
 
 export interface IPageProps {
   title?: string;
@@ -28,17 +29,13 @@ const ensureObjectItemsNode = createEnsureTypeItemsNode('object')
 const { TabPane } = Tabs;
 const routes = [
   {
-    path: 'index',
-    breadcrumbName: 'First-level Menu',
+    path: '$path1',
+    breadcrumbName: 'Path1',
   },
   {
-    path: 'first',
-    breadcrumbName: 'Second-level Menu',
-  },
-  {
-    path: 'second',
-    breadcrumbName: 'Third-level Menu',
-  },
+    path: '$path2',
+    breadcrumbName: 'Path2',
+  }
 ];
 
 export const Page: DnFC<IPageProps> & {
@@ -47,7 +44,7 @@ export const Page: DnFC<IPageProps> & {
   Content?: React.FC<IPageContentProps>,
   TabPanel?: React.FC<IPageTablePanelProps>,
   Footer?: React.FC<IPageFooterProps>,
-} = (props) => {
+} = observer((props) => {
   const { children, title, subtitle, hasBreadcrumb, showGoback, ...other } = props;
   const [selectedTabKey, setSelectedTabKey] = useState("1")
   const node = useTreeNode()
@@ -141,7 +138,7 @@ export const Page: DnFC<IPageProps> & {
                   },
                 },
               })
-              node.insertChildren(0, extra)
+              node.append(extra)
             },
           },
           {
@@ -153,8 +150,10 @@ export const Page: DnFC<IPageProps> & {
                   'Page',
                   'Page.HeaderContent',
                 ])
-              )
+              ){
                 return
+              }
+                
               const headerContent = new TreeNode({
                 componentName: 'Field',
                 props: {
@@ -165,7 +164,7 @@ export const Page: DnFC<IPageProps> & {
                   },
                 },
               })
-              node.insertChildren(0, headerContent)
+              node.append(headerContent)
             },
           },
           {
@@ -258,7 +257,7 @@ export const Page: DnFC<IPageProps> & {
     </div>
 
   )
-}
+})
 
 Page.HeaderExtra = HeaderExtra
 Page.HeaderContent = HeaderContent
