@@ -1,7 +1,9 @@
-import { PageHeader } from "antd";
-import React, { useRef } from "react"
+import { PageHeader, Tabs } from "antd";
+import React, { useRef, useState } from "react"
 import { PageContainer } from "./PageContainer";
 import { Field, RecursionField, useField, useFieldSchema } from '@formily/react';
+
+const { TabPane } = Tabs;
 
 export interface IPageProps {
   title?: string;
@@ -24,15 +26,36 @@ export const routesPlaceholder = [
 
 const Page = (props: IPageProps) => {
   const { showGoback, title, subtitle, hasBreadcrumb, children, ...other } = props
+  const [selectedTabKey, setSelectedTabKey] = useState("1")
   const fieldSchema = useFieldSchema()
-  const slots = useRef({ headerExtra: null, extra: null })
+  const slots = {
+    headerExtra: null,
+    headerContent: null,
+    footer: null,
+    tabs: [],
+    otherChildren: []
+  }
+
   for (const key of Object.keys(fieldSchema.properties || {})) {
     const childSchema = fieldSchema.properties[key]
-    if (childSchema["x-component"] === 'Page.HeaderExtra'){
-      console.log("哈哈哈", childSchema.toJSON())
-      slots.current.headerExtra = childSchema
+    if (childSchema["x-component"] === 'Page.HeaderExtra') {
+      slots.headerExtra = childSchema
+    } else if (childSchema["x-component"] === 'Page.HeaderContent') {
+      slots.headerContent = childSchema
+    } else if (childSchema["x-component"] === 'Page.Footer') {
+      slots.footer = childSchema
+    } else if (childSchema["x-component"] === 'Page.TabPanel') {
+      slots.tabs.push(childSchema)
+    } else {
+      slots.otherChildren.push(childSchema)
     }
   }
+
+  const handleSelectTab = (key: string) => {
+    setSelectedTabKey(key);
+  };
+
+  const selectedTab = slots.tabs?.[parseInt(selectedTabKey) - 1]
 
   return (
     <PageContainer>
@@ -41,23 +64,33 @@ const Page = (props: IPageProps) => {
         onBack={showGoback ? () => window.history.back() : undefined}
         title={title}
         subTitle={subtitle}
-        extra={ slots.current.headerExtra && <RecursionField schema={slots.current.headerExtra} />}
-        // footer={
-        //   <Tabs activeKey={selectedTabKey} onChange={handleSelectTab}>
-        //     {
-        //       tabs.map((tab, index) => {
-        //         return (
-        //           <TabPane tab={tab?.props?.['x-component-props']?.["title"]} key={index + 1} />
-        //         )
-        //       })
-        //     }
+        extra={slots.headerExtra && <RecursionField schema={slots.headerExtra} />}
+        footer={
+          slots.tabs && <Tabs activeKey={selectedTabKey} onChange={handleSelectTab}>
+            {
+              slots.tabs.map((tab, index) => {
+                return (
+                  <TabPane tab={tab['x-component-props']?.["title"]} key={index + 1} />
+                )
+              })
+            }
 
-        //   </Tabs>
-        // }
+          </Tabs>
+        }
         breadcrumb={hasBreadcrumb ? { routes: routesPlaceholder } : undefined}
       >
-        {/* {headerContent && <TreeNodeWidget node={headerContent} />} */}
+        {slots.headerContent && <RecursionField schema={slots.headerContent} />}
       </PageHeader>
+      
+      {selectedTab && <RecursionField schema={selectedTab} />}
+      {
+        slots.otherChildren?.map((child, index) => {
+          return (
+            <RecursionField key={index} schema={child} />
+          )
+        })
+      }
+      {slots.footer && <RecursionField schema={slots.footer} />}
     </PageContainer>
   )
 }
