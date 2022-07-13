@@ -16,21 +16,12 @@ import { useRemoveNode } from '../hooks/useRemoveNode'
 import Footer, { IPageFooterProps } from './Footer'
 import { observer } from '@formily/reactive-react'
 import './index.less'
-import { IPageProps } from '../../executable/Page'
+import { IPageProps, routesPlaceholder } from '../../executable/Page'
+import { PageContainer } from '../../executable/Page/PageContainer'
 
 const ensureObjectItemsNode = createEnsureTypeItemsNode('object')
 
 const { TabPane } = Tabs;
-const routes = [
-  {
-    path: '$path1',
-    breadcrumbName: 'Path1',
-  },
-  {
-    path: '$path2',
-    breadcrumbName: 'Path2',
-  }
-];
 
 export const Page: DnFC<IPageProps> & {
   HeaderExtra?: React.FC<IPageHeaderExtraProps>,
@@ -108,9 +99,7 @@ export const Page: DnFC<IPageProps> & {
   const selectedTab = tabs?.[parseInt(selectedTabKey) - 1]
 
   return (
-    <div {...other} style={{
-      background: '#F5F7FA',
-    }}>
+    <PageContainer {...other} >
       <LoadTemplate
         actions={[
           {
@@ -220,7 +209,7 @@ export const Page: DnFC<IPageProps> & {
         ]}
       />
       <PageHeader
-        className="site-page-header-responsive"
+        //className="site-page-header-responsive"
         onBack={showGoback ? () => window.history.back() : undefined}
         title={title}
         subTitle={subtitle}
@@ -237,7 +226,7 @@ export const Page: DnFC<IPageProps> & {
 
           </Tabs>
         }
-        breadcrumb={hasBreadcrumb ? { routes } : undefined}
+        breadcrumb={hasBreadcrumb ? { routes: routesPlaceholder } : undefined}
       >
         {headerContent && <TreeNodeWidget node={headerContent} />}
       </PageHeader>
@@ -250,8 +239,7 @@ export const Page: DnFC<IPageProps> & {
         })
       }
       <TreeNodeWidget node={footer} />
-    </div>
-
+    </PageContainer>
   )
 })
 
