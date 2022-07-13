@@ -1,6 +1,7 @@
 import { PageHeader } from "antd";
-import React from "react"
+import React, { useRef } from "react"
 import { PageContainer } from "./PageContainer";
+import { Field, RecursionField, useField, useFieldSchema } from '@formily/react';
 
 export interface IPageProps {
   title?: string;
@@ -22,7 +23,17 @@ export const routesPlaceholder = [
 ];
 
 const Page = (props: IPageProps) => {
-  const {showGoback, title, subtitle, hasBreadcrumb, ...other} = props
+  const { showGoback, title, subtitle, hasBreadcrumb, children, ...other } = props
+  const fieldSchema = useFieldSchema()
+  const slots = useRef({ headerExtra: null, extra: null })
+  for (const key of Object.keys(fieldSchema.properties || {})) {
+    const childSchema = fieldSchema.properties[key]
+    if (childSchema["x-component"] === 'Page.HeaderExtra'){
+      console.log("哈哈哈", childSchema.toJSON())
+      slots.current.headerExtra = childSchema
+    }
+  }
+
   return (
     <PageContainer>
       <PageHeader
@@ -30,7 +41,7 @@ const Page = (props: IPageProps) => {
         onBack={showGoback ? () => window.history.back() : undefined}
         title={title}
         subTitle={subtitle}
-        // extra={}
+        extra={ slots.current.headerExtra && <RecursionField schema={slots.current.headerExtra} />}
         // footer={
         //   <Tabs activeKey={selectedTabKey} onChange={handleSelectTab}>
         //     {
