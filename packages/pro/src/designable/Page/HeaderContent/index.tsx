@@ -13,7 +13,7 @@ const HeaderContent = observer((props:IPageHeaderContentProps) => {
       {props.children}
     </PageHeaderContent>
     :
-    <DroppableWidget>
+    <DroppableWidget {...props}>
       {props.children}
     </DroppableWidget>
   )

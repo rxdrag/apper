@@ -5,17 +5,20 @@ import React, { Fragment } from "react"
 import './locales'
 import './schema'
 
-const Content = observer((props:IPageContentProps) => {
+const Content = observer((props: IPageContentProps) => {
   return (
     props.children
-    ?
-    <PageContent {...props}>
-      {props.children}
-    </PageContent>
-    :
-    <DroppableWidget>
-      {props.children}
-    </DroppableWidget>
+      ?
+      <PageContent {...props}>
+        {props.children}
+      </PageContent>
+      :
+      <DroppableWidget {...props} style={{
+        ...props['style'],
+        //height: "100%",
+      }}>
+        {props.children}
+      </DroppableWidget>
   )
 })
 

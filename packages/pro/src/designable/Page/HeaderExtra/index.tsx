@@ -14,7 +14,7 @@ const HeaderExtra = observer((props: IPageHeaderExtraProps) => {
         {props.children}
       </PageHeaderExtra>
       :
-      <DroppableWidget>
+      <DroppableWidget {...props}>
         {props.children}
       </DroppableWidget>
   )
