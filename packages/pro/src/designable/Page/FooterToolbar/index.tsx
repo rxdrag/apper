@@ -4,14 +4,14 @@ import PageFooterToolbar, { IPageFooterToolbarProps } from "../../../executable/
 import React, { Fragment } from "react"
 import './locales'
 import './schema'
+import clx from "classnames"
 
 
 const FooterToolbar = observer((props: IPageFooterToolbarProps) => {
+  const {className, ...other} = props
   return (
-    <DroppableWidget>
-      <PageFooterToolbar {...props}>
-        {props.children}
-      </PageFooterToolbar>
+    <DroppableWidget {...other} className = {clx("rx-page-footer-toolbar-layout", className)}>
+      {props.children}
     </DroppableWidget>
   )
 })
