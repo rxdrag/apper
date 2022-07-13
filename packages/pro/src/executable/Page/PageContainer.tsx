@@ -1,12 +1,8 @@
 import React from "react"
 import clx from 'classnames'
+import { IComponentProps } from "../common"
 
-export interface IProps{
-  className?: string;
-  style?: React.CSSProperties;
-}
-
-export interface IPageContainerProps extends IProps{
+export interface IPageContainerProps extends IComponentProps{
   children?: React.ReactNode
 }
 

@@ -19,6 +19,7 @@ import './index.less'
 import { IPageProps, routesPlaceholder } from '../../executable/Page'
 import { PageContainer } from '../../executable/Page/PageContainer'
 import { PageHeader } from '../../executable/Page/PageHeader'
+import { PageBody } from '../../executable/Page/PageBody'
 
 const ensureObjectItemsNode = createEnsureTypeItemsNode('object')
 
@@ -230,15 +231,17 @@ export const Page: DnFC<IPageProps> & {
       >
         {headerContent && <TreeNodeWidget node={headerContent} />}
       </PageHeader>
-      <TreeNodeWidget node={selectedTab} />
-      {
-        otherChildrenNodes?.map((child) => {
-          return (
-            child && <TreeNodeWidget node={child} />
-          )
-        })
-      }
-      <TreeNodeWidget node={footer} />
+      <PageBody>
+        <TreeNodeWidget node={selectedTab} />
+        {
+          otherChildrenNodes?.map((child) => {
+            return (
+              child && <TreeNodeWidget node={child} />
+            )
+          })
+        }        
+        <TreeNodeWidget node={footer} />
+      </PageBody>
     </PageContainer>
   )
 })

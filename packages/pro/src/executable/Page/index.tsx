@@ -5,6 +5,7 @@ import { RecursionField, useFieldSchema } from '@formily/react';
 import "./index.less"
 import clx from "classnames"
 import { PageHeader } from "./PageHeader";
+import { PageBody } from "./PageBody";
 
 const { TabPane } = Tabs;
 
@@ -85,18 +86,19 @@ const Page = (props: IPageProps) => {
       >
         {slots.headerContent && <RecursionField schema={slots.headerContent} name={slots.headerContent.name} />}
       </PageHeader>
-
-      {selectedTab && <RecursionField schema={selectedTab} name={selectedTab.name} />}
-      {
-        slots.otherChildren?.map((child, index) => {
-          return (
-            <div key={index}>
-              <RecursionField key={index} schema={child} name={child.name} />
-            </div>
-          )
-        })
-      }
-      {slots.footer && <RecursionField schema={slots.footer} name={slots.footer.name} />}
+      <PageBody>
+        {selectedTab && <RecursionField schema={selectedTab} name={selectedTab.name} />}
+        {
+          slots.otherChildren?.map((child, index) => {
+            return (
+              <div key={index}>
+                <RecursionField key={index} schema={child} name={child.name} />
+              </div>
+            )
+          })
+        }
+        {slots.footer && <RecursionField schema={slots.footer} name={slots.footer.name} />}
+      </PageBody>
     </PageContainer>
   )
 }
