@@ -16,14 +16,7 @@ import { useRemoveNode } from '../hooks/useRemoveNode'
 import Footer, { IPageFooterProps } from './Footer'
 import { observer } from '@formily/reactive-react'
 import './index.less'
-
-export interface IPageProps {
-  title?: string;
-  subtitle?: string;
-  children?: React.ReactNode;
-  hasBreadcrumb?: boolean;
-  showGoback?: boolean;
-}
+import { IPageProps } from '../../executable/Page'
 
 const ensureObjectItemsNode = createEnsureTypeItemsNode('object')
 
