@@ -124,51 +124,55 @@ const App = () => {
           <CompositePanel.Item
             title="panels.Component"
             icon="Component"
-            subTitle={<MaterialSelectWidget />}
           >
-            <ResourceWidget
-              title="sources.Inputs"
-              sources={[
-                Input,
-                Password,
-                NumberPicker,
-                Rate,
-                Slider,
-                Select,
-                TreeSelect,
-                Cascader,
-                Transfer,
-                Checkbox,
-                Radio,
-                DatePicker,
-                TimePicker,
-                Upload,
-                Switch,
-                ObjectContainer,
-              ]}
-            />
-            <ResourceWidget
-              title="sources.Layouts"
-              sources={[
-                Card,
-                FormGrid,
-                FormTab,
-                FormLayout,
-                FormCollapse,
-                Space,
-              ]}
-            />
-            <ResourceWidget
-              title="sources.Arrays"
-              sources={[ArrayCards, ArrayTable]}
-            />
-            <ResourceWidget title="sources.Displays" sources={[Text]} />
+            <MaterialSelectWidget />
+            <div style={{ overflow: "auto", height: "100%" }}>
+              <ResourceWidget
+                title="sources.Inputs"
+                sources={[
+                  Input,
+                  Password,
+                  NumberPicker,
+                  Rate,
+                  Slider,
+                  Select,
+                  TreeSelect,
+                  Cascader,
+                  Transfer,
+                  Checkbox,
+                  Radio,
+                  DatePicker,
+                  TimePicker,
+                  Upload,
+                  Switch,
+                  ObjectContainer,
+                ]}
+              />
+              <ResourceWidget
+                title="sources.Layouts"
+                sources={[
+                  Card,
+                  FormGrid,
+                  FormTab,
+                  FormLayout,
+                  FormCollapse,
+                  Space,
+                ]}
+              />
+              <ResourceWidget
+                title="sources.Arrays"
+                sources={[ArrayCards, ArrayTable]}
+              />
+              <ResourceWidget title="sources.Displays" sources={[Text]} />
+            </div>
           </CompositePanel.Item>
           <CompositePanel.Item title="panels.OutlinedTree" icon="Outline">
             <OutlineTreeWidget />
           </CompositePanel.Item>
           <CompositePanel.Item title="panels.History" icon="History">
-            <HistoryWidget />
+            <div style={{ overflow: "auto", height: "100%" }}>
+              <HistoryWidget />
+            </div>
           </CompositePanel.Item>
         </CompositePanel>
         <Workspace id="form">
