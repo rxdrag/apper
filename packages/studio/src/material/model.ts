@@ -1,6 +1,4 @@
-import { Input } from "@designable/formily-antd";
 import { IDesignerComponents, DnFC, DnComponent } from "@designable/react"
-import { IResourceLike } from "@designable/core"
 
 export interface Material {
   name: string;
