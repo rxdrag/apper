@@ -7,7 +7,6 @@ import {
   ViewToolsWidget,
   Workspace,
   OutlineTreeWidget,
-  ResourceWidget,
   HistoryWidget,
   StudioPanel,
   WorkspacePanel,
@@ -63,8 +62,9 @@ import {
   FormGrid,
 } from '@designable/formily-antd'
 import { CompositePanel } from './panels/CompositePanel'
-import { MaterialSelectWidget } from './widgets/MaterialSelectWidget'
+import { MaterialSearchWidget } from './material/MaterialSearchWidget'
 import { ViewPanel } from './panels/ViewPanel'
+import { MaterialPanel } from './material/MaterialPanel'
 
 setNpmCDNRegistry('//unpkg.com')
 
@@ -125,46 +125,7 @@ const App = () => {
             title="panels.Component"
             icon="Component"
           >
-            <MaterialSelectWidget />
-            <div style={{ overflow: "auto", height: "100%" }}>
-              <ResourceWidget
-                title="sources.Inputs"
-                sources={[
-                  Input,
-                  Password,
-                  NumberPicker,
-                  Rate,
-                  Slider,
-                  Select,
-                  TreeSelect,
-                  Cascader,
-                  Transfer,
-                  Checkbox,
-                  Radio,
-                  DatePicker,
-                  TimePicker,
-                  Upload,
-                  Switch,
-                  ObjectContainer,
-                ]}
-              />
-              <ResourceWidget
-                title="sources.Layouts"
-                sources={[
-                  Card,
-                  FormGrid,
-                  FormTab,
-                  FormLayout,
-                  FormCollapse,
-                  Space,
-                ]}
-              />
-              <ResourceWidget
-                title="sources.Arrays"
-                sources={[ArrayCards, ArrayTable]}
-              />
-              <ResourceWidget title="sources.Displays" sources={[Text]} />
-            </div>
+            <MaterialPanel />
           </CompositePanel.Item>
           <CompositePanel.Item title="panels.OutlinedTree" icon="Outline">
             <OutlineTreeWidget />
