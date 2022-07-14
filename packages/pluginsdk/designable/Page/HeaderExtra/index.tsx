@@ -4,7 +4,7 @@ import PageHeaderExtra from "../../../executable/Page/PageHeaderExtra"
 import React from "react"
 import './locales'
 import './schema'
-import { IPageHeaderExtraProps } from './../../../executable/Page/PageHeaderExtra';
+import { IPageHeaderExtraProps } from '../../../executable/Page/PageHeaderExtra';
 
 const HeaderExtra = observer((props: IPageHeaderExtraProps) => {
   return (
