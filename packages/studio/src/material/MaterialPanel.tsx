@@ -35,7 +35,7 @@ import {
   FormGrid,
 } from '@designable/formily-antd'
 import { ToolOutlined } from "@ant-design/icons";
-import { allMaterials } from "./data";
+import { allMaterials } from "./mock";
 
 const { TabPane } = Tabs;
 
