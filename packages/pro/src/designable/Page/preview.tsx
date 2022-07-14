@@ -46,6 +46,7 @@ export const Page: DnFC<IPageProps> & {
         'Page',
         'Page.TabPanel',
       ]).length
+      setSelectedTabKey("1")
       if (!length || length <= 1) {
         const content = new TreeNode({
           componentName: 'Field',
