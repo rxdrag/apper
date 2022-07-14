@@ -5,35 +5,6 @@ import "./index.less"
 import {
   ResourceWidget
 } from '@designable/react'
-import {
-  Form,
-  Field,
-  Input,
-  Select,
-  TreeSelect,
-  Cascader,
-  Radio,
-  Checkbox,
-  Slider,
-  Rate,
-  NumberPicker,
-  Transfer,
-  Password,
-  DatePicker,
-  TimePicker,
-  Upload,
-  Switch,
-  Text,
-  Card,
-  ArrayCards,
-  ObjectContainer,
-  ArrayTable,
-  Space,
-  FormTab,
-  FormCollapse,
-  FormLayout,
-  FormGrid,
-} from '@designable/formily-antd'
 import { ToolOutlined } from "@ant-design/icons";
 import { allMaterials } from "./mock";
 
