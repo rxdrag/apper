@@ -16,3 +16,15 @@ export interface MaterialTab {
   title: string;
   groups: MaterialGroup[]
 }
+
+export function convertMaterialsToComponents(tabs: MaterialTab[]): IDesignerComponents {
+  const coms: IDesignerComponents = {}
+  for (const tab of tabs) {
+    for (const group of tab.groups) {
+      for (const material of group.materials) {
+        coms[material.name] = material.component
+      }
+    }
+  }
+  return coms
+}

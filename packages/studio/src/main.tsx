@@ -65,6 +65,8 @@ import { CompositePanel } from './panels/CompositePanel'
 import { MaterialSearchWidget } from './material/MaterialSearchWidget'
 import { ViewPanel } from './panels/ViewPanel'
 import { MaterialPanel } from './material/MaterialPanel'
+import { convertMaterialsToComponents } from './material/model'
+import { allMaterials } from './material/mock'
 
 setNpmCDNRegistry('//unpkg.com')
 
@@ -151,31 +153,7 @@ const App = () => {
                     components={{
                       Form,
                       Field,
-                      Input,
-                      Select,
-                      TreeSelect,
-                      Cascader,
-                      Radio,
-                      Checkbox,
-                      Slider,
-                      Rate,
-                      NumberPicker,
-                      Transfer,
-                      Password,
-                      DatePicker,
-                      TimePicker,
-                      Upload,
-                      Switch,
-                      Text,
-                      Card,
-                      ArrayCards,
-                      ArrayTable,
-                      Space,
-                      FormTab,
-                      FormCollapse,
-                      FormGrid,
-                      FormLayout,
-                      ObjectContainer,
+                      ...convertMaterialsToComponents(allMaterials)
                     }}
                   />
                 )}
