@@ -32,6 +32,9 @@ export const MaterialSelectWidget: React.FC = () => {
   return (
     <div>
       <div style={{ padding: "8px", display: "flex" }}>
+        <Search allowClear style={{ flex: 1 }} />
+      </div>
+      <div style={{ padding: "8px", display: "flex" }}>
         <Dropdown overlay={menu} trigger={['click']}>
           <Button>
             <Space>
@@ -42,10 +45,6 @@ export const MaterialSelectWidget: React.FC = () => {
         </Dropdown>
         <div style={{ flex: 1 }}></div>
         <Button shape="circle" style={{ border: 0 }} icon={<PlusOutlined />} />
-      </div>
-      <Divider style={{ margin: 0 }} />
-      <div style={{ padding: "8px", display: "flex" }}>
-        <Search allowClear style={{ flex: 1 }} />
       </div>
     </div>
   )
