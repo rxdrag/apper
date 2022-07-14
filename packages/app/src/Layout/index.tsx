@@ -36,7 +36,6 @@ export default () => {
     >
       <ProLayout
         {...defaultProps}
-        onPageChange = {(location)=>console.log("onPageChange", location)}
         title="Apper"
         logo={
           <svg style={{ width: "40px", height: "40px" }} viewBox="0 0 24 24">
@@ -122,7 +121,6 @@ export default () => {
       >
         <PageContainer
           content={content}
-          //header = {{title:"哈哈"}}
           tabList={[
             {
               tab: '基本信息',
