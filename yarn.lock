@@ -2,51 +2,6 @@
 # yarn lockfile v1
 
 
-"@alifd/field@~1.5.5":
-  version "1.5.8"
-  resolved "https://registry.npmmirror.com/@alifd/field/-/field-1.5.8.tgz#18a0bd92dec109a4efd40def6f52aecf6550296f"
-  integrity sha512-RBbwEeex2lb9fFjsXU3wJp2FZGPS75svKzOcDb9ZtKHiVU3byD6zuB0/hzJ9Exb0DkOgykFc6gF76QoaYF4+Ug==
-  dependencies:
-    "@alifd/validate" "^1.2.0"
-    prop-types "^15.5.8"
-
-"@alifd/next@^1.25.45":
-  version "1.25.45"
-  resolved "https://registry.npmmirror.com/@alifd/next/-/next-1.25.45.tgz#3287843e549200cddea0182c4337e32d9eaf6e60"
-  integrity sha512-8GSsZ5gbM1WI1cgc0gYhRTuIzx39EjWojm8JSsUerRnaThorcJ+4Oc+eEJh9pszZEsZtFGOA2+fR1FYALh2GcQ==
-  dependencies:
-    "@alifd/field" "~1.5.5"
-    "@alifd/overlay" "^0.2.9"
-    "@alifd/validate" "~1.2.0"
-    babel-runtime "^6.26.0"
-    bignumber.js "^9.0.1"
-    classnames "^2.2.3"
-    dayjs "^1.9.6"
-    hoist-non-react-statics "^3.0.0"
-    lodash.clonedeep "^4.5.0"
-    prop-types "^15.6.0"
-    react-lifecycles-compat "^3.0.4"
-    react-transition-group "^2.2.1"
-    resize-observer-polyfill "^1.5.1"
-    shallow-element-equals "^1.0.1"
-
-"@alifd/overlay@^0.2.9":
-  version "0.2.11"
-  resolved "https://registry.npmmirror.com/@alifd/overlay/-/overlay-0.2.11.tgz#5cc58ee5cf5466fe7a6ec141ae03058bf063cfe4"
-  integrity sha512-O/UNWFYfsvHBMEd9xKEhSuU3DLK3MllqWr+PAhQUgbtdKKSvmOuCylNsR9eQDQ8NRG12qj6fmCq3UXZr5c4XTA==
-  dependencies:
-    resize-observer-polyfill "^1.5.1"
-
-"@alifd/validate@^1.2.0":
-  version "1.4.0"
-  resolved "https://registry.npmmirror.com/@alifd/validate/-/validate-1.4.0.tgz#30dc391743bf1e09b30fac3eff6448b2f5bc23d2"
-  integrity sha512-RNayg1HVrJBhP5wOmjRq9x0xCC/2H1isDy038V69ggPyAP0k+3JAzIZKNkDoCLJlF4dWPCcsSwXaJafr0A60Wg==
-
-"@alifd/validate@~1.2.0":
-  version "1.2.3"
-  resolved "https://registry.npmmirror.com/@alifd/validate/-/validate-1.2.3.tgz#3b7f880a1a955470b303fddce5afa42a9f2d9ff2"
-  integrity sha512-ggSBfpl3H8M2OEM95zC9NQc4cBvne/Eq4mTHZHWtqYI/6Vnz0k1fGx3hnYsdGu3c3hF4l6sUDPulactM6lSXtA==
-
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
   resolved "https://registry.npmmirror.com/@ampproject/remapping/-/remapping-2.2.0.tgz#56c133824780de3174aed5ab6834f3026790154d"
@@ -1198,7 +1153,7 @@
     core-js-pure "^3.20.2"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.1.5", "@babel/runtime@^7.10.1", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.4", "@babel/runtime@^7.11.1", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.18.0", "@babel/runtime@^7.18.3", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.1", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.4", "@babel/runtime@^7.11.1", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.18.0", "@babel/runtime@^7.18.3", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.18.6"
   resolved "https://registry.npmmirror.com/@babel/runtime/-/runtime-7.18.6.tgz#6a1ef59f838debd670421f8c7f2cbb8da9751580"
   integrity sha512-t9wi7/AW6XtKahAe20Yw0/mMljKq0B1r2fPdvaAdV/KPDZewFXdaaa6K7lxmZBZ8FBNpCiAT6iHPmd6QO9bKfQ==
@@ -1397,15 +1352,6 @@
     react-sortable-hoc "^1.11.0"
     react-sticky-box "^1.0.2"
 
-"@formily/core@2.1.10":
-  version "2.1.10"
-  resolved "https://registry.npmmirror.com/@formily/core/-/core-2.1.10.tgz#79dfd83b0ea7dc01fcd9b32aef51ec0c2db011ce"
-  integrity sha512-OTzqzCwz+jTRrPFzWK7JZhXNx3/BBbJr1NwoCDnQjrKlTF/1FNWXMjcfk/KDDPtsPWd/6d/RTTKniVznx1m3Xg==
-  dependencies:
-    "@formily/reactive" "2.1.10"
-    "@formily/shared" "2.1.10"
-    "@formily/validator" "2.1.10"
-
 "@formily/core@2.1.9", "@formily/core@^2.1.9":
   version "2.1.9"
   resolved "https://registry.npmmirror.com/@formily/core/-/core-2.1.9.tgz#ecb5e9d490986349dc59204c05f9b3a98377450a"
@@ -1415,14 +1361,6 @@
     "@formily/shared" "2.1.9"
     "@formily/validator" "2.1.9"
 
-"@formily/grid@2.1.10":
-  version "2.1.10"
-  resolved "https://registry.npmmirror.com/@formily/grid/-/grid-2.1.10.tgz#f2c85219a141b7ede1b4b721a04056cdb87a38fe"
-  integrity sha512-WLn7qkSfkyrz5zCDXqSR7SgjsEAmF8prZoyU7h67ekxCeVfvOPl8fWfXix+2VRpo3Y7PDG35iMri6xXf1VjX4A==
-  dependencies:
-    "@formily/reactive" "2.1.10"
-    "@juggle/resize-observer" "^3.3.1"
-
 "@formily/grid@2.1.9":
   version "2.1.9"
   resolved "https://registry.npmmirror.com/@formily/grid/-/grid-2.1.9.tgz#6fd32070fb78a7741ff71bb8fa56c19abac12eb1"
@@ -1430,15 +1368,6 @@
   dependencies:
     "@formily/reactive" "2.1.9"
     "@juggle/resize-observer" "^3.3.1"
-
-"@formily/json-schema@2.1.10":
-  version "2.1.10"
-  resolved "https://registry.npmmirror.com/@formily/json-schema/-/json-schema-2.1.10.tgz#96823d7f6e4becfe341801115a43f496ebb9b8a9"
-  integrity sha512-LsIdNGO5TTuzC6/Uena4VkTySFilLgY+N9tPAxVj7k7YekvcqXXPZgnIntHwKCzKDpnyaiqlw+DAT6tMxmfnLg==
-  dependencies:
-    "@formily/core" "2.1.10"
-    "@formily/reactive" "2.1.10"
-    "@formily/shared" "2.1.10"
 
 "@formily/json-schema@2.1.9":
   version "2.1.9"
@@ -1449,44 +1378,10 @@
     "@formily/reactive" "2.1.9"
     "@formily/shared" "2.1.9"
 
-"@formily/next@^2.1.10":
-  version "2.1.10"
-  resolved "https://registry.npmmirror.com/@formily/next/-/next-2.1.10.tgz#65a3f1fef05aeacfc6f10bca942cfb001fb77058"
-  integrity sha512-8vNDajYJVIMsWdozlUSDlBgOzGgqTHlbqs4gJN8VJr0STOcO/F8zOCa83/niHyBiXjvFl02qYt/TVxxhrYqdCg==
-  dependencies:
-    "@formily/core" "2.1.10"
-    "@formily/grid" "2.1.10"
-    "@formily/json-schema" "2.1.10"
-    "@formily/react" "2.1.10"
-    "@formily/reactive" "2.1.10"
-    "@formily/reactive-react" "2.1.10"
-    "@formily/shared" "2.1.10"
-    classnames "^2.2.6"
-    react-sortable-hoc "^1.11.0"
-    react-sticky-box "^0.9.3"
-
-"@formily/path@2.1.10":
-  version "2.1.10"
-  resolved "https://registry.npmmirror.com/@formily/path/-/path-2.1.10.tgz#e4051378b39e69c20309769433506c6f71ca093d"
-  integrity sha512-KM1yb3CrrBz+qim7IAmtEd4meMrXmHe5YDn9n12vlob8cpjrGPBTNB8nKStF64lwPTT/+CeMC6aEahd0wrK+dw==
-
 "@formily/path@2.1.9":
   version "2.1.9"
   resolved "https://registry.npmmirror.com/@formily/path/-/path-2.1.9.tgz#bba0ae4c2ce19e43cd3927f4b3a15865d50b99cb"
   integrity sha512-oMCKu6v5IoZiNAq7mKeXUDJagEquBhgkJ5kskvuMPjGCWBQQiAOCLtLMBSDWwTk7gAjpl6S9sxQmxHGvPzDGsg==
-
-"@formily/react@2.1.10":
-  version "2.1.10"
-  resolved "https://registry.npmmirror.com/@formily/react/-/react-2.1.10.tgz#9f4d005e6bf027185ad44bc685fd3ffb5767f742"
-  integrity sha512-9yHwaOx4D/53nCpvSZ6MlB9WvZgt6LITzkKFdk+yrMTwYdT8P1nuIHBDtWBv0a45uWfnUnIZkVbOdWOgjeoLnQ==
-  dependencies:
-    "@formily/core" "2.1.10"
-    "@formily/json-schema" "2.1.10"
-    "@formily/reactive" "2.1.10"
-    "@formily/reactive-react" "2.1.10"
-    "@formily/shared" "2.1.10"
-    "@formily/validator" "2.1.10"
-    hoist-non-react-statics "^3.3.2"
 
 "@formily/react@2.1.9":
   version "2.1.9"
@@ -1501,14 +1396,6 @@
     "@formily/validator" "2.1.9"
     hoist-non-react-statics "^3.3.2"
 
-"@formily/reactive-react@2.1.10":
-  version "2.1.10"
-  resolved "https://registry.npmmirror.com/@formily/reactive-react/-/reactive-react-2.1.10.tgz#9a56adbe00e852096dc69aa54c12f57bddd336e0"
-  integrity sha512-2aBnXUj5mwEEoKMB//Jwt+OvGqYMTtw5kH1wHmxaAY3skDdz9FOoegmLqkTaZ7gh1oZj7CQ3+NdgowF4ETFrcA==
-  dependencies:
-    "@formily/reactive" "2.1.10"
-    hoist-non-react-statics "^3.3.2"
-
 "@formily/reactive-react@2.1.9", "@formily/reactive-react@^2.0.2":
   version "2.1.9"
   resolved "https://registry.npmmirror.com/@formily/reactive-react/-/reactive-react-2.1.9.tgz#34a1623511d03ac7893623338a428889a908f006"
@@ -1517,28 +1404,10 @@
     "@formily/reactive" "2.1.9"
     hoist-non-react-statics "^3.3.2"
 
-"@formily/reactive@2.1.10":
-  version "2.1.10"
-  resolved "https://registry.npmmirror.com/@formily/reactive/-/reactive-2.1.10.tgz#d805e27f8d9a395047bebd2109757924ee170d92"
-  integrity sha512-pjdR1i8S5bOPpVpIGagDgOvncTrYAKwbtNheXAunz/iCI90i/Ad7x/9OV7GKcqLN/1HX2CsO56J9CGWwi8BhoA==
-
 "@formily/reactive@2.1.9", "@formily/reactive@^2.0.2":
   version "2.1.9"
   resolved "https://registry.npmmirror.com/@formily/reactive/-/reactive-2.1.9.tgz#f4619a4521a068d9dc4a9f0a01254a75c3d5168d"
   integrity sha512-rpZdf0FhhNsE7mepEqsSDYF+HW6VSYBHbJYwDnaymRT4NWrvpBjB88aFvgoKbJ2udM/5GLB5fji5Kf6toV8cpg==
-
-"@formily/shared@2.1.10":
-  version "2.1.10"
-  resolved "https://registry.npmmirror.com/@formily/shared/-/shared-2.1.10.tgz#5aa48800790a20b3b1fb8593f7d9b84a5e63713d"
-  integrity sha512-ZEsGd6x/QdBktGH/VLoZCgbxaJlILJCr26TnwhLcEKCo/4QRbh11yGmWITCpLwFl84AozAHoa8wfr+MD9v/Xiw==
-  dependencies:
-    "@formily/path" "2.1.10"
-    camel-case "^4.1.1"
-    lower-case "^2.0.1"
-    no-case "^3.0.4"
-    param-case "^3.0.4"
-    pascal-case "^3.1.1"
-    upper-case "^2.0.1"
 
 "@formily/shared@2.1.9", "@formily/shared@^2.1.9":
   version "2.1.9"
@@ -1552,13 +1421,6 @@
     param-case "^3.0.4"
     pascal-case "^3.1.1"
     upper-case "^2.0.1"
-
-"@formily/validator@2.1.10":
-  version "2.1.10"
-  resolved "https://registry.npmmirror.com/@formily/validator/-/validator-2.1.10.tgz#133ac76c7a2749f59ea2b9c6e8f70d57bed5c7a3"
-  integrity sha512-p25uj/BtIj2fa2CUm7mgU4e4aLSqppgm7xhpEbZ6TP/TuU462TwtYdNjNcHrpRxwB41FxgWYjhFPNnCsSGQqKA==
-  dependencies:
-    "@formily/shared" "2.1.10"
 
 "@formily/validator@2.1.9":
   version "2.1.9"
@@ -2569,9 +2431,9 @@ ansi-styles@^5.0.0:
   integrity sha512-Cxwpt2SfTzTtXcfOlzGEee8O+c+MmUgGrNiBcXnuWxuFJHe6a5Hz7qwhwe5OgaSYI0IJvkLqWX1ASG+cJOkEiA==
 
 antd@>=4.0, antd@^4.15.2, antd@^4.21.5:
-  version "4.21.6"
-  resolved "https://registry.npmmirror.com/antd/-/antd-4.21.6.tgz#ab8441e132dca4e1418d7b3fba8caf9c93d9f74d"
-  integrity sha512-6sizu/2CT0ofxl0nEvWUg5x2z7UOXZV+OqNcnQvrp+nGYI3ySAyzu8rxPvWIoA7NIa3TYnbrFayGy2gAqDGpuA==
+  version "4.21.5"
+  resolved "https://registry.npmmirror.com/antd/-/antd-4.21.5.tgz#32a6c604b9153f6fe69d3d5aa154de0da00165a4"
+  integrity sha512-S6L29rmbiQvE4/kn1hPBscHFZ405Pbtuw3DCpXVnMt409JtY6sDaUbUcWfl4i21XkABEogKzqxjYVGogf1QIWQ==
   dependencies:
     "@ant-design/colors" "^6.0.0"
     "@ant-design/icons" "^4.7.0"
@@ -2607,7 +2469,7 @@ antd@>=4.0, antd@^4.15.2, antd@^4.21.5:
     rc-slider "~10.0.0"
     rc-steps "~4.1.0"
     rc-switch "~3.2.0"
-    rc-table "~7.25.0"
+    rc-table "~7.24.0"
     rc-tabs "~11.16.0"
     rc-textarea "~0.3.0"
     rc-tooltip "~5.1.1"
@@ -2961,14 +2823,6 @@ babel-preset-jest@^26.6.2:
     babel-plugin-jest-hoist "^26.6.2"
     babel-preset-current-node-syntax "^1.0.0"
 
-babel-runtime@^6.26.0:
-  version "6.26.0"
-  resolved "https://registry.npmmirror.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
-  integrity sha512-ITKNuq2wKlW1fJg9sSW52eepoYgZBggvOAHC0u/CYu/qxQ9EVzThCgR69BnSXLHjy2f7SY5zaQ4yt7H9ZVxY2g==
-  dependencies:
-    core-js "^2.4.0"
-    regenerator-runtime "^0.11.0"
-
 balanced-match@^1.0.0:
   version "1.0.2"
   resolved "https://registry.npmmirror.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
@@ -3016,11 +2870,6 @@ big.js@^5.2.2:
   version "5.2.2"
   resolved "https://registry.npmmirror.com/big.js/-/big.js-5.2.2.tgz#65f0af382f578bcdc742bd9c281e9cb2d7768328"
   integrity sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==
-
-bignumber.js@^9.0.1:
-  version "9.0.2"
-  resolved "https://registry.npmmirror.com/bignumber.js/-/bignumber.js-9.0.2.tgz#71c6c6bed38de64e24a65ebe16cfcf23ae693673"
-  integrity sha512-GAcQvbpsM0pUb0zw1EI0KhQEZ+lRwR5fYaAp3vPOYuP7aDvGy6cVN6XHLauvF8SOga2y0dcLcjt3iQDTSEliyw==
 
 binary-extensions@^1.0.0:
   version "1.13.1"
@@ -3842,11 +3691,6 @@ core-js-pure@^3.20.2:
   resolved "https://registry.npmmirror.com/core-js-pure/-/core-js-pure-3.23.3.tgz#bcd02d3d8ec68ad871ef50d5ccbb248ddb54f401"
   integrity sha512-XpoouuqIj4P+GWtdyV8ZO3/u4KftkeDVMfvp+308eGMhCrA3lVDSmAxO0c6GGOcmgVlaKDrgWVMo49h2ab/TDA==
 
-core-js@^2.4.0:
-  version "2.6.12"
-  resolved "https://registry.npmmirror.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
-  integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
-
 core-util-is@~1.0.0:
   version "1.0.3"
   resolved "https://registry.npmmirror.com/core-util-is/-/core-util-is-1.0.3.tgz#a6042d3634c2b27e9328f837b965fac83808db85"
@@ -4114,7 +3958,7 @@ dateformat@^4.5.1:
   resolved "https://registry.npmmirror.com/dateformat/-/dateformat-4.6.3.tgz#556fa6497e5217fedb78821424f8a1c22fa3f4b5"
   integrity sha512-2P0p0pFGzHS5EMnhdxQi7aJN+iMheud0UhG4dlE1DLAlvL8JHjJJTX/CSm4JXwV0Ka5nGk3zC5mcb5bUQUxxMA==
 
-dayjs@1.x, dayjs@^1.9.6:
+dayjs@1.x:
   version "1.11.3"
   resolved "https://registry.npmmirror.com/dayjs/-/dayjs-1.11.3.tgz#4754eb694a624057b9ad2224b67b15d552589258"
   integrity sha512-xxwlswWOlGhzgQ4TKzASQkUhqERI3egRNqgV4ScR8wlANA/A9tZ7miXa44vTTKEq5l7vWoL5G57bG3zA+Kow0A==
@@ -4387,13 +4231,6 @@ dom-converter@^0.2.0:
   integrity sha512-gd3ypIPfOMr9h5jIKq8E3sHOTCjeirnl0WK5ZdS1AW0Odt0b1PaWaHdJ4Qk4klv+YB9aJBS7mESXjFoDQPu6DA==
   dependencies:
     utila "~0.4"
-
-dom-helpers@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.npmmirror.com/dom-helpers/-/dom-helpers-3.4.0.tgz#e9b369700f959f62ecde5a6babde4bccd9169af8"
-  integrity sha512-LnuPJ+dwqKDIyotW1VzmOZ5TONUN7CwkCR5hrgawTUbkBGYdeoNLZo6nNfGkCrjtE1nXXaj7iMMpDa8/d9WoIA==
-  dependencies:
-    "@babel/runtime" "^7.1.2"
 
 dom-serializer@^1.0.1:
   version "1.4.1"
@@ -7659,11 +7496,6 @@ lodash-es@^4.17.15:
   resolved "https://registry.npmmirror.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
   integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
-lodash.clonedeep@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.npmmirror.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
-  integrity sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==
-
 lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "https://registry.npmmirror.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
@@ -9578,17 +9410,6 @@ rc-table@~7.24.0:
     rc-util "^5.14.0"
     shallowequal "^1.1.0"
 
-rc-table@~7.25.0:
-  version "7.25.0"
-  resolved "https://registry.npmmirror.com/rc-table/-/rc-table-7.25.0.tgz#d672d4b38aea08cc7fea3808aa4b951842977446"
-  integrity sha512-nEFzG75++c7UCBdGPeG3SsE1PlBOyQvimZLPokcJegHqrDY7f3ZSyeNclFqojCFF4+fFRh4xrS0Spzs67xOuxA==
-  dependencies:
-    "@babel/runtime" "^7.10.1"
-    classnames "^2.2.5"
-    rc-resize-observer "^1.1.0"
-    rc-util "^5.14.0"
-    shallowequal "^1.1.0"
-
 rc-tabs@~11.16.0:
   version "11.16.0"
   resolved "https://registry.npmmirror.com/rc-tabs/-/rc-tabs-11.16.0.tgz#12447069ea1dc480c729e1e40661cfbd46ac4efe"
@@ -9783,14 +9604,6 @@ react-sortable-hoc@^2.0.0:
     invariant "^2.2.4"
     prop-types "^15.5.7"
 
-react-sticky-box@^0.9.3:
-  version "0.9.3"
-  resolved "https://registry.npmmirror.com/react-sticky-box/-/react-sticky-box-0.9.3.tgz#8450d4cef8e4fdd7b0351520365bc98c97da11af"
-  integrity sha512-Y/qO7vTqAvXuRR6G6ZCW4fX2Bz0GZRwiiLTVeZN5CVz9wzs37ev0Xj3KSKF/PzF0jifwATivI4t24qXG8rSz4Q==
-  dependencies:
-    "@babel/runtime" "^7.1.5"
-    resize-observer-polyfill "^1.5.1"
-
 react-sticky-box@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npmmirror.com/react-sticky-box/-/react-sticky-box-1.0.2.tgz#7e72a0f237bdf8270cec9254337f49519a411174"
@@ -9812,16 +9625,6 @@ react-tiny-popover@^6.0.5:
   version "6.0.10"
   resolved "https://registry.npmmirror.com/react-tiny-popover/-/react-tiny-popover-6.0.10.tgz#6167a1b4a1ae6cf847d2909057defd00d95d726c"
   integrity sha512-ECMucd701SxWHGa+2YuVvccCxxTjmhomcD0ZYTF+Qmi5qNAj8pdlExFN+k+p1G78QTYIGPGNLocxRb9f6cZ0Mw==
-
-react-transition-group@^2.2.1:
-  version "2.9.0"
-  resolved "https://registry.npmmirror.com/react-transition-group/-/react-transition-group-2.9.0.tgz#df9cdb025796211151a436c69a8f3b97b5b07c8d"
-  integrity sha512-+HzNTCHpeQyl4MJ/bdE0u6XRMe9+XG/+aL4mCxVN4DnPBQ0/5bfHWPDuOZUzYdMj94daZaZdCCc1Dzt9R/xSSg==
-  dependencies:
-    dom-helpers "^3.4.0"
-    loose-envify "^1.4.0"
-    prop-types "^15.6.2"
-    react-lifecycles-compat "^3.0.4"
 
 react@^17.0.1, react@^17.0.2:
   version "17.0.2"
@@ -9957,11 +9760,6 @@ regenerate@^1.4.2:
   version "1.4.2"
   resolved "https://registry.npmmirror.com/regenerate/-/regenerate-1.4.2.tgz#b9346d8827e8f5a32f7ba29637d398b69014848a"
   integrity sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A==
-
-regenerator-runtime@^0.11.0:
-  version "0.11.1"
-  resolved "https://registry.npmmirror.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
-  integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
 
 regenerator-runtime@^0.13.4:
   version "0.13.9"
@@ -10490,13 +10288,6 @@ shallow-clone@^3.0.0:
   integrity sha512-/6KqX+GVUdqPuPPd2LxDDxzX6CAbjJehAAOKlNpqqUpAqPM6HeL8f+o3a+JsyGjn2lv0WY8UsTgUJjU9Ok55NA==
   dependencies:
     kind-of "^6.0.2"
-
-shallow-element-equals@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmmirror.com/shallow-element-equals/-/shallow-element-equals-1.0.1.tgz#50739b7d94ad7567a134173d3f4422387ed57ce6"
-  integrity sha512-TwyvU5ZIISuZAmX7juTupVggTW9avkp+Swz0amKicADbQrnhP5kAPkPbL8gKSFv9QkkzhTg2u3Se6TjGhn1xlQ==
-  dependencies:
-    style-equal "^1.0.0"
 
 shallow-equal@^1.2.0:
   version "1.2.1"
@@ -11032,11 +10823,6 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.npmmirror.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha512-4gB8na07fecVVkOI6Rs4e7T6NOTki5EmL7TUduTs6bu3EdnSycntVJ4re8kgZA+wx9IueI2Y11bfbgwtzuE0KQ==
-
-style-equal@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmmirror.com/style-equal/-/style-equal-1.0.0.tgz#98a1c5922226bfe13c196e73f1940e91b8e66595"
-  integrity sha512-gf20kfwh7eXsgPcwvYqViCBHr+GXIlpXOZR1wQftNH4/ee2P/yolWUVA/MdMdmMp+0BMfvaMKSIR1DQlY64Btw==
 
 style-loader@^1.1.3:
   version "1.3.0"
