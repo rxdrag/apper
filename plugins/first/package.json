@@ -5,7 +5,7 @@
   },
   "scripts": {
     "build": "rimraf dist && webpack-cli --config config/webpack.prod.ts",
-    "start": "webpack-dev-server --config config/webpack.dev.ts"
+    "start": "webpack-dev-server --config config/webpack.dev.ts && node print.js"
   },
   "resolutions": {
     "@types/react": "^17.0.0",

@@ -35,34 +35,8 @@ import { saveSchema } from './service'
 import {
   Form,
   Field,
-  Input,
-  Select,
-  TreeSelect,
-  Cascader,
-  Radio,
-  Checkbox,
-  Slider,
-  Rate,
-  NumberPicker,
-  Transfer,
-  Password,
-  DatePicker,
-  TimePicker,
-  Upload,
-  Switch,
-  Text,
-  Card,
-  ArrayCards,
-  ObjectContainer,
-  ArrayTable,
-  Space,
-  FormTab,
-  FormCollapse,
-  FormLayout,
-  FormGrid,
 } from '@designable/formily-antd'
 import { CompositePanel } from './panels/CompositePanel'
-import { MaterialSearchWidget } from './material/MaterialSearchWidget'
 import { ViewPanel } from './panels/ViewPanel'
 import { MaterialPanel } from './material/MaterialPanel'
 import { convertMaterialsToComponents } from './material/model'
@@ -99,7 +73,55 @@ GlobalRegistry.registerDesignerLocales({
   },
 })
 
+/**
+ * 动态加载js文件
+ * @param {*} src
+ * @param {*} callback
+ *   loadScript("",function(){
+ *   console.log("加载成功")
+ * })
+ * var that = this; 在方法里面使用that
+ */
+function loadJS(
+  src: string,
+  callback: (this: HTMLScriptElement, ev: Event) => void,
+  isCache = false
+): void {
+  const script = document.createElement("script");
+  script.type = "text/JavaScript";
+  if (isCache) {
+    script.src = src + "?t=" + new Date().getTime();
+  } else {
+    script.src = src;
+  }
+  if (script.addEventListener) {
+    script.addEventListener("load", callback);
+    script.addEventListener("error",(e)=>{
+      console.error("哈哈", e)
+    });
+  }
+
+  document.head.appendChild(script);
+}
+
+declare function haha():void;
+
 const App = () => {
+
+  /*
+  Promise.all(
+  Array.from({ length: 10 }).map((_, index) =>
+    import(`/modules/module-${index}.js`)
+  )import { haha } from './../../../plugins/first/src/index';
+
+).then((modules) => modules.forEach((module) => module.load()));
+*/
+  let modulePath = "http://127.0.0.1:4000/index.js";
+  loadJS(modulePath, ()=>{
+    console.log("加载的回调3")
+    console.log(haha)
+    haha()
+  }, true)
   const engine = useMemo(
     () =>
       createDesigner({
@@ -178,3 +200,5 @@ const App = () => {
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
+
+
