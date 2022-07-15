@@ -14,7 +14,8 @@
     "experimentalDecorators": true,
     "downlevelIteration": true,
     "baseUrl": "."
-  },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
-  "exclude": ["./src/__tests__/*", "./esm/*", "./lib/*"]
+    // "paths": {
+    //   "@designable/*": ["./packages/*/src"]
+    // }
+  }
 }

@@ -5,8 +5,7 @@
   },
   "private": true,
   "workspaces": [
-    "packages/*",
-    "plugins/*"
+    "packages/*"
   ],
   "scripts": {
     "build": "rimraf dist && webpack-cli --config config/webpack.prod.ts",
