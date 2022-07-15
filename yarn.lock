@@ -45,6 +45,18 @@
     omit.js "^2.0.2"
     rc-util "^5.4.0"
 
+"@ant-design/pro-card@1.20.13":
+  version "1.20.13"
+  resolved "https://registry.npmmirror.com/@ant-design/pro-card/-/pro-card-1.20.13.tgz#dcc0feb34f6d7c34cc2965dd02f2d6b4f75ae66e"
+  integrity sha512-Av4QYSuxZPzUGyoR2Gmz5Dnl2+2UUnPrS/7JA7Y/5HqZBzXMYdd6T4Wk3KAMoX+NmOuBtDM28jWGcvPRVKoCMg==
+  dependencies:
+    "@ant-design/icons" "^4.2.1"
+    "@ant-design/pro-utils" "1.42.5"
+    "@babel/runtime" "^7.18.0"
+    classnames "^2.2.6"
+    omit.js "^2.0.2"
+    rc-util "^5.4.0"
+
 "@ant-design/pro-components@^1.1.8":
   version "1.1.8"
   resolved "https://registry.npmmirror.com/@ant-design/pro-components/-/pro-components-1.1.8.tgz#080c0a42caf2a670d4a37f14e5354fd88255aa83"
@@ -62,6 +74,37 @@
     "@ant-design/pro-utils" "1.42.4"
     "@babel/runtime" "^7.16.3"
     antd ">=4.0"
+
+"@ant-design/pro-components@^1.1.9":
+  version "1.1.10"
+  resolved "https://registry.npmmirror.com/@ant-design/pro-components/-/pro-components-1.1.10.tgz#ed20270df623d6adbf1f018309072de840c74b09"
+  integrity sha512-3jMMMyWYApMIFUDJiYWz/yBr4wNnOSJtVYGMiKY7fJGUbEaUxuYN/jv7u1b97A04TRdxScMJEtBQauHCeiKgEQ==
+  dependencies:
+    "@ant-design/pro-card" "1.20.13"
+    "@ant-design/pro-descriptions" "1.11.10"
+    "@ant-design/pro-field" "1.34.20"
+    "@ant-design/pro-form" "1.70.3"
+    "@ant-design/pro-layout" "6.38.13"
+    "@ant-design/pro-list" "1.21.73"
+    "@ant-design/pro-provider" "1.9.0"
+    "@ant-design/pro-skeleton" "1.0.9"
+    "@ant-design/pro-table" "2.77.3"
+    "@ant-design/pro-utils" "1.42.5"
+    "@babel/runtime" "^7.16.3"
+    antd ">=4.0"
+
+"@ant-design/pro-descriptions@1.11.10":
+  version "1.11.10"
+  resolved "https://registry.npmmirror.com/@ant-design/pro-descriptions/-/pro-descriptions-1.11.10.tgz#14ca3fb554dd3ece45ee81962ad74c0e3e0b69f5"
+  integrity sha512-/2SczVSvSqkNKXELc3tsjGypqKdPUDleBBe4Qg/dP8aHk0hmbRBCSBMktuCJ0kIeEJsBsSCnlJkS+R0roXYByw==
+  dependencies:
+    "@ant-design/pro-field" "1.34.20"
+    "@ant-design/pro-form" "1.70.3"
+    "@ant-design/pro-skeleton" "1.0.9"
+    "@ant-design/pro-utils" "1.42.5"
+    "@babel/runtime" "^7.18.0"
+    rc-util "^5.0.6"
+    use-json-comparison "^1.0.5"
 
 "@ant-design/pro-descriptions@1.11.8":
   version "1.11.8"
@@ -93,6 +136,23 @@
     rc-util "^5.4.0"
     swr "^1.2.0"
 
+"@ant-design/pro-field@1.34.20":
+  version "1.34.20"
+  resolved "https://registry.npmmirror.com/@ant-design/pro-field/-/pro-field-1.34.20.tgz#6d8e0d10337f424ff1ec8622db44b343d33760a0"
+  integrity sha512-/NqXLOwx2erx1HFMh1ydHlBCuhPLpvdm3tMacRxiH5h0QKhoDergGy4+ULLe7hT5FWdbjtI7es0xWUe2+HhMUg==
+  dependencies:
+    "@ant-design/icons" "^4.2.1"
+    "@ant-design/pro-provider" "1.9.0"
+    "@ant-design/pro-utils" "1.42.5"
+    "@babel/runtime" "^7.18.0"
+    "@chenshuai2144/sketch-color" "^1.0.8"
+    classnames "^2.2.6"
+    lodash.tonumber "^4.0.3"
+    moment "^2.27.0"
+    omit.js "^2.0.2"
+    rc-util "^5.4.0"
+    swr "^1.2.0"
+
 "@ant-design/pro-form@1.70.1":
   version "1.70.1"
   resolved "https://registry.npmmirror.com/@ant-design/pro-form/-/pro-form-1.70.1.tgz#fd44fb1e00ad487683f20f19bc56db7ed925a16c"
@@ -102,6 +162,25 @@
     "@ant-design/pro-field" "1.34.19"
     "@ant-design/pro-provider" "1.8.1"
     "@ant-design/pro-utils" "1.42.4"
+    "@babel/runtime" "^7.18.0"
+    "@umijs/use-params" "^1.0.9"
+    classnames "^2.2.6"
+    lodash.merge "^4.6.2"
+    omit.js "^2.0.2"
+    rc-resize-observer "^1.1.0"
+    rc-util "^5.0.6"
+    use-json-comparison "^1.0.5"
+    use-media-antd-query "^1.1.0"
+
+"@ant-design/pro-form@1.70.3":
+  version "1.70.3"
+  resolved "https://registry.npmmirror.com/@ant-design/pro-form/-/pro-form-1.70.3.tgz#3bfd377cac6ba9055acf4f40a9d988713d9ba12c"
+  integrity sha512-uJ+GxYhM5oKX681KiEDE2soG/sJDU3JTo+dov3AFYOjwbKue+/CAfAZ1d1JnVS3sglTKJ98kSxg+/1Ft9UR/pQ==
+  dependencies:
+    "@ant-design/icons" "^4.2.1"
+    "@ant-design/pro-field" "1.34.20"
+    "@ant-design/pro-provider" "1.9.0"
+    "@ant-design/pro-utils" "1.42.5"
     "@babel/runtime" "^7.18.0"
     "@umijs/use-params" "^1.0.9"
     classnames "^2.2.6"
@@ -136,6 +215,30 @@
     use-media-antd-query "^1.1.0"
     warning "^4.0.3"
 
+"@ant-design/pro-layout@6.38.13":
+  version "6.38.13"
+  resolved "https://registry.npmmirror.com/@ant-design/pro-layout/-/pro-layout-6.38.13.tgz#a8282ad05a05ee9f1777407993a530999a38419a"
+  integrity sha512-ZNUUJow0pLxOqkuPIGDJJw9FqPYX5Pu/iz5kBRz9vxSakJUylrtg4GWVVuMqZlSbEpRdPdr4WCx0Jz78R4IPmQ==
+  dependencies:
+    "@ant-design/icons" "^4.0.0"
+    "@ant-design/pro-provider" "1.9.0"
+    "@ant-design/pro-utils" "1.42.5"
+    "@babel/runtime" "^7.18.0"
+    "@umijs/route-utils" "^2.1.0"
+    "@umijs/ssr-darkreader" "^4.9.44"
+    "@umijs/use-params" "^1.0.9"
+    classnames "^2.2.6"
+    lodash.merge "^4.6.2"
+    omit.js "^2.0.2"
+    path-to-regexp "2.4.0"
+    rc-resize-observer "^1.1.0"
+    rc-util "^5.0.6"
+    swr "^1.2.0"
+    unstated-next "^1.1.0"
+    use-json-comparison "^1.0.3"
+    use-media-antd-query "^1.1.0"
+    warning "^4.0.3"
+
 "@ant-design/pro-list@1.21.71":
   version "1.21.71"
   resolved "https://registry.npmmirror.com/@ant-design/pro-list/-/pro-list-1.21.71.tgz#2d62fef71a546f43a21fc4341b9c21dbc3d91b4f"
@@ -153,10 +256,36 @@
     unstated-next "^1.1.0"
     use-media-antd-query "^1.1.0"
 
+"@ant-design/pro-list@1.21.73":
+  version "1.21.73"
+  resolved "https://registry.npmmirror.com/@ant-design/pro-list/-/pro-list-1.21.73.tgz#2808b06f001dc4fbd58da794082c9b49d47593a9"
+  integrity sha512-TifcYSH9MPmDOiiaUXCSyK4kEXQRZrYCQC0TUYP2xZ4nsHtO0SOrj4NR0NdjuPZYGA9aSkSY/tlJhEIlrZDw5A==
+  dependencies:
+    "@ant-design/icons" "^4.0.0"
+    "@ant-design/pro-card" "1.20.13"
+    "@ant-design/pro-field" "1.34.20"
+    "@ant-design/pro-table" "2.77.3"
+    "@babel/runtime" "^7.18.0"
+    classnames "^2.2.6"
+    moment "^2.24.0"
+    rc-resize-observer "^1.0.0"
+    rc-util "^4.19.0"
+    unstated-next "^1.1.0"
+    use-media-antd-query "^1.1.0"
+
 "@ant-design/pro-provider@1.8.1":
   version "1.8.1"
   resolved "https://registry.npmmirror.com/@ant-design/pro-provider/-/pro-provider-1.8.1.tgz#305ea8beea5143afe56cb9578ef019fd22ca4bb0"
   integrity sha512-U9rsZvpuSB7u36iJUZYM0IioYsrFNIKM1P9Z3pm2du/fbj1qypyrBWx4VS/ALk1B17W7vVPymn95qb7MTb7BQw==
+  dependencies:
+    "@babel/runtime" "^7.18.0"
+    rc-util "^5.0.1"
+    swr "^1.2.0"
+
+"@ant-design/pro-provider@1.9.0":
+  version "1.9.0"
+  resolved "https://registry.npmmirror.com/@ant-design/pro-provider/-/pro-provider-1.9.0.tgz#879989e0bef17a1d1a682522e42afe085bf94ed3"
+  integrity sha512-2coPdBMVBapUkjm5vaRhavo9PnrxaADCHvn6PIbPaL/AUflgGBGNlxny0vIjXav8ZFrFaqP2XLa23tv/MLXcQQ==
   dependencies:
     "@babel/runtime" "^7.18.0"
     rc-util "^5.0.1"
@@ -191,6 +320,27 @@
     use-json-comparison "^1.0.5"
     use-media-antd-query "^1.1.0"
 
+"@ant-design/pro-table@2.77.3":
+  version "2.77.3"
+  resolved "https://registry.npmmirror.com/@ant-design/pro-table/-/pro-table-2.77.3.tgz#f3b11a5208acfa4a79bdc93c39339810d93f8d24"
+  integrity sha512-HuPIvppKYL5+ImOPSdTqai+L+dwCXOBfcj6dIAL4OYGv7/znEF2/5aF7y2du2RZfRB7JGMgiStKrroPrVAhycQ==
+  dependencies:
+    "@ant-design/icons" "^4.1.0"
+    "@ant-design/pro-card" "1.20.13"
+    "@ant-design/pro-field" "1.34.20"
+    "@ant-design/pro-form" "1.70.3"
+    "@ant-design/pro-provider" "1.9.0"
+    "@ant-design/pro-utils" "1.42.5"
+    "@babel/runtime" "^7.18.0"
+    classnames "^2.2.6"
+    moment "^2.24.0"
+    omit.js "^2.0.2"
+    rc-util "^5.0.1"
+    react-sortable-hoc "^2.0.0"
+    unstated-next "^1.1.0"
+    use-json-comparison "^1.0.5"
+    use-media-antd-query "^1.1.0"
+
 "@ant-design/pro-utils@1.42.4":
   version "1.42.4"
   resolved "https://registry.npmmirror.com/@ant-design/pro-utils/-/pro-utils-1.42.4.tgz#93c9ba77fb55855db2e8ba8727ce3372e4958989"
@@ -198,6 +348,20 @@
   dependencies:
     "@ant-design/icons" "^4.3.0"
     "@ant-design/pro-provider" "1.8.1"
+    "@babel/runtime" "^7.18.0"
+    classnames "^2.2.6"
+    moment "^2.27.0"
+    rc-util "^5.0.6"
+    react-sortable-hoc "^2.0.0"
+    swr "^1.2.0"
+
+"@ant-design/pro-utils@1.42.5":
+  version "1.42.5"
+  resolved "https://registry.npmmirror.com/@ant-design/pro-utils/-/pro-utils-1.42.5.tgz#5e525a048c456720f49acafc3467f49f8ac3d245"
+  integrity sha512-0srMbvsKOfIGdWbJrSsdECHlu2DvinEl4WwlOe4z6fpQQ0kzXfXhYYwNfPw+q5Wb75Mq1KC7kHrYF6wPZclEdQ==
+  dependencies:
+    "@ant-design/icons" "^4.3.0"
+    "@ant-design/pro-provider" "1.9.0"
     "@babel/runtime" "^7.18.0"
     classnames "^2.2.6"
     moment "^2.27.0"
@@ -1153,7 +1317,7 @@
     core-js-pure "^3.20.2"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.1", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.4", "@babel/runtime@^7.11.1", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.18.0", "@babel/runtime@^7.18.3", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.5", "@babel/runtime@^7.10.1", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.4", "@babel/runtime@^7.11.1", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.18.0", "@babel/runtime@^7.18.3", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.8.3", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.18.6"
   resolved "https://registry.npmmirror.com/@babel/runtime/-/runtime-7.18.6.tgz#6a1ef59f838debd670421f8c7f2cbb8da9751580"
   integrity sha512-t9wi7/AW6XtKahAe20Yw0/mMljKq0B1r2fPdvaAdV/KPDZewFXdaaa6K7lxmZBZ8FBNpCiAT6iHPmd6QO9bKfQ==
@@ -1336,6 +1500,22 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@formily/antd@^2.0.2":
+  version "2.1.10"
+  resolved "https://registry.npmmirror.com/@formily/antd/-/antd-2.1.10.tgz#628fca964e8be47c81d1d130cdc414269d92c675"
+  integrity sha512-NBoLg3qllCbH4w8xfJeT22vSyxF3GMxDjpRzDtrKf8unhV8/hjCzAlS9/fcSSeauhL/FnlhgCEvr5oevJqyrMQ==
+  dependencies:
+    "@formily/core" "2.1.10"
+    "@formily/grid" "2.1.10"
+    "@formily/json-schema" "2.1.10"
+    "@formily/react" "2.1.10"
+    "@formily/reactive" "2.1.10"
+    "@formily/reactive-react" "2.1.10"
+    "@formily/shared" "2.1.10"
+    classnames "^2.2.6"
+    react-sortable-hoc "^1.11.0"
+    react-sticky-box "^0.9.3"
+
 "@formily/antd@^2.1.9":
   version "2.1.9"
   resolved "https://registry.npmmirror.com/@formily/antd/-/antd-2.1.9.tgz#2cf3ee08ba630423241564e02d50914a03a9aa90"
@@ -1352,6 +1532,15 @@
     react-sortable-hoc "^1.11.0"
     react-sticky-box "^1.0.2"
 
+"@formily/core@2.1.10", "@formily/core@^2.0.2":
+  version "2.1.10"
+  resolved "https://registry.npmmirror.com/@formily/core/-/core-2.1.10.tgz#79dfd83b0ea7dc01fcd9b32aef51ec0c2db011ce"
+  integrity sha512-OTzqzCwz+jTRrPFzWK7JZhXNx3/BBbJr1NwoCDnQjrKlTF/1FNWXMjcfk/KDDPtsPWd/6d/RTTKniVznx1m3Xg==
+  dependencies:
+    "@formily/reactive" "2.1.10"
+    "@formily/shared" "2.1.10"
+    "@formily/validator" "2.1.10"
+
 "@formily/core@2.1.9", "@formily/core@^2.1.9":
   version "2.1.9"
   resolved "https://registry.npmmirror.com/@formily/core/-/core-2.1.9.tgz#ecb5e9d490986349dc59204c05f9b3a98377450a"
@@ -1361,6 +1550,14 @@
     "@formily/shared" "2.1.9"
     "@formily/validator" "2.1.9"
 
+"@formily/grid@2.1.10":
+  version "2.1.10"
+  resolved "https://registry.npmmirror.com/@formily/grid/-/grid-2.1.10.tgz#f2c85219a141b7ede1b4b721a04056cdb87a38fe"
+  integrity sha512-WLn7qkSfkyrz5zCDXqSR7SgjsEAmF8prZoyU7h67ekxCeVfvOPl8fWfXix+2VRpo3Y7PDG35iMri6xXf1VjX4A==
+  dependencies:
+    "@formily/reactive" "2.1.10"
+    "@juggle/resize-observer" "^3.3.1"
+
 "@formily/grid@2.1.9":
   version "2.1.9"
   resolved "https://registry.npmmirror.com/@formily/grid/-/grid-2.1.9.tgz#6fd32070fb78a7741ff71bb8fa56c19abac12eb1"
@@ -1368,6 +1565,15 @@
   dependencies:
     "@formily/reactive" "2.1.9"
     "@juggle/resize-observer" "^3.3.1"
+
+"@formily/json-schema@2.1.10":
+  version "2.1.10"
+  resolved "https://registry.npmmirror.com/@formily/json-schema/-/json-schema-2.1.10.tgz#96823d7f6e4becfe341801115a43f496ebb9b8a9"
+  integrity sha512-LsIdNGO5TTuzC6/Uena4VkTySFilLgY+N9tPAxVj7k7YekvcqXXPZgnIntHwKCzKDpnyaiqlw+DAT6tMxmfnLg==
+  dependencies:
+    "@formily/core" "2.1.10"
+    "@formily/reactive" "2.1.10"
+    "@formily/shared" "2.1.10"
 
 "@formily/json-schema@2.1.9":
   version "2.1.9"
@@ -1378,10 +1584,28 @@
     "@formily/reactive" "2.1.9"
     "@formily/shared" "2.1.9"
 
+"@formily/path@2.1.10":
+  version "2.1.10"
+  resolved "https://registry.npmmirror.com/@formily/path/-/path-2.1.10.tgz#e4051378b39e69c20309769433506c6f71ca093d"
+  integrity sha512-KM1yb3CrrBz+qim7IAmtEd4meMrXmHe5YDn9n12vlob8cpjrGPBTNB8nKStF64lwPTT/+CeMC6aEahd0wrK+dw==
+
 "@formily/path@2.1.9":
   version "2.1.9"
   resolved "https://registry.npmmirror.com/@formily/path/-/path-2.1.9.tgz#bba0ae4c2ce19e43cd3927f4b3a15865d50b99cb"
   integrity sha512-oMCKu6v5IoZiNAq7mKeXUDJagEquBhgkJ5kskvuMPjGCWBQQiAOCLtLMBSDWwTk7gAjpl6S9sxQmxHGvPzDGsg==
+
+"@formily/react@2.1.10", "@formily/react@^2.0.2":
+  version "2.1.10"
+  resolved "https://registry.npmmirror.com/@formily/react/-/react-2.1.10.tgz#9f4d005e6bf027185ad44bc685fd3ffb5767f742"
+  integrity sha512-9yHwaOx4D/53nCpvSZ6MlB9WvZgt6LITzkKFdk+yrMTwYdT8P1nuIHBDtWBv0a45uWfnUnIZkVbOdWOgjeoLnQ==
+  dependencies:
+    "@formily/core" "2.1.10"
+    "@formily/json-schema" "2.1.10"
+    "@formily/reactive" "2.1.10"
+    "@formily/reactive-react" "2.1.10"
+    "@formily/shared" "2.1.10"
+    "@formily/validator" "2.1.10"
+    hoist-non-react-statics "^3.3.2"
 
 "@formily/react@2.1.9":
   version "2.1.9"
@@ -1396,6 +1620,14 @@
     "@formily/validator" "2.1.9"
     hoist-non-react-statics "^3.3.2"
 
+"@formily/reactive-react@2.1.10":
+  version "2.1.10"
+  resolved "https://registry.npmmirror.com/@formily/reactive-react/-/reactive-react-2.1.10.tgz#9a56adbe00e852096dc69aa54c12f57bddd336e0"
+  integrity sha512-2aBnXUj5mwEEoKMB//Jwt+OvGqYMTtw5kH1wHmxaAY3skDdz9FOoegmLqkTaZ7gh1oZj7CQ3+NdgowF4ETFrcA==
+  dependencies:
+    "@formily/reactive" "2.1.10"
+    hoist-non-react-statics "^3.3.2"
+
 "@formily/reactive-react@2.1.9", "@formily/reactive-react@^2.0.2":
   version "2.1.9"
   resolved "https://registry.npmmirror.com/@formily/reactive-react/-/reactive-react-2.1.9.tgz#34a1623511d03ac7893623338a428889a908f006"
@@ -1404,10 +1636,28 @@
     "@formily/reactive" "2.1.9"
     hoist-non-react-statics "^3.3.2"
 
+"@formily/reactive@2.1.10":
+  version "2.1.10"
+  resolved "https://registry.npmmirror.com/@formily/reactive/-/reactive-2.1.10.tgz#d805e27f8d9a395047bebd2109757924ee170d92"
+  integrity sha512-pjdR1i8S5bOPpVpIGagDgOvncTrYAKwbtNheXAunz/iCI90i/Ad7x/9OV7GKcqLN/1HX2CsO56J9CGWwi8BhoA==
+
 "@formily/reactive@2.1.9", "@formily/reactive@^2.0.2":
   version "2.1.9"
   resolved "https://registry.npmmirror.com/@formily/reactive/-/reactive-2.1.9.tgz#f4619a4521a068d9dc4a9f0a01254a75c3d5168d"
   integrity sha512-rpZdf0FhhNsE7mepEqsSDYF+HW6VSYBHbJYwDnaymRT4NWrvpBjB88aFvgoKbJ2udM/5GLB5fji5Kf6toV8cpg==
+
+"@formily/shared@2.1.10", "@formily/shared@^2.0.2":
+  version "2.1.10"
+  resolved "https://registry.npmmirror.com/@formily/shared/-/shared-2.1.10.tgz#5aa48800790a20b3b1fb8593f7d9b84a5e63713d"
+  integrity sha512-ZEsGd6x/QdBktGH/VLoZCgbxaJlILJCr26TnwhLcEKCo/4QRbh11yGmWITCpLwFl84AozAHoa8wfr+MD9v/Xiw==
+  dependencies:
+    "@formily/path" "2.1.10"
+    camel-case "^4.1.1"
+    lower-case "^2.0.1"
+    no-case "^3.0.4"
+    param-case "^3.0.4"
+    pascal-case "^3.1.1"
+    upper-case "^2.0.1"
 
 "@formily/shared@2.1.9", "@formily/shared@^2.1.9":
   version "2.1.9"
@@ -1421,6 +1671,13 @@
     param-case "^3.0.4"
     pascal-case "^3.1.1"
     upper-case "^2.0.1"
+
+"@formily/validator@2.1.10":
+  version "2.1.10"
+  resolved "https://registry.npmmirror.com/@formily/validator/-/validator-2.1.10.tgz#133ac76c7a2749f59ea2b9c6e8f70d57bed5c7a3"
+  integrity sha512-p25uj/BtIj2fa2CUm7mgU4e4aLSqppgm7xhpEbZ6TP/TuU462TwtYdNjNcHrpRxwB41FxgWYjhFPNnCsSGQqKA==
+  dependencies:
+    "@formily/shared" "2.1.10"
 
 "@formily/validator@2.1.9":
   version "2.1.9"
@@ -1913,7 +2170,7 @@
   dependencies:
     jest-diff "^24.3.0"
 
-"@types/json-schema@^7.0.5", "@types/json-schema@^7.0.7", "@types/json-schema@^7.0.8":
+"@types/json-schema@^7.0.5", "@types/json-schema@^7.0.7", "@types/json-schema@^7.0.8", "@types/json-schema@^7.0.9":
   version "7.0.11"
   resolved "https://registry.npmmirror.com/@types/json-schema/-/json-schema-7.0.11.tgz#d421b6c527a3037f7c84433fd2c4229e016863d3"
   integrity sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==
@@ -2327,10 +2584,24 @@ ajv-errors@^1.0.0:
   resolved "https://registry.npmmirror.com/ajv-errors/-/ajv-errors-1.0.1.tgz#f35986aceb91afadec4102fbd85014950cefa64d"
   integrity sha512-DCRfO/4nQ+89p/RK43i8Ezd41EqdGIU4ld7nGF8OQ14oc/we5rEntLCUa7+jrn3nn83BosfwZA0wb4pon2o8iQ==
 
+ajv-formats@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/ajv-formats/-/ajv-formats-2.1.1.tgz#6e669400659eb74973bbf2e33327180a0996b520"
+  integrity sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==
+  dependencies:
+    ajv "^8.0.0"
+
 ajv-keywords@^3.1.0, ajv-keywords@^3.4.1, ajv-keywords@^3.5.2:
   version "3.5.2"
   resolved "https://registry.npmmirror.com/ajv-keywords/-/ajv-keywords-3.5.2.tgz#31f29da5ab6e00d1c2d329acf7b5929614d5014d"
   integrity sha512-5p6WTN0DdTGVQk6VjcEju19IgaHudalcfabD7yhDGeA6bcQnmL+CpveLJq/3hvfwd1aof6L386Ougkx6RfyMIQ==
+
+ajv-keywords@^5.0.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-5.1.0.tgz#69d4d385a4733cdbeab44964a1170a88f87f0e16"
+  integrity sha512-YCS/JNFAUyr5vAuhk1DWm1CBxRHW9LbJ2ozWeemrIqpbsqKjHVxYPyi5GC0rjZIT5JxJ3virVTS8wk4i/Z+krw==
+  dependencies:
+    fast-deep-equal "^3.1.3"
 
 ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.4, ajv@^6.12.5:
   version "6.12.6"
@@ -2342,7 +2613,7 @@ ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.4, ajv@^6.12.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-ajv@^8.0.1:
+ajv@^8.0.0, ajv@^8.0.1, ajv@^8.8.0:
   version "8.11.0"
   resolved "https://registry.npmmirror.com/ajv/-/ajv-8.11.0.tgz#977e91dd96ca669f54a11e23e378e33b884a565f"
   integrity sha512-wGgprdCvMalC0BztXvitD2hC04YffAvtsUn93JbGXYLAtCUO4xd17mCCZQxUOItiBwZvJScWo8NIvQMQ71rdpg==
@@ -2430,7 +2701,7 @@ ansi-styles@^5.0.0:
   resolved "https://registry.npmmirror.com/ansi-styles/-/ansi-styles-5.2.0.tgz#07449690ad45777d1924ac2abb2fc8895dba836b"
   integrity sha512-Cxwpt2SfTzTtXcfOlzGEee8O+c+MmUgGrNiBcXnuWxuFJHe6a5Hz7qwhwe5OgaSYI0IJvkLqWX1ASG+cJOkEiA==
 
-antd@>=4.0, antd@^4.15.2, antd@^4.21.5:
+antd@>=4.0, antd@^4.21.5:
   version "4.21.5"
   resolved "https://registry.npmmirror.com/antd/-/antd-4.21.5.tgz#32a6c604b9153f6fe69d3d5aa154de0da00165a4"
   integrity sha512-S6L29rmbiQvE4/kn1hPBscHFZ405Pbtuw3DCpXVnMt409JtY6sDaUbUcWfl4i21XkABEogKzqxjYVGogf1QIWQ==
@@ -2709,6 +2980,19 @@ atob@^2.1.2:
   version "2.1.2"
   resolved "https://registry.npmmirror.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
+
+autoprefixer@^9.0:
+  version "9.8.8"
+  resolved "https://registry.npmmirror.com/autoprefixer/-/autoprefixer-9.8.8.tgz#fd4bd4595385fa6f06599de749a4d5f7a474957a"
+  integrity sha512-eM9d/swFopRt5gdJ7jrpCwgvEMIayITpojhkkSMRsFHYuH5bkSQ4p/9qTEHtmNudUZh22Tehu7I6CxAW0IXTKA==
+  dependencies:
+    browserslist "^4.12.0"
+    caniuse-lite "^1.0.30001109"
+    normalize-range "^0.1.2"
+    num2fraction "^1.2.2"
+    picocolors "^0.2.1"
+    postcss "^7.0.32"
+    postcss-value-parser "^4.1.0"
 
 babel-core@^7.0.0-bridge.0:
   version "7.0.0-bridge.0"
@@ -3053,6 +3337,16 @@ browserify-zlib@^0.2.0:
   dependencies:
     pako "~1.0.5"
 
+browserslist@^4.12.0:
+  version "4.21.2"
+  resolved "https://registry.npmmirror.com/browserslist/-/browserslist-4.21.2.tgz#59a400757465535954946a400b841ed37e2b4ecf"
+  integrity sha512-MonuOgAtUB46uP5CezYbRaYKBNt2LxP0yX+Pmj4LkcDFGkn9Cbpi83d9sCjwQDErXsIJSzY5oKGDbgOlF/LPAA==
+  dependencies:
+    caniuse-lite "^1.0.30001366"
+    electron-to-chromium "^1.4.188"
+    node-releases "^2.0.6"
+    update-browserslist-db "^1.0.4"
+
 browserslist@^4.20.2, browserslist@^4.21.0:
   version "4.21.1"
   resolved "https://registry.npmmirror.com/browserslist/-/browserslist-4.21.1.tgz#c9b9b0a54c7607e8dc3e01a0d311727188011a00"
@@ -3237,6 +3531,11 @@ camelize@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmmirror.com/camelize/-/camelize-1.0.0.tgz#164a5483e630fa4321e5af07020e531831b2609b"
   integrity sha512-W2lPwkBkMZwFlPCXhIlYgxu+7gC/NUlCtdK652DAJ1JdgV0sTrvuPFshNPrFa1TY2JOkLhgdeEBplB4ezEa+xg==
+
+caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001366:
+  version "1.0.30001366"
+  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001366.tgz#c73352c83830a9eaf2dea0ff71fb4b9a4bbaa89c"
+  integrity sha512-yy7XLWCubDobokgzudpkKux8e0UOOnLHE6mlNJBzT3lZJz6s5atSEzjoL+fsCPkI0G8MP5uVdDx1ur/fXEWkZA==
 
 caniuse-lite@^1.0.30001359:
   version "1.0.30001363"
@@ -4324,6 +4623,11 @@ electron-to-chromium@^1.4.172:
   resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.180.tgz#380b06037836055d12c7de181ee90b8ed911c3e7"
   integrity sha512-7at5ash3FD9U5gPa3/wPr6OdiZd/zBjvDZaaHBpcqFOFUhZiWnb7stkqk8xUFL9H9nk7Yok5vCCNK8wyC/+f8A==
 
+electron-to-chromium@^1.4.188:
+  version "1.4.190"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.190.tgz#c356196bd469cec230fe78e666b4d8628f12eb8a"
+  integrity sha512-dDW9D5xT+ODGh9rlK2sQeJR0xgV1nrNn3/K4IV8k74QbmKN61dm5GKMSwerdpTpazrrkK6wwcgjGBoQ/Nx6L5A==
+
 elegant-spinner@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmmirror.com/elegant-spinner/-/elegant-spinner-1.0.1.tgz#db043521c95d7e303fd8f345bedc3349cfb0729e"
@@ -5022,6 +5326,14 @@ file-entry-cache@^6.0.1:
   integrity sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==
   dependencies:
     flat-cache "^3.0.4"
+
+file-loader@^5.0.2:
+  version "5.1.0"
+  resolved "https://registry.npmmirror.com/file-loader/-/file-loader-5.1.0.tgz#cb56c070efc0e40666424309bd0d9e45ac6f2bb8"
+  integrity sha512-u/VkLGskw3Ue59nyOwUwXI/6nuBCo7KBkniB/l7ICwr/7cPNGsL1WCXUp3GB0qgOOKU1TiP49bv4DZF/LJqprg==
+  dependencies:
+    loader-utils "^1.4.0"
+    schema-utils "^2.5.0"
 
 file-loader@^6.2.0:
   version "6.2.0"
@@ -7884,6 +8196,13 @@ mini-css-extract-plugin@0.9.0:
     schema-utils "^1.0.0"
     webpack-sources "^1.1.0"
 
+mini-css-extract-plugin@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-2.6.1.tgz#9a1251d15f2035c342d99a468ab9da7a0451b71e"
+  integrity sha512-wd+SD57/K6DiV7jIR34P+s3uckTRuQvx0tKPcvjFlrEylk6P4mQ2KSWk1hblj1Kxaqok7LogKOieygXqBczNlg==
+  dependencies:
+    schema-utils "^4.0.0"
+
 minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmmirror.com/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz#2e194de044626d4a10e7f7fbc00ce73e83e4d5c7"
@@ -7951,6 +8270,18 @@ moment@^2.27.0:
   version "2.29.4"
   resolved "https://registry.npmmirror.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
   integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
+
+monaco-editor-webpack-plugin@^4.0.0:
+  version "4.2.0"
+  resolved "https://registry.npmmirror.com/monaco-editor-webpack-plugin/-/monaco-editor-webpack-plugin-4.2.0.tgz#2be76cde9cca7bd8c3418503625990f86886927b"
+  integrity sha512-/P3sFiEgBl+Y50he4mbknMhbLJVop5gBUZiPS86SuHUDOOnQiQ5rL1jU5lwt1XKAwMEkhwZbUwqaHxTPkb1Utw==
+  dependencies:
+    loader-utils "^2.0.0"
+
+monaco-editor@*:
+  version "0.33.0"
+  resolved "https://registry.npmmirror.com/monaco-editor/-/monaco-editor-0.33.0.tgz#842e244f3750a2482f8a29c676b5684e75ff34af"
+  integrity sha512-VcRWPSLIUEgQJQIE0pVT8FcGBIgFoxz7jtqctE+IiCxWugD0DwgyQBcZBhdSrdMC84eumoqMZsGl2GTreOzwqw==
 
 monaco-editor@^0.25.2:
   version "0.25.2"
@@ -8146,6 +8477,11 @@ node-releases@^2.0.5:
   resolved "https://registry.npmmirror.com/node-releases/-/node-releases-2.0.5.tgz#280ed5bc3eba0d96ce44897d8aee478bfb3d9666"
   integrity sha512-U9h1NLROZTq9uE1SNffn6WuPDg8icmi3ns4rEl/oTfIle4iLjTliCzgTsbaIFMq/Xn078/lfY/BL0GWZ+psK4Q==
 
+node-releases@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.npmmirror.com/node-releases/-/node-releases-2.0.6.tgz#8a7088c63a55e493845683ebf3c828d8c51c5503"
+  integrity sha512-PiVXnNuFm5+iYkLBNeq5211hvO38y63T0i2KKh2KnUs3RpzJ+JtODFjkD8yjLwnDkTYF1eKXheUwdssR+NRZdg==
+
 normalize-package-data@^2.3.2, normalize-package-data@^2.3.4, normalize-package-data@^2.5.0:
   version "2.5.0"
   resolved "https://registry.npmmirror.com/normalize-package-data/-/normalize-package-data-2.5.0.tgz#e66db1838b200c1dfc233225d12cb36520e234a8"
@@ -8167,6 +8503,11 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
   resolved "https://registry.npmmirror.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
   integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
+
+normalize-range@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.npmmirror.com/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
+  integrity sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==
 
 normalize-url@1.9.1:
   version "1.9.1"
@@ -8221,6 +8562,11 @@ nth-check@^2.0.1:
   integrity sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==
   dependencies:
     boolbase "^1.0.0"
+
+num2fraction@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.npmmirror.com/num2fraction/-/num2fraction-1.2.2.tgz#6f682b6a027a4e9ddfa4564cd2589d1d4e669ede"
+  integrity sha512-Y1wZESM7VUThYY+4W+X4ySH2maqcA+p7UR+w8VWNWVAd6lwuXXWz/w/Cz43J/dI2I+PS6wD5N+bJUF+gjWvIqg==
 
 number-is-nan@^1.0.0:
   version "1.0.1"
@@ -8725,6 +9071,11 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+picocolors@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.npmmirror.com/picocolors/-/picocolors-0.2.1.tgz#570670f793646851d1ba135996962abad587859f"
+  integrity sha512-cMlDqaLEqfSaW8Z7N5Jw+lyIW869EzT73/F5lhtY9cLGoVxSXznfgfXMO0Z5K0o0Q2TkTXq+0KFsdnSe3jDViA==
+
 picocolors@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmmirror.com/picocolors/-/picocolors-1.0.0.tgz#cb5bdc74ff3f51892236eaf79d68bc44564ab81c"
@@ -8849,6 +9200,14 @@ postcss-value-parser@^4.0.2, postcss-value-parser@^4.1.0:
   version "4.2.0"
   resolved "https://registry.npmmirror.com/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz#723c09920836ba6d3e5af019f92bc0971c02e514"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
+
+postcss@^7.0.32:
+  version "7.0.39"
+  resolved "https://registry.npmmirror.com/postcss/-/postcss-7.0.39.tgz#9624375d965630e2e1f2c02a935c82a59cb48309"
+  integrity sha512-yioayjNbHn6z1/Bywyb2Y4s3yvDAeXGOyxqD+LnVOinq6Mdmd++SW2wUNVzavyyHxd6+DxzWGIuosg6P1Rj8uA==
+  dependencies:
+    picocolors "^0.2.1"
+    source-map "^0.6.1"
 
 postcss@^8.0.0, postcss@^8.1.2, postcss@^8.2.15:
   version "8.4.14"
@@ -9540,7 +9899,7 @@ react-display-name@^0.2.4:
   resolved "https://registry.yarnpkg.com/react-display-name/-/react-display-name-0.2.5.tgz#304c7cbfb59ee40389d436e1a822c17fe27936c6"
   integrity sha512-I+vcaK9t4+kypiSgaiVWAipqHRXYmZIuAiS8vzFvXHHXVigg/sMKwlRgLy6LH2i3rmP+0Vzfl5lFsFRwF1r3pg==
 
-react-dom@^17.0.1, react-dom@^17.0.2:
+react-dom@^17.0.1:
   version "17.0.2"
   resolved "https://registry.npmmirror.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
   integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
@@ -9586,6 +9945,14 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.npmmirror.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-monaco-editor@^0.43.0:
+  version "0.43.0"
+  resolved "https://registry.npmmirror.com/react-monaco-editor/-/react-monaco-editor-0.43.0.tgz#495578470db7b27ab306af813b31f206a6bf9d1c"
+  integrity sha512-2PXSDwOzjUDlwdsK8psrmezSB2lPnjLQ/SRNwqoRF2+TAB2n4Q+Bs1wGlWOZbU8WI7s6Wnni0+3PdT9nSPtzRA==
+  dependencies:
+    monaco-editor "*"
+    prop-types "^15.7.2"
+
 react-sortable-hoc@^1.11.0:
   version "1.11.0"
   resolved "https://registry.npmmirror.com/react-sortable-hoc/-/react-sortable-hoc-1.11.0.tgz#fe4022362bbafc4b836f5104b9676608a40a278f"
@@ -9603,6 +9970,14 @@ react-sortable-hoc@^2.0.0:
     "@babel/runtime" "^7.2.0"
     invariant "^2.2.4"
     prop-types "^15.5.7"
+
+react-sticky-box@^0.9.3:
+  version "0.9.3"
+  resolved "https://registry.npmmirror.com/react-sticky-box/-/react-sticky-box-0.9.3.tgz#8450d4cef8e4fdd7b0351520365bc98c97da11af"
+  integrity sha512-Y/qO7vTqAvXuRR6G6ZCW4fX2Bz0GZRwiiLTVeZN5CVz9wzs37ev0Xj3KSKF/PzF0jifwATivI4t24qXG8rSz4Q==
+  dependencies:
+    "@babel/runtime" "^7.1.5"
+    resize-observer-polyfill "^1.5.1"
 
 react-sticky-box@^1.0.2:
   version "1.0.2"
@@ -9626,7 +10001,7 @@ react-tiny-popover@^6.0.5:
   resolved "https://registry.npmmirror.com/react-tiny-popover/-/react-tiny-popover-6.0.10.tgz#6167a1b4a1ae6cf847d2909057defd00d95d726c"
   integrity sha512-ECMucd701SxWHGa+2YuVvccCxxTjmhomcD0ZYTF+Qmi5qNAj8pdlExFN+k+p1G78QTYIGPGNLocxRb9f6cZ0Mw==
 
-react@^17.0.1, react@^17.0.2:
+react@^17.0.1:
   version "17.0.2"
   resolved "https://registry.npmmirror.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
@@ -10124,7 +10499,7 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
-schema-utils@^2.7.0:
+schema-utils@^2.5.0, schema-utils@^2.7.0:
   version "2.7.1"
   resolved "https://registry.npmmirror.com/schema-utils/-/schema-utils-2.7.1.tgz#1ca4f32d1b24c590c203b8e7a50bf0ea4cd394d7"
   integrity sha512-SHiNtMOUGWBQJwzISiVYKu82GiV4QYGePp3odlY1tuKO7gPtphAT5R/py0fA6xtbgLL/RvtJZnU9b8s0F1q0Xg==
@@ -10141,6 +10516,16 @@ schema-utils@^3.0.0:
     "@types/json-schema" "^7.0.8"
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
+
+schema-utils@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-4.0.0.tgz#60331e9e3ae78ec5d16353c467c34b3a0a1d3df7"
+  integrity sha512-1edyXKgh6XnJsJSQ8mKWXnN/BVaIbFMLpouRUrXgVq7WYne5kw3MW7UPhO44uRXQSIpTSXoJbmrR2X0w9kUTyg==
+  dependencies:
+    "@types/json-schema" "^7.0.9"
+    ajv "^8.8.0"
+    ajv-formats "^2.1.1"
+    ajv-keywords "^5.0.0"
 
 scroll-into-view-if-needed@^2.2.25:
   version "2.2.29"
