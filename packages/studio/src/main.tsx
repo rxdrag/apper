@@ -117,11 +117,14 @@ const App = () => {
 ).then((modules) => modules.forEach((module) => module.load()));
 */
   let modulePath = "http://127.0.0.1:4000/index.js";
-  loadJS(modulePath, ()=>{
-    console.log("加载的回调3")
-    console.log(haha)
-    haha()
-  }, true)
+  loadJS("http://localhost:4000/vendors~index.js", ()=>{
+    loadJS(modulePath, ()=>{
+      console.log("加载的回调3")
+      console.log(haha)
+      haha()
+    }, true)
+  })
+
   const engine = useMemo(
     () =>
       createDesigner({

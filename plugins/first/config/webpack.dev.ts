@@ -30,14 +30,14 @@ const createPages = (pages) => {
   })
 }
 
-for (const key in baseConfig.entry) {
-  if (Array.isArray(baseConfig.entry[key])) {
-    baseConfig.entry[key].push(
-      require.resolve('webpack/hot/dev-server'),
-      `${require.resolve('webpack-dev-server/client')}?http://localhost:${PORT}`
-    )
-  }
-}
+// for (const key in baseConfig.entry) {
+//   if (Array.isArray(baseConfig.entry[key])) {
+//     baseConfig.entry[key].push(
+//       require.resolve('webpack/hot/dev-server'),
+//       `${require.resolve('webpack-dev-server/client')}?http://localhost:${PORT}`
+//     )
+//   }
+// }
 
 export default {
   ...baseConfig,
@@ -46,22 +46,18 @@ export default {
       filename: '[name].[hash].css',
       chunkFilename: '[id].[hash].css',
     }),
-    ...createPages([
-      {
-        filename: 'index.html',
-        template: path.resolve(__dirname, './template.ejs'),
-        chunk: ['index'],
-      },
-    ]),
+    new HtmlWebpackPlugin({
+      title: 'Output Management'
+    }),
     new webpack.HotModuleReplacementPlugin(),
     // new BundleAnalyzerPlugin()
     new ServerInfoPlugin()
   ],
   devServer: {
     host: '127.0.0.1',
-    open: false,
-    hot: true,
+    compress: true,
+    open: true,
     port: PORT,
-    inline: true,
   },
+
 }
