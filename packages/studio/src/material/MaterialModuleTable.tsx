@@ -1,5 +1,5 @@
-import { MenuOutlined } from '@ant-design/icons';
-import { Table } from 'antd';
+import { MenuOutlined, PlusOutlined } from '@ant-design/icons';
+import { Button, Table } from 'antd';
 import { arrayMoveImmutable } from 'array-move';
 import React, { useState } from 'react';
 import { SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
@@ -90,18 +90,23 @@ export const MaterialModuleTable = () => {
   };
 
   return (
-    <Table
-      pagination={false}
-      dataSource={dataSource}
-      columns={columns}
-      rowKey="index"
-      showHeader={false}
-      components={{
-        body: {
-          wrapper: DraggableContainer,
-          row: DraggableBodyRow,
-        },
-      }}
-    />
+    <>
+      <Table
+        pagination={false}
+        dataSource={dataSource}
+        columns={columns}
+        rowKey="index"
+        showHeader={false}
+        components={{
+          body: {
+            wrapper: DraggableContainer,
+            row: DraggableBodyRow,
+          },
+        }}
+      />
+      <Button type="dashed" className='material-module-add-button' icon={<PlusOutlined />}>
+        添加
+      </Button>
+    </>
   );
 };
