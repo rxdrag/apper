@@ -95,6 +95,7 @@ export const MaterialModuleTable = () => {
       dataSource={dataSource}
       columns={columns}
       rowKey="index"
+      showHeader={false}
       components={{
         body: {
           wrapper: DraggableContainer,
