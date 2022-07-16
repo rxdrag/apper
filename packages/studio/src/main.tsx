@@ -21,7 +21,6 @@ import {
 } from '@designable/react-settings-form'
 import {
   createDesigner,
-  GlobalRegistry,
   Shortcut,
   KeyCode,
 } from '@designable/core'
@@ -41,37 +40,8 @@ import { ViewPanel } from './panels/ViewPanel'
 import { MaterialPanel } from './material/MaterialPanel'
 import { convertMaterialsToComponents } from './material/model'
 import { allMaterials } from './material/mock'
-
+import "./locales"
 setNpmCDNRegistry('//unpkg.com')
-
-GlobalRegistry.registerDesignerLocales({
-  'zh-CN': {
-    sources: {
-      Inputs: '输入控件',
-      Layouts: '布局组件',
-      Arrays: '自增组件',
-      Displays: '展示组件',
-      Pages: '页面管理'
-    },
-  },
-  'en-US': {
-    sources: {
-      Inputs: 'Inputs',
-      Layouts: 'Layouts',
-      Arrays: 'Arrays',
-      Displays: 'Displays',
-      Pages: 'Pages'
-    },
-  },
-  'ko-KR': {
-    sources: {
-      Inputs: '입력',
-      Layouts: '레이아웃',
-      Arrays: '배열',
-      Displays: '디스플레이',
-    },
-  },
-})
 
 /**
  * 动态加载js文件
@@ -120,8 +90,8 @@ const App = () => {
   loadJS("http://localhost:4000/vendors~index.js", ()=>{
     loadJS(modulePath, ()=>{
       console.log("加载的回调3")
-      console.log(window.haha)
-      window.haha()
+      //console.log(window.haha)
+      //window.haha()
     }, true)
   })
 

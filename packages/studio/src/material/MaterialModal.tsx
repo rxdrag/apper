@@ -2,6 +2,8 @@ import { ToolOutlined } from '@ant-design/icons';
 import { Button, Modal } from 'antd';
 import React, { memo, useCallback, useState } from 'react';
 import { MaterialModuleTable } from './MaterialModuleTable';
+import {TextWidget} from "@designable/react"
+
 interface DataType {
   key: string;
   name: string;
@@ -33,7 +35,7 @@ export const MaterialModal = memo(() => {
       />
 
       <Modal
-        title="物料列表"
+        title={<TextWidget>materials.ModuleList</TextWidget>}
         className='material-module-modal'
         visible={isModalVisible}
         onOk={handleOk}
