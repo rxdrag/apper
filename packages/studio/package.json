@@ -10,9 +10,9 @@
     "build": "rimraf dist && webpack-cli --config config/webpack.prod.ts",
     "start": "webpack-dev-server --config config/webpack.dev.ts"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
-    "@designable/formily-antd": "^1.0.0-beta.45"
+    "@designable/formily-antd": "^1.0.0-beta.45",
+    "array-move": "^4.0.0"
   }
 }

@@ -1,6 +1,14 @@
 import { ToolOutlined } from '@ant-design/icons';
 import { Button, Modal } from 'antd';
 import React, { memo, useCallback, useState } from 'react';
+import { MaterialModuleTable } from './MaterialModuleTable';
+interface DataType {
+  key: string;
+  name: string;
+  age: number;
+  address: string;
+  index: number;
+}
 
 export const MaterialModal = memo(() => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -17,16 +25,21 @@ export const MaterialModal = memo(() => {
     setIsModalVisible(false);
   }, []);
 
+
   return (
     <>
       <Button shape="circle" style={{ border: 0 }} onClick={showModal}
         icon={<ToolOutlined style={{ fontSize: 14, transform: "rotateY(180deg)" }} />}
       />
 
-      <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+      <Modal
+        title="物料列表"
+        className='material-module-modal'
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <MaterialModuleTable />
       </Modal>
     </>
   );
