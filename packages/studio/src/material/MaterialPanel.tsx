@@ -7,6 +7,7 @@ import {
 } from '@designable/react'
 import { ToolOutlined } from "@ant-design/icons";
 import { allMaterials } from "./mock";
+import { MaterialModal } from "./MaterialModal";
 
 const { TabPane } = Tabs;
 
@@ -22,9 +23,7 @@ export const MaterialPanel: React.FC = () => {
         size="small"
         className="materail-tabs"
         tabBarExtraContent={
-          <Button shape="circle" style={{ border: 0 }}
-            icon={<ToolOutlined style={{ fontSize: 14, transform: "rotateY(180deg)" }} />}
-          />
+          <MaterialModal />
         }
         onChange={onChange}
       >
