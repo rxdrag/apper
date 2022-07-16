@@ -120,8 +120,8 @@ const App = () => {
   loadJS("http://localhost:4000/vendors~index.js", ()=>{
     loadJS(modulePath, ()=>{
       console.log("加载的回调3")
-      console.log(haha)
-      haha()
+      console.log(window.haha)
+      window.haha()
     }, true)
   })
 

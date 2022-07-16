@@ -56,7 +56,7 @@ export default {
   devServer: {
     host: '127.0.0.1',
     compress: true,
-    open: true,
+    open: false,
     port: PORT,
   },
 
