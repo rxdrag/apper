@@ -5,6 +5,7 @@ import { TextWidget } from "@designable/react"
 import Dragger from 'antd/lib/upload/Dragger';
 import { MaterialModule, OperationType } from './model';
 import { loadDebugModule } from './load';
+import { materialStore } from './global';
 
 export interface IUploadModalProps {
   onAdded: (module: MaterialModule) => void
@@ -19,12 +20,14 @@ export const UploadModal: React.FC<IUploadModalProps> = memo((props: IUploadModa
     setIsModalVisible(true);
   }, []);
 
+
   const handleOk = useCallback(() => {
     form.validateFields().then((formData) => {
       if (formData.operationType === OperationType.Debug) {
         loadDebugModule(formData.url)
           .then((data) => {
             console.log("呵呵", data);
+            materialStore.modules = [...materialStore.modules, {...form.getFieldsValue(), ...data}];
             setIsModalVisible(false);
           })
           .catch((err) => {

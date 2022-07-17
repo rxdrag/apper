@@ -1,4 +1,4 @@
-import { MaterialTab } from "./model";
+import { MaterialModule, OperationType } from "./model";
 
 import {
   Input,
@@ -28,9 +28,12 @@ import {
   FormGrid,
 } from '@designable/formily-antd'
 
-export const allMaterials: MaterialTab[] = [
+export const allMaterials: MaterialModule[] = [
   {
-    title: "表单",
+    name: "表单",
+    url:"",
+    operationType:OperationType.Upload,
+    scriptElements:[],
     groups: [
       {
         title: "输入组件",
@@ -133,7 +136,10 @@ export const allMaterials: MaterialTab[] = [
     ]
   },
   {
-    title: "业务",
+    name: "业务",
+    url:"",
+    operationType:OperationType.Upload,
+    scriptElements:[],
     groups: [
       {
         title: "输入组件2",
@@ -236,7 +242,10 @@ export const allMaterials: MaterialTab[] = [
     ]
   },
   {
-    title: "测试",
+    name: "测试",
+    url:"",
+    operationType:OperationType.Upload,
+    scriptElements:[],
     groups: [
       {
         title: "输入组件3",

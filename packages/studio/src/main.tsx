@@ -39,11 +39,13 @@ import { CompositePanel } from './panels/CompositePanel'
 import { ViewPanel } from './panels/ViewPanel'
 import { MaterialPanel } from './material/MaterialPanel'
 import { convertMaterialsToComponents } from './material/model'
-import { allMaterials } from './material/mock'
 import "./locales"
+import { observer } from '@formily/reactive-react'
+import { materialStore } from './material/global'
+import { allMaterials } from './material/mock'
 setNpmCDNRegistry('//unpkg.com')
 
-const App = () => {
+const App = observer(() => {
 
   /*
   Promise.all(
@@ -129,7 +131,7 @@ const App = () => {
       </StudioPanel>
     </Designer>
   )
-}
+})
 
 ReactDOM.render(<App />, document.getElementById('root'))
 
