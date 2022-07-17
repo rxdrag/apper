@@ -17,20 +17,21 @@ export interface MaterialModule {
 
 export const UploadModal = memo(() => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [module, setModule] = useState<MaterialModule>({
-    name: "",
-    url: "",
-    operationType: OperationType.Upload
-  })
-
-  console.log(module)
+  const [operationType, setOperationType] = useState(OperationType.Upload)
+  const [form] = Form.useForm<MaterialModule>();
 
   const showModal = useCallback(() => {
     setIsModalVisible(true);
   }, []);
 
   const handleOk = useCallback(() => {
-    setIsModalVisible(false);
+    form.validateFields().then((obj)=>{
+      console.log(obj)
+    }).catch((err)=>{
+      console.error(err)
+    })
+    
+    //setIsModalVisible(false);
   }, []);
 
   const handleCancel = useCallback(() => {
@@ -46,9 +47,7 @@ export const UploadModal = memo(() => {
   }, []);
 
   const onTypeChange = useCallback((e: RadioChangeEvent) => {
-    console.log('radio checked', e.target.value);
-    setModule((module) => ({ ...module, operationType: e.target.value }))
-    //setValue(e.target.value);
+    setOperationType(e.target.value)
   }, []);
 
   const props: UploadProps = {
@@ -71,6 +70,7 @@ export const UploadModal = memo(() => {
       }
     },
   };
+
 
   return (
     <>
@@ -95,7 +95,14 @@ export const UploadModal = memo(() => {
           name="basic"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 12 }}
-          initialValues={{ remember: true }}
+          initialValues={
+            {
+              name: "",
+              url: "",
+              operationType: OperationType.Upload
+            }
+          }
+          form={form}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
@@ -114,15 +121,13 @@ export const UploadModal = memo(() => {
           >
             <Radio.Group
               onChange={onTypeChange}
-              value={module?.operationType}
-              defaultValue={module?.operationType}
             >
               <Radio value={OperationType.Upload}><TextWidget>materials.Upload</TextWidget></Radio>
               <Radio value={OperationType.Debug}><TextWidget>materials.Debug</TextWidget></Radio>
             </Radio.Group>
           </Form.Item>
           {
-            module?.operationType === OperationType.Upload &&
+            operationType === OperationType.Upload &&
             < Form.Item
               label={<TextWidget>materials.UploadFile</TextWidget>}
               name="file"
@@ -139,7 +144,7 @@ export const UploadModal = memo(() => {
             </Form.Item>
           }
           {
-            module?.operationType === OperationType.Debug &&
+            operationType === OperationType.Debug &&
             <Form.Item
               label={<TextWidget>materials.LinkAddress</TextWidget>}
               name="url"
