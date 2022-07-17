@@ -1,9 +1,11 @@
-import { MenuOutlined, PlusOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined, MenuOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Table } from 'antd';
 import { arrayMoveImmutable } from 'array-move';
 import React, { useState } from 'react';
 import { SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
 import "./index.less"
+import { TextWidget } from "@designable/react"
+
 const DragHandle = SortableHandle(() => (
   <MenuOutlined
     style={{
@@ -23,37 +25,34 @@ const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
-    className: 'drag-visible',
+    className: 'name',
   },
+
   {
-    title: 'Age',
-    dataIndex: 'age',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
+    title: 'Action',
+    dataIndex: 'action',
+    className: 'action',
+    key: 'x',
+    render: () => <>
+      <Button className="action-btn" icon={<EditOutlined />}></Button>
+      <Button className="action-btn" icon={<DeleteOutlined />}></Button>
+    </>,
   },
 ];
 const data = [
   {
     key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
+    name: '表单',
     index: 0,
   },
   {
     key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
+    name: '业务',
     index: 1,
   },
   {
     key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
+    name: '测试',
     index: 2,
   },
 ];
@@ -92,6 +91,7 @@ export const MaterialModuleTable = () => {
   return (
     <>
       <Table
+        className='material-table'
         pagination={false}
         dataSource={dataSource}
         columns={columns}
@@ -105,7 +105,7 @@ export const MaterialModuleTable = () => {
         }}
       />
       <Button type="dashed" className='material-module-add-button' icon={<PlusOutlined />}>
-        添加
+        <TextWidget>materials.Add</TextWidget>
       </Button>
     </>
   );

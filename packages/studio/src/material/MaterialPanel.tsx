@@ -1,11 +1,10 @@
-import { Button, Tabs } from "antd"
+import { Tabs } from "antd"
 import React from "react"
 import { MaterialSearchWidget } from "./MaterialSearchWidget";
 import "./index.less"
 import {
   ResourceWidget
 } from '@designable/react'
-import { ToolOutlined } from "@ant-design/icons";
 import { allMaterials } from "./mock";
 import { MaterialModal } from "./MaterialModal";
 

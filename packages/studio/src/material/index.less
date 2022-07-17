@@ -57,16 +57,37 @@
   }
 }
 
+.material-table{
+  .action{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .action-btn{
+    border: 0;
+  }
+}
+
 .row-dragging {
   background: #fafafa;
   border: 1px solid #ccc;
+  display: flex;
   z-index: 1000;
+  .drag-visible {
+    visibility: visible;
+  }
+  .name{
+    flex:1;
+  }
+  .action{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .action-btn{
+    border: 0;
+  }
 }
 
 .row-dragging td {
   padding: 16px;
 }
 
-.row-dragging .drag-visible {
-  visibility: visible;
-}
