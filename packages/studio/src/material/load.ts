@@ -1,33 +1,70 @@
-import {message} from "antd"
 
-/**
-import { message } from 'antd';
- * 动态加载js文件
- * @param {*} src
- * @param {*} callback
- *   loadScript("",function(){
- *   console.log("加载成功")
- * })
- * var that = this; 在方法里面使用that
- */
- function loadJS(
-  src: string,
-  callback: (this: HTMLScriptElement, ev: Event) => void,
-  isCache = false
-): void {
-  const script = document.createElement("script");
-  script.type = "text/JavaScript";
-  if (isCache) {
-    script.src = src + "?t=" + new Date().getTime();
-  } else {
-    script.src = src;
-  }
-  if (script.addEventListener) {
-    script.addEventListener("load", callback);
-    script.addEventListener("error",(e)=>{
-      message.error(e)
-    });
-  }
+function trimUrl(url: string) {
+  return url.endsWith("/") ? url : (url + "/");
+}
 
-  document.head.appendChild(script);
+export function loadNormailModule(url: string): Promise<HTMLScriptElement[]> {
+  const path = trimUrl(url);
+  const indexJs = path + "index.js";
+  const scripts: HTMLScriptElement[] = [];
+  const p = new Promise<HTMLScriptElement[]>((resolve, reject) => {
+    loadJS(indexJs, true)
+      .then((script) => {
+        scripts.push(script);
+        resolve(scripts);
+      })
+      .catch(err => {
+        reject(err);
+      })
+  })
+
+  return p;
+}
+
+export function loadDebugModule(url: string): Promise<HTMLScriptElement[]> {
+  const path = trimUrl(url);
+  const indexJs = path + "index.js";
+  const venderJs = path + "vendors~index.js";
+  const scripts: HTMLScriptElement[] = [];
+  const p = new Promise<HTMLScriptElement[]>((resolve, reject) => {
+    loadJS(venderJs, true)
+      .then((script) => {
+        scripts.push(script);
+        loadJS(indexJs, true).then((script) => {
+          scripts.push(script);
+          resolve(scripts);
+        })
+          .catch(err => {
+            reject(err);
+          })
+      })
+      .catch(err => {
+        reject(err);
+      })
+  })
+
+  return p;
+}
+
+function loadJS(src: string, clearCache = false): Promise<HTMLScriptElement> {
+  const p = new Promise<HTMLScriptElement>((resolve, reject) => {
+    const script = document.createElement("script");
+    script.type = "text/JavaScript";
+    if (clearCache) {
+      script.src = src + "?t=" + new Date().getTime();
+    } else {
+      script.src = src;
+    }
+    if (script.addEventListener) {
+      script.addEventListener("load", () => {
+        resolve(script)
+      });
+      script.addEventListener("error", (e) => {
+        reject(e)
+      });
+    }
+    document.head.appendChild(script);
+  })
+
+  return p;
 }

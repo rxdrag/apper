@@ -36,5 +36,5 @@ export interface MaterialModule {
   name: string,
   url: string,
   operationType: OperationType,
-  scriptElement?: HTMLScriptElement,
+  scriptElements: HTMLScriptElement[],
 }
