@@ -82,17 +82,16 @@ export const UploadModal = memo(() => {
           autoComplete="off"
         >
           <Form.Item
-            label="组件类型名称"
+            label={<TextWidget>materials.ComponentTypeName</TextWidget>}
             name="name"
-            rules={[{ required: true, message: 'Please input material name!' }]}
+            rules={[{ required: true, message: <TextWidget>materials.RequiredName</TextWidget> }]}
           >
             <Input />
           </Form.Item>
 
           <Form.Item
-            label="操作类型"
-            name="password"
-            rules={[{ required: true, message: 'Please input your password!' }]}
+            label={<TextWidget>materials.OperationType</TextWidget>}
+            name="operationType"
           >
             <Radio.Group
               onChange={onTypeChange}
@@ -103,14 +102,17 @@ export const UploadModal = memo(() => {
             </Radio.Group>
           </Form.Item>
           <Form.Item
-            label="上传文件"
+            label={<TextWidget>materials.UploadFile</TextWidget>}
             name="file"
           >
             <Dragger {...props}>
               <p className="ant-upload-drag-icon">
                 <CloudUploadOutlined />
               </p>
-              <p className="ant-upload-hint">将文件拖拽到此处，或<a>点击上传</a></p>
+              <p className="ant-upload-hint">
+                <TextWidget>materials.UploadHint1</TextWidget>
+                <a><TextWidget>materials.UploadHint2</TextWidget></a>
+              </p>
             </Dragger>
           </Form.Item>
         </Form>
