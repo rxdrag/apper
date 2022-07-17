@@ -2,7 +2,7 @@ import { ToolOutlined } from '@ant-design/icons';
 import { Button, Modal } from 'antd';
 import React, { memo, useCallback, useState } from 'react';
 import { MaterialModuleTable } from './MaterialModuleTable';
-import {TextWidget} from "@designable/react"
+import { TextWidget } from "@designable/react"
 
 export const MaterialModal = memo(() => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -30,8 +30,8 @@ export const MaterialModal = memo(() => {
         title={<TextWidget>materials.ModuleList</TextWidget>}
         className='material-module-modal'
         visible={isModalVisible}
-        okText="确定"
-        cancelText="取消"
+        okText={<TextWidget>Confirm</TextWidget>}
+        cancelText={<TextWidget>Cancel</TextWidget>}
         onOk={handleOk}
         onCancel={handleCancel}
       >

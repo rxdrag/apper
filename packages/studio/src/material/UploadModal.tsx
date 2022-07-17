@@ -69,8 +69,8 @@ export const UploadModal = memo(() => {
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
-        okText="确定"
-        cancelText="取消"
+        okText={<TextWidget>Confirm</TextWidget>}
+        cancelText={<TextWidget>Cancel</TextWidget>}
       >
         <Form
           name="basic"

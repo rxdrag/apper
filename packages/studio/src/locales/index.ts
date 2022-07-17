@@ -2,6 +2,8 @@ import { GlobalRegistry } from '@designable/core'
 
 GlobalRegistry.registerDesignerLocales({
   'zh-CN': {
+    Confirm:"确定",
+    Cancel:"取消",
     sources: {
       Inputs: '输入控件',
       Layouts: '布局组件',
