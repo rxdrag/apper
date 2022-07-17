@@ -3,17 +3,8 @@ import { Button, Form, Input, message, Modal, Radio, RadioChangeEvent, Upload, U
 import React, { memo, useCallback, useState } from 'react';
 import { TextWidget } from "@designable/react"
 import Dragger from 'antd/lib/upload/Dragger';
+import { MaterialModule, OperationType } from './model';
 
-export enum OperationType {
-  Upload = 1,
-  Debug
-}
-
-export interface MaterialModule {
-  name: string,
-  url: string,
-  operationType: OperationType
-}
 export interface IUploadModalProps {
   onAdded: (module: MaterialModule) => void
 }

@@ -26,3 +26,10 @@ export function convertMaterialsToComponents(tabs: MaterialTab[]): IDesignerComp
   }
   return coms
 }
+
+export interface MaterialModule {
+  name: string,
+  url: string,
+  operationType: OperationType,
+  scriptElement?: HTMLScriptElement,
+}
