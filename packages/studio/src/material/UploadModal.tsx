@@ -4,8 +4,26 @@ import React, { memo, useCallback, useState } from 'react';
 import { TextWidget } from "@designable/react"
 import Dragger from 'antd/lib/upload/Dragger';
 
+export enum OperationType {
+  Upload = 1,
+  Debug
+}
+
+export interface MaterialModule {
+  name: string,
+  url: string,
+  operationType: OperationType
+}
+
 export const UploadModal = memo(() => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [module, setModule] = useState<MaterialModule>({
+    name: "",
+    url: "",
+    operationType: OperationType.Upload
+  })
+
+  console.log(module)
 
   const showModal = useCallback(() => {
     setIsModalVisible(true);
@@ -29,6 +47,7 @@ export const UploadModal = memo(() => {
 
   const onTypeChange = useCallback((e: RadioChangeEvent) => {
     console.log('radio checked', e.target.value);
+    setModule((module) => ({ ...module, operationType: e.target.value }))
     //setValue(e.target.value);
   }, []);
 
@@ -95,26 +114,41 @@ export const UploadModal = memo(() => {
           >
             <Radio.Group
               onChange={onTypeChange}
-            //value={value}
+              value={module?.operationType}
+              defaultValue={module?.operationType}
             >
-              <Radio value={1}>上传</Radio>
-              <Radio value={2}>调试</Radio>
+              <Radio value={OperationType.Upload}><TextWidget>materials.Upload</TextWidget></Radio>
+              <Radio value={OperationType.Debug}><TextWidget>materials.Debug</TextWidget></Radio>
             </Radio.Group>
           </Form.Item>
-          <Form.Item
-            label={<TextWidget>materials.UploadFile</TextWidget>}
-            name="file"
-          >
-            <Dragger {...props}>
-              <p className="ant-upload-drag-icon">
-                <CloudUploadOutlined />
-              </p>
-              <p className="ant-upload-hint">
-                <TextWidget>materials.UploadHint1</TextWidget>
-                <a><TextWidget>materials.UploadHint2</TextWidget></a>
-              </p>
-            </Dragger>
-          </Form.Item>
+          {
+            module?.operationType === OperationType.Upload &&
+            < Form.Item
+              label={<TextWidget>materials.UploadFile</TextWidget>}
+              name="file"
+            >
+              <Dragger {...props}>
+                <p className="ant-upload-drag-icon">
+                  <CloudUploadOutlined />
+                </p>
+                <p className="ant-upload-hint">
+                  <TextWidget>materials.UploadHint1</TextWidget>
+                  <a><TextWidget>materials.UploadHint2</TextWidget></a>
+                </p>
+              </Dragger>
+            </Form.Item>
+          }
+          {
+            module?.operationType === OperationType.Debug &&
+            <Form.Item
+              label={<TextWidget>materials.LinkAddress</TextWidget>}
+              name="url"
+              rules={[{ required: true, message: <TextWidget>materials.RequiredUrl</TextWidget> }]}
+            >
+              <Input />
+            </Form.Item>
+          }
+
         </Form>
       </Modal>
     </>

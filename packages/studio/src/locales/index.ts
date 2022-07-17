@@ -21,7 +21,10 @@ GlobalRegistry.registerDesignerLocales({
       UploadHint1:"将文件拖拽到此处，或",
       UploadHint2:"点击上传",
       RequiredName:"请输入组件类型名称",
-      RequiredUrl:"请输入调试地址"
+      RequiredUrl:"请输入调试地址",
+      Upload:"上传",
+      Debug:"调试",
+      LinkAddress:"链接地址"
     },
   },
   'en-US': {
