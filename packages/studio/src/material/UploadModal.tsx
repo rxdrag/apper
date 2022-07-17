@@ -4,6 +4,7 @@ import React, { memo, useCallback, useState } from 'react';
 import { TextWidget } from "@designable/react"
 import Dragger from 'antd/lib/upload/Dragger';
 import { MaterialModule, OperationType } from './model';
+import { loadDebugModule } from './load';
 
 export interface IUploadModalProps {
   onAdded: (module: MaterialModule) => void
@@ -19,8 +20,18 @@ export const UploadModal: React.FC<IUploadModalProps> = memo((props: IUploadModa
   }, []);
 
   const handleOk = useCallback(() => {
-    form.validateFields().then((obj) => {
-      console.log(obj)
+    form.validateFields().then((formData) => {
+      if (formData.operationType === OperationType.Debug) {
+        loadDebugModule(formData.url)
+          .then((data) => {
+            console.log("哈哈", data);
+          })
+          .catch((err) => {
+            console.error(err);
+            message.error("Load js error!");
+          })
+      }
+
     }).catch((err) => {
       console.error("form validate error", err);
     });

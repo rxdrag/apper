@@ -1,13 +1,21 @@
+import { MaterialGroup } from "./model";
 
-export function loadNormailModule(url: string): Promise<HTMLScriptElement[]> {
+export interface LoadedData {
+  scripts: HTMLScriptElement[];
+  groups?: MaterialGroup[];
+}
+
+export function loadNormailModule(url: string): Promise<LoadedData> {
   const path = trimUrl(url);
   const indexJs = path + "index.js";
-  const scripts: HTMLScriptElement[] = [];
-  const p = new Promise<HTMLScriptElement[]>((resolve, reject) => {
+  const loadedData: LoadedData = {
+    scripts: []
+  }
+  const p = new Promise<LoadedData>((resolve, reject) => {
     loadJS(indexJs, true)
       .then((script) => {
-        scripts.push(script);
-        resolve(scripts);
+        loadedData.scripts.push(script);
+        resolve(loadedData);
       })
       .catch(err => {
         reject(err);
@@ -17,19 +25,22 @@ export function loadNormailModule(url: string): Promise<HTMLScriptElement[]> {
   return p;
 }
 
-export function loadDebugModule(url: string): Promise<HTMLScriptElement[]> {
+export function loadDebugModule(url: string): Promise<LoadedData> {
   const path = trimUrl(url);
   const indexJs = path + "index.js";
   const venderJs = path + "vendors~index.js";
-  const scripts: HTMLScriptElement[] = [];
-  const p = new Promise<HTMLScriptElement[]>((resolve, reject) => {
+  const loadedData: LoadedData = {
+    scripts: []
+  }
+  const p = new Promise<LoadedData>((resolve, reject) => {
     loadJS(venderJs, true)
       .then((script) => {
-        scripts.push(script);
-        loadJS(indexJs, true).then((script) => {
-          scripts.push(script);
-          resolve(scripts);
-        })
+        loadedData.scripts.push(script);
+        loadJS(indexJs, true)
+          .then((script) => {
+            loadedData.scripts.push(script);
+            resolve(loadedData);
+          })
           .catch(err => {
             reject(err);
           })
@@ -66,5 +77,6 @@ function loadJS(src: string, clearCache = false): Promise<HTMLScriptElement> {
 }
 
 function trimUrl(url: string) {
+  url = url.trim()
   return url.endsWith("/") ? url : (url + "/");
 }
