@@ -64,7 +64,13 @@ export const UploadModal: React.FC<IUploadModalProps> = memo((props: IUploadModa
       }
     },
   };
-
+  const normFile = (e: any) => {
+    console.log('Upload event:', e);
+    if (Array.isArray(e)) {
+      return e;
+    }
+    return e?.fileList;
+  };
 
   return (
     <>
@@ -125,6 +131,9 @@ export const UploadModal: React.FC<IUploadModalProps> = memo((props: IUploadModa
             < Form.Item
               label={<TextWidget>materials.UploadFile</TextWidget>}
               name="file"
+              valuePropName="fileList"
+              // 如果没有下面这一句会报错
+              getValueFromEvent={normFile}
             >
               <Dragger {...uploadProps}>
                 <p className="ant-upload-drag-icon">

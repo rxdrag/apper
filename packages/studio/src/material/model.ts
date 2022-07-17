@@ -10,12 +10,7 @@ export interface MaterialGroup {
   materials: Material[];
 }
 
-export interface MaterialTab {
-  title: string;
-  groups: MaterialGroup[]
-}
-
-export function convertMaterialsToComponents(tabs: MaterialTab[]): IDesignerComponents {
+export function convertMaterialsToComponents(tabs: MaterialModule[]): IDesignerComponents {
   const coms: IDesignerComponents = {}
   for (const tab of tabs) {
     for (const group of tab.groups) {
@@ -37,4 +32,5 @@ export interface MaterialModule {
   url: string,
   operationType: OperationType,
   scriptElements: HTMLScriptElement[],
+  groups: MaterialGroup[],
 }

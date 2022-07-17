@@ -1,8 +1,4 @@
 
-function trimUrl(url: string) {
-  return url.endsWith("/") ? url : (url + "/");
-}
-
 export function loadNormailModule(url: string): Promise<HTMLScriptElement[]> {
   const path = trimUrl(url);
   const indexJs = path + "index.js";
@@ -67,4 +63,8 @@ function loadJS(src: string, clearCache = false): Promise<HTMLScriptElement> {
   })
 
   return p;
+}
+
+function trimUrl(url: string) {
+  return url.endsWith("/") ? url : (url + "/");
 }
