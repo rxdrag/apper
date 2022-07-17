@@ -22,8 +22,8 @@ export const UploadModal: React.FC<IUploadModalProps> = memo((props: IUploadModa
     form.validateFields().then((obj) => {
       console.log(obj)
     }).catch((err) => {
-      console.error(err)
-    })
+      console.error("form validate error", err);
+    });
 
     //setIsModalVisible(false);
   }, []);
