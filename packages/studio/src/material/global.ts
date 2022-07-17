@@ -1,5 +1,6 @@
 import { observable } from "@formily/reactive"
 import { shallow } from "@formily/reactive/esm/annotations"
+import { allMaterials } from "./mock"
 import { MaterialModule } from "./model"
 
 export interface MaterialStore {
@@ -7,6 +8,6 @@ export interface MaterialStore {
 }
 
 export const materialStore:MaterialStore = observable.shallow({
-  modules: [],
+  modules: allMaterials,
 })
 
