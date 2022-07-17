@@ -6,17 +6,15 @@ import Dragger from 'antd/lib/upload/Dragger';
 import { MaterialModule, OperationType } from './model';
 
 export interface IUploadModalProps {
-  onAdded: (module: MaterialModule) => void
+  isModalVisible: boolean,
+  onAdded: (module: MaterialModule) => void,
+  onClose: () => void,
 }
 
 export const UploadModal: React.FC<IUploadModalProps> = memo((props: IUploadModalProps) => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const { isModalVisible, onAdded, onClose } = props;
   const [operationType, setOperationType] = useState(OperationType.Upload)
   const [form] = Form.useForm<MaterialModule>();
-
-  const showModal = useCallback(() => {
-    setIsModalVisible(true);
-  }, []);
 
   const handleOk = useCallback(() => {
     form.validateFields().then((obj) => {
@@ -29,8 +27,8 @@ export const UploadModal: React.FC<IUploadModalProps> = memo((props: IUploadModa
   }, []);
 
   const handleCancel = useCallback(() => {
-    setIsModalVisible(false);
-  }, []);
+    onClose();
+  }, [onClose]);
 
   const onFinish = useCallback((values: any) => {
     console.log('Success:', values);
@@ -73,92 +71,82 @@ export const UploadModal: React.FC<IUploadModalProps> = memo((props: IUploadModa
   };
 
   return (
-    <>
-      <Button
-        type="dashed"
-        className='material-module-add-button'
-        icon={<PlusOutlined />}
-        onClick={showModal}
-      >
-        <TextWidget>materials.Add</TextWidget>
-      </Button>
-      <Modal
-        title={<TextWidget>materials.Cuszomized</TextWidget>}
-        className='material-upoad-modal'
-        visible={isModalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
-        okText={<TextWidget>Confirm</TextWidget>}
-        cancelText={<TextWidget>Cancel</TextWidget>}
-      >
-        <Form
-          name="basic"
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 12 }}
-          initialValues={
-            {
-              name: "",
-              url: "",
-              operationType: OperationType.Upload
-            }
+    <Modal
+      title={<TextWidget>materials.Cuszomized</TextWidget>}
+      className='material-upoad-modal'
+      visible={isModalVisible}
+      onOk={handleOk}
+      onCancel={handleCancel}
+      okText={<TextWidget>Confirm</TextWidget>}
+      cancelText={<TextWidget>Cancel</TextWidget>}
+    >
+      <Form
+        name="basic"
+        labelCol={{ span: 8 }}
+        wrapperCol={{ span: 12 }}
+        initialValues={
+          {
+            name: "",
+            url: "",
+            operationType: OperationType.Upload
           }
-          form={form}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          autoComplete="off"
+        }
+        form={form}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+      >
+        <Form.Item
+          label={<TextWidget>materials.ComponentTypeName</TextWidget>}
+          name="name"
+          rules={[{ required: true, message: <TextWidget>materials.RequiredName</TextWidget> }]}
         >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          label={<TextWidget>materials.OperationType</TextWidget>}
+          name="operationType"
+        >
+          <Radio.Group
+            onChange={onTypeChange}
+          >
+            <Radio value={OperationType.Upload}><TextWidget>materials.Upload</TextWidget></Radio>
+            <Radio value={OperationType.Debug}><TextWidget>materials.Debug</TextWidget></Radio>
+          </Radio.Group>
+        </Form.Item>
+        {
+          operationType === OperationType.Upload &&
+          < Form.Item
+            label={<TextWidget>materials.UploadFile</TextWidget>}
+            name="file"
+            valuePropName="fileList"
+            // 如果没有下面这一句会报错
+            getValueFromEvent={normFile}
+          >
+            <Dragger {...uploadProps}>
+              <p className="ant-upload-drag-icon">
+                <CloudUploadOutlined />
+              </p>
+              <p className="ant-upload-hint">
+                <TextWidget>materials.UploadHint1</TextWidget>
+                <a><TextWidget>materials.UploadHint2</TextWidget></a>
+              </p>
+            </Dragger>
+          </Form.Item>
+        }
+        {
+          operationType === OperationType.Debug &&
           <Form.Item
-            label={<TextWidget>materials.ComponentTypeName</TextWidget>}
-            name="name"
-            rules={[{ required: true, message: <TextWidget>materials.RequiredName</TextWidget> }]}
+            label={<TextWidget>materials.LinkAddress</TextWidget>}
+            name="url"
+            rules={[{ required: true, message: <TextWidget>materials.RequiredUrl</TextWidget> }]}
           >
             <Input />
           </Form.Item>
+        }
 
-          <Form.Item
-            label={<TextWidget>materials.OperationType</TextWidget>}
-            name="operationType"
-          >
-            <Radio.Group
-              onChange={onTypeChange}
-            >
-              <Radio value={OperationType.Upload}><TextWidget>materials.Upload</TextWidget></Radio>
-              <Radio value={OperationType.Debug}><TextWidget>materials.Debug</TextWidget></Radio>
-            </Radio.Group>
-          </Form.Item>
-          {
-            operationType === OperationType.Upload &&
-            < Form.Item
-              label={<TextWidget>materials.UploadFile</TextWidget>}
-              name="file"
-              valuePropName="fileList"
-              // 如果没有下面这一句会报错
-              getValueFromEvent={normFile}
-            >
-              <Dragger {...uploadProps}>
-                <p className="ant-upload-drag-icon">
-                  <CloudUploadOutlined />
-                </p>
-                <p className="ant-upload-hint">
-                  <TextWidget>materials.UploadHint1</TextWidget>
-                  <a><TextWidget>materials.UploadHint2</TextWidget></a>
-                </p>
-              </Dragger>
-            </Form.Item>
-          }
-          {
-            operationType === OperationType.Debug &&
-            <Form.Item
-              label={<TextWidget>materials.LinkAddress</TextWidget>}
-              name="url"
-              rules={[{ required: true, message: <TextWidget>materials.RequiredUrl</TextWidget> }]}
-            >
-              <Input />
-            </Form.Item>
-          }
-
-        </Form>
-      </Modal>
-    </>
+      </Form>
+    </Modal>
   );
 })

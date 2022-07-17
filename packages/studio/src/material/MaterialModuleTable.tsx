@@ -6,6 +6,7 @@ import { SortableContainer, SortableElement, SortableHandle } from 'react-sortab
 import "./index.less"
 import { UploadModal } from './UploadModal';
 import { MaterialModule } from './model';
+import { TextWidget } from "@designable/react"
 
 const DragHandle = SortableHandle(() => (
   <MenuOutlined
@@ -61,6 +62,7 @@ const SortableItem = SortableElement((props) => <tr {...props} />);
 const SortableBody = SortableContainer((props) => <tbody {...props} />);
 
 export const MaterialModuleTable = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [dataSource, setDataSource] = useState(data);
 
   const onSortEnd = ({ oldIndex, newIndex }) => {
@@ -93,23 +95,44 @@ export const MaterialModuleTable = () => {
 
   }, [])
 
+  const showModal = useCallback(() => {
+    setIsModalVisible(true);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setIsModalVisible(false);
+  }, []);
+
+
   return (
     <>
-      <Table
-        className='material-table'
-        pagination={false}
-        dataSource={dataSource}
-        columns={columns}
-        rowKey="index"
-        showHeader={false}
-        components={{
-          body: {
-            wrapper: DraggableContainer,
-            row: DraggableBodyRow,
-          },
-        }}
-      />
-      <UploadModal onAdded={handleAdded} />
+      {
+        !isModalVisible &&
+        <Table
+          className='material-table'
+          pagination={false}
+          dataSource={dataSource}
+          columns={columns}
+          rowKey="index"
+          showHeader={false}
+          components={{
+            body: {
+              wrapper: DraggableContainer,
+              row: DraggableBodyRow,
+            },
+          }}
+        />
+      }
+
+      <Button
+        type="dashed"
+        className='material-module-add-button'
+        icon={<PlusOutlined />}
+        onClick={showModal}
+      >
+        <TextWidget>materials.Add</TextWidget>
+      </Button>
+      <UploadModal isModalVisible={isModalVisible} onAdded={handleAdded} onClose={handleClose} />
     </>
   );
 };
