@@ -30,6 +30,8 @@ export const MaterialModal = memo(() => {
         title={<TextWidget>materials.ModuleList</TextWidget>}
         className='material-module-modal'
         visible={isModalVisible}
+        okText="确定"
+        cancelText="取消"
         onOk={handleOk}
         onCancel={handleCancel}
       >
