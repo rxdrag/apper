@@ -27,6 +27,11 @@ export function convertMaterialsToComponents(tabs: MaterialTab[]): IDesignerComp
   return coms
 }
 
+export enum OperationType {
+  Upload = 1,
+  Debug
+}
+
 export interface MaterialModule {
   name: string,
   url: string,
