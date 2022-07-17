@@ -1,10 +1,9 @@
-import { ToolOutlined } from '@ant-design/icons';
+import { PlusOutlined, ToolOutlined } from '@ant-design/icons';
 import { Button, Modal } from 'antd';
 import React, { memo, useCallback, useState } from 'react';
-import { MaterialModuleTable } from './MaterialModuleTable';
-import {TextWidget} from "@designable/react"
+import { TextWidget } from "@designable/react"
 
-export const MaterialModal = memo(() => {
+export const UploadModal = memo(() => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = useCallback(() => {
@@ -22,18 +21,22 @@ export const MaterialModal = memo(() => {
 
   return (
     <>
-      <Button shape="circle" style={{ border: 0 }} onClick={showModal}
-        icon={<ToolOutlined style={{ fontSize: 14, transform: "rotateY(180deg)" }} />}
-      />
-
+      <Button
+        type="dashed"
+        className='material-module-add-button'
+        icon={<PlusOutlined />}
+        onClick={showModal}
+      >
+        <TextWidget>materials.Add</TextWidget>
+      </Button>
       <Modal
-        title={<TextWidget>materials.ModuleList</TextWidget>}
-        className='material-module-modal'
+        title={<TextWidget>materials.Cuszomized</TextWidget>}
+        className='material-upoad-modal'
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <MaterialModuleTable />
+        哈哈
       </Modal>
     </>
   );

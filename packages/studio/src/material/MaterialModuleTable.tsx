@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
 import "./index.less"
 import { TextWidget } from "@designable/react"
+import { UploadModal } from './UploadModal';
 
 const DragHandle = SortableHandle(() => (
   <MenuOutlined
@@ -104,9 +105,7 @@ export const MaterialModuleTable = () => {
           },
         }}
       />
-      <Button type="dashed" className='material-module-add-button' icon={<PlusOutlined />}>
-        <TextWidget>materials.Add</TextWidget>
-      </Button>
+      <UploadModal />
     </>
   );
 };

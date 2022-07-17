@@ -10,8 +10,9 @@ GlobalRegistry.registerDesignerLocales({
       Pages: '页面管理'
     },
     materials: {
-      ModuleList: "物料模块",
-      Add:"添加"
+      ModuleList: "物料管理",
+      Add:"添加",
+      Cuszomized:"自定义上传"
     }
   },
   'en-US': {
