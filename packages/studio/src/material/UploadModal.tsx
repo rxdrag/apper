@@ -14,8 +14,11 @@ export interface MaterialModule {
   url: string,
   operationType: OperationType
 }
+export interface IUploadModalProps {
+  onAdded: (module: MaterialModule) => void
+}
 
-export const UploadModal = memo(() => {
+export const UploadModal: React.FC<IUploadModalProps> = memo((props: IUploadModalProps) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [operationType, setOperationType] = useState(OperationType.Upload)
   const [form] = Form.useForm<MaterialModule>();
@@ -25,12 +28,12 @@ export const UploadModal = memo(() => {
   }, []);
 
   const handleOk = useCallback(() => {
-    form.validateFields().then((obj)=>{
+    form.validateFields().then((obj) => {
       console.log(obj)
-    }).catch((err)=>{
+    }).catch((err) => {
       console.error(err)
     })
-    
+
     //setIsModalVisible(false);
   }, []);
 
@@ -50,7 +53,7 @@ export const UploadModal = memo(() => {
     setOperationType(e.target.value)
   }, []);
 
-  const props: UploadProps = {
+  const uploadProps: UploadProps = {
     name: 'file',
     action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
     headers: {
@@ -132,7 +135,7 @@ export const UploadModal = memo(() => {
               label={<TextWidget>materials.UploadFile</TextWidget>}
               name="file"
             >
-              <Dragger {...props}>
+              <Dragger {...uploadProps}>
                 <p className="ant-upload-drag-icon">
                   <CloudUploadOutlined />
                 </p>

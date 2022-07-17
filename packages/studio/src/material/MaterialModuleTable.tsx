@@ -1,11 +1,11 @@
 import { DeleteOutlined, EditOutlined, MenuOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Table } from 'antd';
 import { arrayMoveImmutable } from 'array-move';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
 import "./index.less"
 import { TextWidget } from "@designable/react"
-import { UploadModal } from './UploadModal';
+import { MaterialModule, UploadModal } from './UploadModal';
 
 const DragHandle = SortableHandle(() => (
   <MenuOutlined
@@ -89,6 +89,10 @@ export const MaterialModuleTable = () => {
     return <SortableItem index={index} {...restProps} />;
   };
 
+  const handleAdded = useCallback((module: MaterialModule) => {
+
+  }, [])
+
   return (
     <>
       <Table
@@ -105,7 +109,7 @@ export const MaterialModuleTable = () => {
           },
         }}
       />
-      <UploadModal />
+      <UploadModal onAdded={handleAdded} />
     </>
   );
 };
