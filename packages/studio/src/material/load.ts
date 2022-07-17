@@ -1,5 +1,7 @@
 import { MaterialGroup } from "./model";
 
+declare const window: Window & { materials: MaterialGroup[] };
+
 export interface LoadedData {
   scripts: HTMLScriptElement[];
   groups?: MaterialGroup[];
@@ -15,6 +17,8 @@ export function loadNormailModule(url: string): Promise<LoadedData> {
     loadJS(indexJs, true)
       .then((script) => {
         loadedData.scripts.push(script);
+        loadedData.groups = window.materials
+        window.materials = undefined
         resolve(loadedData);
       })
       .catch(err => {
@@ -32,6 +36,9 @@ export function loadDebugModule(url: string): Promise<LoadedData> {
   const loadedData: LoadedData = {
     scripts: []
   }
+
+  console.log("加载前", window.materials);
+
   const p = new Promise<LoadedData>((resolve, reject) => {
     loadJS(venderJs, true)
       .then((script) => {
@@ -39,6 +46,8 @@ export function loadDebugModule(url: string): Promise<LoadedData> {
         loadJS(indexJs, true)
           .then((script) => {
             loadedData.scripts.push(script);
+            loadedData.groups = window.materials
+            window.materials = undefined
             resolve(loadedData);
           })
           .catch(err => {

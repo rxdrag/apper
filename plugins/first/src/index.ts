@@ -1,9 +1,16 @@
+import { getMaterials } from "./formily";
+import { MaterialGroup } from "./model"
+
 export * from "./formily"
 
-console.log("哈哈， loaded！")
+declare const window: Window & { materials: MaterialGroup[] };
 
-export function haha(){
-  console.log("哈哈333， loaded function")
+function init() {
+  // if(window.materials){
+  //   console.error("Has material not finished! load error", window.materials)
+  // }else{
+  window.materials = getMaterials().groups
+  // }
 }
 
-window.haha = haha
+init()

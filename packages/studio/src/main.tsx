@@ -43,39 +43,6 @@ import { allMaterials } from './material/mock'
 import "./locales"
 setNpmCDNRegistry('//unpkg.com')
 
-/**
- * 动态加载js文件
- * @param {*} src
- * @param {*} callback
- *   loadScript("",function(){
- *   console.log("加载成功")
- * })
- * var that = this; 在方法里面使用that
- */
-function loadJS(
-  src: string,
-  callback: (this: HTMLScriptElement, ev: Event) => void,
-  isCache = false
-): void {
-  const script = document.createElement("script");
-  script.type = "text/JavaScript";
-  if (isCache) {
-    script.src = src + "?t=" + new Date().getTime();
-  } else {
-    script.src = src;
-  }
-  if (script.addEventListener) {
-    script.addEventListener("load", callback);
-    script.addEventListener("error",(e)=>{
-      console.error("哈哈", e)
-    });
-  }
-
-  document.head.appendChild(script);
-}
-
-declare function haha():void;
-
 const App = () => {
 
   /*
@@ -86,14 +53,7 @@ const App = () => {
 
 ).then((modules) => modules.forEach((module) => module.load()));
 */
-  let modulePath = "http://127.0.0.1:4000/index.js";
-  loadJS("http://localhost:4000/vendors~index.js", ()=>{
-    loadJS(modulePath, ()=>{
-      console.log("加载的回调3")
-      //console.log(window.haha)
-      //window.haha()
-    }, true)
-  })
+
 
   const engine = useMemo(
     () =>
@@ -105,7 +65,6 @@ const App = () => {
               [KeyCode.Control, KeyCode.S],
             ],
             handler(ctx) {
-              console.log("哈哈", ctx)
               saveSchema(ctx.engine)
             },
           }),
