@@ -1,5 +1,10 @@
 import React, { useContext } from 'react'
 import { Layout, usePrefix, usePosition } from "@designable/react"
+import {
+  useCurrentNode,
+  useWorkbench,
+} from '@designable/react'
+
 import cls from 'classnames'
 export interface IStudioPanelProps {
   style?: React.CSSProperties
@@ -18,6 +23,11 @@ const StudioPanelInternal: React.FC<IStudioPanelProps> = ({
 }) => {
   const prefix = usePrefix('main-panel')
   const position = usePosition()
+  const workbench = useWorkbench()
+  const currentWorkspace =
+    workbench?.activeWorkspace || workbench?.currentWorkspace
+  const currentWorkspaceId = currentWorkspace?.id
+  const node = useCurrentNode(currentWorkspaceId)
   const classNameBase = cls('root', position, props.className)
   if (logo || actions) {
     return (

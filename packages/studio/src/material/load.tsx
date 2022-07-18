@@ -49,7 +49,7 @@ function transComponment(material: ApFC<any>): DnFC<any> {
 
   dnfc.Behavior = Behavior
   dnfc.Resource = Resource
-  return Rate
+  return dnfc
 }
 
 export function loadNormailModule(url: string): Promise<LoadedData> {
