@@ -34,15 +34,14 @@ import {
   FormGrid,
 } from '@designable/formily-antd'
 import { ResourceWidget } from "../widgets/ResourceWidget";
-// import {
-//   ResourceWidget
-// } from '@designable/react'
+import {
+  useTree
+} from '@designable/react'
 
 const { TabPane } = Tabs;
 declare const window: Window & { materilaModules: MaterialModule[] };
 
 export const MaterialPanel: React.FC = observer(() => {
-
   const onChange = (key: string) => {
     console.log(key);
   };

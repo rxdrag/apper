@@ -13,7 +13,6 @@ export interface MaterialGroup {
 export function convertMaterialsToComponents(tabs: MaterialModule[]): IDesignerComponents {
   const coms: IDesignerComponents = {}
   for (const tab of tabs) {
-    console.log("哈哈", tab)
     for (const group of tab.groups) {
       for (const material of group.materials) {
         coms[material.name] = material.component
