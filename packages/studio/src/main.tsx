@@ -75,6 +75,7 @@ const App = observer(() => {
       }),
     []
   )
+
   return (
     <Designer engine={engine}>
       <StudioPanel logo={<NavigationWidget />} actions={<ActionsWidget />}>

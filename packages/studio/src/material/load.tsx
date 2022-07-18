@@ -1,17 +1,31 @@
 import { MaterialGroup } from "./model";
-import { ApFC } from "./types";
+import { ApFC, ApMaterialGroup } from "./types";
 import { DnFC } from "@designable/react";
 import { createBehavior, createResource } from '@designable/core'
 import { createVoidFieldSchema } from '@designable/formily-antd'
+import { group } from "console";
+import React from "react";
 
-declare const window: Window & { materials: MaterialGroup[] };
+declare const window: Window & { materials: ApMaterialGroup[] };
 
 export interface LoadedData {
   scripts: HTMLScriptElement[];
-  groups?: MaterialGroup[];
+  groups?: ApMaterialGroup[];
 }
 
-function transMaterial(material: ApFC<any>): DnFC<any> {
+export function transMaterialGroups(groups: ApMaterialGroup[]): MaterialGroup[] {
+  return groups.map(
+    group =>
+    ({
+      ...group,
+      materials: group.materials.map(
+        material => ({ ...material, component: transComponment(material.component) })
+      )
+    })
+  )
+}
+
+function transComponment(material: ApFC<any>): DnFC<any> {
   console.log("material.Behavior", material, material.Behavior)
   const Behavior = createBehavior({
     ...material.Behavior,
@@ -21,7 +35,24 @@ function transMaterial(material: ApFC<any>): DnFC<any> {
     }
   })
   const Resource = createResource(material.Resource)
-  return { ...material, Resource, Behavior } as any
+
+  const dnfc: DnFC<any> = (props) => {
+    const Name = material.name
+    return (
+      <div
+        {...props}
+        // title={
+        //   <span data-content-editable="x-component-props.title" >
+        //     {props.title}
+        //   </span>
+        // }
+      />
+    )
+  }
+
+  dnfc.Behavior = Behavior
+  dnfc.Resource = Resource
+  return dnfc
 }
 
 export function loadNormailModule(url: string): Promise<LoadedData> {
@@ -63,15 +94,7 @@ export function loadDebugModule(url: string): Promise<LoadedData> {
         loadJS(indexJs, true)
           .then((script) => {
             loadedData.scripts.push(script);
-            loadedData.groups = window.materials.map(
-              group => ({
-                ...group,
-                materials: group.materials.map(
-                  material => ({...material, component:transMaterial(material.component as any)})
-                )
-              }
-              )
-            )
+            loadedData.groups = window.materials
             window.materials = undefined
             resolve(loadedData);
           })

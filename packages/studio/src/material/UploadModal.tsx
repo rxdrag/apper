@@ -4,7 +4,7 @@ import React, { memo, useCallback, useState } from 'react';
 import { TextWidget } from "@designable/react"
 import Dragger from 'antd/lib/upload/Dragger';
 import { MaterialModule, OperationType } from './model';
-import { loadDebugModule } from './load';
+import { loadDebugModule, transMaterialGroups } from './load';
 import { materialStore } from './global';
 
 export interface IUploadModalProps {
@@ -26,7 +26,13 @@ export const UploadModal: React.FC<IUploadModalProps> = memo((props: IUploadModa
       if (formData.operationType === OperationType.Debug) {
         loadDebugModule(formData.url)
           .then((data) => {
-            materialStore.modules = [...materialStore.modules, {...form.getFieldsValue(), ...data}];
+            materialStore.modules = [
+              ...materialStore.modules,
+              {
+                ...form.getFieldsValue(),
+                groups: transMaterialGroups(data.groups),
+              },
+            ];
             setIsModalVisible(false);
           })
           .catch((err) => {
@@ -176,3 +182,4 @@ export const UploadModal: React.FC<IUploadModalProps> = memo((props: IUploadModa
     </>
   );
 })
+
