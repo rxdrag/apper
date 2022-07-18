@@ -2,7 +2,7 @@ import { MaterialGroup } from "./model";
 import { ApFC, ApMaterialGroup } from "./types";
 import { DnFC } from "@designable/react";
 import { createBehavior, createResource } from '@designable/core'
-import { createVoidFieldSchema } from '@designable/formily-antd'
+import { Card, Rate, createVoidFieldSchema } from '@designable/formily-antd'
 import React from "react";
 import { Card as AntdCard } from 'antd'
 
@@ -49,7 +49,7 @@ function transComponment(material: ApFC<any>): DnFC<any> {
 
   dnfc.Behavior = Behavior
   dnfc.Resource = Resource
-  return dnfc
+  return Rate
 }
 
 export function loadNormailModule(url: string): Promise<LoadedData> {

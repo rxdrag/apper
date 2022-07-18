@@ -9,10 +9,6 @@ import {
   OutlineTreeWidget,
   HistoryWidget,
   StudioPanel,
-  WorkspacePanel,
-  ToolbarPanel,
-  ViewportPanel,
-  SettingsPanel,
   ComponentTreeWidget,
 } from '@designable/react'
 import {
@@ -35,14 +31,13 @@ import {
   Form,
   Field,
 } from '@designable/formily-antd'
-import { CompositePanel } from './panels/CompositePanel'
-import { ViewPanel } from './panels/ViewPanel'
+import { ViewPanel, CompositePanel, WorkspacePanel, ToolbarPanel, ViewportPanel, SettingsPanel } from './panels'
 import { MaterialPanel } from './material/MaterialPanel'
 import { convertMaterialsToComponents } from './material/model'
 import "./locales"
 import { observer } from '@formily/reactive-react'
 import { materialStore } from './material/global'
-import { allMaterials } from './material/mock'
+
 setNpmCDNRegistry('//unpkg.com')
 
 const App = observer(() => {
@@ -55,11 +50,11 @@ const App = observer(() => {
 
 ).then((modules) => modules.forEach((module) => module.load()));
 */
-
-
+  console.log("app 刷新", materialStore.modules)
   const engine = useMemo(
-    () =>
-      createDesigner({
+    () => {
+      console.log("创建 Engine")
+      const egn = createDesigner({
         shortcuts: [
           new Shortcut({
             codes: [
@@ -72,9 +67,15 @@ const App = observer(() => {
           }),
         ],
         rootComponentName: 'Form',
-      }),
+      })
+      egn.init()
+      return egn
+    },
     []
   )
+
+  const type = "DESIGNABLE"
+
   return (
     <Designer engine={engine}>
       <StudioPanel logo={<NavigationWidget />} actions={<ActionsWidget />}>

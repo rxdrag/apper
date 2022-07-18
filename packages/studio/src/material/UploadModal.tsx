@@ -6,6 +6,7 @@ import Dragger from 'antd/lib/upload/Dragger';
 import { MaterialModule, OperationType } from './model';
 import { loadDebugModule, transMaterialGroups } from './load';
 import { materialStore } from './global';
+import { Rate } from '@designable/formily-antd';
 
 export interface IUploadModalProps {
   onAdded: (module: MaterialModule) => void
@@ -15,7 +16,6 @@ export const UploadModal: React.FC<IUploadModalProps> = memo((props: IUploadModa
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [operationType, setOperationType] = useState(OperationType.Upload)
   const [form] = Form.useForm<MaterialModule>();
-
   const showModal = useCallback(() => {
     setIsModalVisible(true);
   }, []);
@@ -30,7 +30,15 @@ export const UploadModal: React.FC<IUploadModalProps> = memo((props: IUploadModa
               ...materialStore.modules,
               {
                 ...form.getFieldsValue(),
-                groups: transMaterialGroups(data.groups),
+                groups: [{
+                  title: "Test",
+                  materials: [
+                    {
+                      name: "Rate",
+                      component: Rate,
+                    },
+                  ],
+                }],
               },
             ];
             setIsModalVisible(false);
