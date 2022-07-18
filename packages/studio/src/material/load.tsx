@@ -3,8 +3,8 @@ import { ApFC, ApMaterialGroup } from "./types";
 import { DnFC } from "@designable/react";
 import { createBehavior, createResource } from '@designable/core'
 import { createVoidFieldSchema } from '@designable/formily-antd'
-import { group } from "console";
 import React from "react";
+import { Card as AntdCard } from 'antd'
 
 declare const window: Window & { materials: ApMaterialGroup[] };
 
@@ -37,15 +37,10 @@ function transComponment(material: ApFC<any>): DnFC<any> {
   const Resource = createResource(material.Resource)
 
   const dnfc: DnFC<any> = (props) => {
-    const Name = material.name
+    const Componet = material
     return (
-      <div
+      <Componet
         {...props}
-        // title={
-        //   <span data-content-editable="x-component-props.title" >
-        //     {props.title}
-        //   </span>
-        // }
       />
     )
   }
