@@ -26,13 +26,15 @@ export function transMaterialGroups(groups: ApMaterialGroup[]): MaterialGroup[] 
 }
 
 function transComponment(material: ApFC<any>): DnFC<any> {
-  console.log("material.Behavior", material, material.Behavior)
+  console.log("(material.Behavior.designerProps", createVoidFieldSchema((material.Behavior.designerProps as any).propsSchema))
+  console.log((material.Behavior.designerProps as any).propsSchema)
   const Behavior = createBehavior({
     ...material.Behavior,
     designerProps: {
       ...material.Behavior.designerProps,
       propsSchema: createVoidFieldSchema((material.Behavior.designerProps as any).propsSchema),
-    }
+    },
+    selector: (node) => node.props['x-component'] === 'Card',
   })
   const Resource = createResource(material.Resource)
 
