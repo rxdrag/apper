@@ -2,11 +2,6 @@ import 'antd/dist/antd.less'
 import React, { useMemo } from 'react'
 import ReactDOM from 'react-dom'
 import {
-  OutlineTreeWidget,
-  HistoryWidget,
-  ComponentTreeWidget,
-} from '@designable/react'
-import {
   SettingsForm,
   setNpmCDNRegistry,
 } from '@designable/react-settings-form'
@@ -22,6 +17,9 @@ import {
   SchemaEditorWidget,
   ViewToolsWidget,
   DesignerToolsWidget,
+  OutlineTreeWidget,
+  HistoryWidget,
+  ComponentTreeWidget,
 } from './widgets'
 import { saveSchema } from './service'
 import {
