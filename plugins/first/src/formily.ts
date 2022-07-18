@@ -30,7 +30,6 @@ import {
 
 export function getMaterials(): MaterialModule {
   return {
-    title: "表单",
     groups: [
       {
         title: "输入组件",

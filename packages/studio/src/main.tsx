@@ -109,7 +109,7 @@ const App = observer(() => {
                     components={{
                       Form,
                       Field,
-                      ...convertMaterialsToComponents(allMaterials)
+                      ...convertMaterialsToComponents(materialStore.modules)
                     }}
                   />
                 )}

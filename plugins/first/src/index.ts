@@ -10,6 +10,7 @@ function init() {
   //   console.error("Has material not finished! load error", window.materials)
   // }else{
   window.materials = getMaterials().groups
+  console.log("plug in 中",getMaterials().groups)
   // }
 }
 

@@ -27,6 +27,7 @@ export const ResourceWidget: React.FC<IResourceWidgetProps> = observer(
     const [expand, setExpand] = useState(props.defaultExpand)
     const renderNode = (source: IResource) => {
       const { node, icon, title, thumb, span } = source
+      console.log("大大 node", node)
       return (
         <div
           className={prefix + '-item'}
@@ -58,7 +59,7 @@ export const ResourceWidget: React.FC<IResourceWidgetProps> = observer(
       console.log("嘿嘿", source, isResourceList(source), isResourceHost(source))
       if (isResourceList(source)) {
         return buf.concat(source)
-      } else if (isResourceHost(source)) {
+      } else /*if (isResourceHost(source))*/ {
         return buf.concat(source.Resource)
       }
       return buf

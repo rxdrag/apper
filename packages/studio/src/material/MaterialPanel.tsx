@@ -72,7 +72,7 @@ export const MaterialPanel: React.FC = observer(() => {
                     />)
                   })
                 }
-                <ResourceWidget
+                {/* <ResourceWidget
                   title="sources.Layouts"
                   sources={[
                     Card,
@@ -82,7 +82,7 @@ export const MaterialPanel: React.FC = observer(() => {
                     FormCollapse,
                     Space,
                   ]}
-                />
+                /> */}
               </TabPane>
             )
           })

@@ -11,7 +11,6 @@ export interface MaterialGroup {
 }
 
 export interface MaterialModule {
-  title: string;
   groups: MaterialGroup[]
 }
 
