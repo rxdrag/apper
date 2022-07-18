@@ -3,8 +3,6 @@ import React, { useMemo } from 'react'
 import ReactDOM from 'react-dom'
 import {
   Designer,
-  DesignerToolsWidget,
-  ViewToolsWidget,
   Workspace,
   OutlineTreeWidget,
   HistoryWidget,
@@ -25,6 +23,8 @@ import {
   ActionsWidget,
   PreviewWidget,
   SchemaEditorWidget,
+  ViewToolsWidget,
+  DesignerToolsWidget,
 } from './widgets'
 import { saveSchema } from './service'
 import {
