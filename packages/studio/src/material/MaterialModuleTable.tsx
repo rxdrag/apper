@@ -1,11 +1,12 @@
 import { DeleteOutlined, EditOutlined, MenuOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Table } from 'antd';
 import { arrayMoveImmutable } from 'array-move';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
 import "./index.less"
 import { UploadModal } from './UploadModal';
 import { MaterialModule } from './model';
+import { materialStore } from './global';
 
 const DragHandle = SortableHandle(() => (
   <MenuOutlined
@@ -40,28 +41,21 @@ const columns = [
     </>,
   },
 ];
-const data = [
-  {
-    key: '1',
-    name: '表单',
-    index: 0,
-  },
-  {
-    key: '2',
-    name: '业务',
-    index: 1,
-  },
-  {
-    key: '3',
-    name: '测试',
-    index: 2,
-  },
-];
 const SortableItem = SortableElement((props) => <tr {...props} />);
 const SortableBody = SortableContainer((props) => <tbody {...props} />);
 
 export const MaterialModuleTable = () => {
-  const [dataSource, setDataSource] = useState(data);
+  const [dataSource, setDataSource] = useState([]);
+
+  useEffect(()=>{
+    setDataSource(materialStore.modules.map((material,index)=>{
+      return {
+        key: index,
+        name: material.name,
+        index: index,
+      }
+    }))
+  }, [materialStore.modules])
 
   const onSortEnd = ({ oldIndex, newIndex }) => {
     if (oldIndex !== newIndex) {
@@ -88,6 +82,7 @@ export const MaterialModuleTable = () => {
     const index = dataSource.findIndex((x) => x.index === restProps['data-row-key']);
     return <SortableItem index={index} {...restProps} />;
   };
+
 
   const handleAdded = useCallback((module: MaterialModule) => {
 
