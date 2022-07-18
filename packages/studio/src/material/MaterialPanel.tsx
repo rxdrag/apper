@@ -64,7 +64,6 @@ export const MaterialPanel: React.FC = observer(() => {
               <TabPane tab={tabData.name} key={index + 1}>
                 {
                   tabData.groups?.map((groupData, gIndex) => {
-                    console.log("大会", groupData.materials.map(material => material.component))
                     return (<ResourceWidget
                       key={gIndex + 1}
                       title={groupData.title}

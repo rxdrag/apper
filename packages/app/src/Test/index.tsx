@@ -93,7 +93,7 @@ const jsonSchema ={
 export default () => {
 
   const handleSubmit = useCallback((value:any)=>{
-    console.log("哈哈", value)
+
   }, [])
 
   return (

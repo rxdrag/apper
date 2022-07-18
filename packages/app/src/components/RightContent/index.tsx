@@ -24,7 +24,6 @@ const GlobalHeaderRight: React.FC = () => {
   // if ((navTheme === 'dark' && layout === 'top') || layout === 'mix') {
   //   className = `${styles.right}  ${styles.dark}`;
   // }
-  //console.log("呵呵", styles)
 
   return (
     <Space className={"right"}>

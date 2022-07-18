@@ -7,7 +7,7 @@ import {
 } from '@designable/core'
 import { isFn } from '@designable/shared'
 import { observer } from '@formily/reactive-react'
-import { usePrefix, IconWidget,  TextWidget} from '@designable/react'
+import { usePrefix, IconWidget, TextWidget } from '@designable/react'
 import cls from 'classnames'
 import './styles.less'
 
@@ -27,7 +27,6 @@ export const ResourceWidget: React.FC<IResourceWidgetProps> = observer(
     const [expand, setExpand] = useState(props.defaultExpand)
     const renderNode = (source: IResource) => {
       const { node, icon, title, thumb, span } = source
-      console.log("大大 node", node)
       return (
         <div
           className={prefix + '-item'}
@@ -56,10 +55,9 @@ export const ResourceWidget: React.FC<IResourceWidgetProps> = observer(
       )
     }
     const sources = props.sources.reduce<IResource[]>((buf, source) => {
-      console.log("嘿嘿", source, isResourceList(source), isResourceHost(source))
       if (isResourceList(source)) {
         return buf.concat(source)
-      } else /*if (isResourceHost(source))*/ {
+      } else if (isResourceHost(source)) {
         return buf.concat(source.Resource)
       }
       return buf

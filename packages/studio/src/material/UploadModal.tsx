@@ -26,7 +26,6 @@ export const UploadModal: React.FC<IUploadModalProps> = memo((props: IUploadModa
       if (formData.operationType === OperationType.Debug) {
         loadDebugModule(formData.url)
           .then((data) => {
-            console.log("呵呵", data);
             materialStore.modules = [...materialStore.modules, {...form.getFieldsValue(), ...data}];
             setIsModalVisible(false);
           })
