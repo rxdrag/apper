@@ -2,11 +2,8 @@ import 'antd/dist/antd.less'
 import React, { useMemo } from 'react'
 import ReactDOM from 'react-dom'
 import {
-  Designer,
-  Workspace,
   OutlineTreeWidget,
   HistoryWidget,
-  StudioPanel,
   ComponentTreeWidget,
 } from '@designable/react'
 import {
@@ -31,12 +28,13 @@ import {
   Form,
   Field,
 } from '@designable/formily-antd'
-import { ViewPanel, CompositePanel, WorkspacePanel, ToolbarPanel, ViewportPanel, SettingsPanel } from './panels'
+import { ViewPanel, CompositePanel, WorkspacePanel, ToolbarPanel, ViewportPanel, SettingsPanel, StudioPanel } from './panels'
 import { MaterialPanel } from './material/MaterialPanel'
 import { convertMaterialsToComponents } from './material/model'
 import "./locales"
 import { observer } from '@formily/reactive-react'
 import { materialStore } from './material/global'
+import { Designer, Workspace } from './containers'
 
 setNpmCDNRegistry('//unpkg.com')
 
