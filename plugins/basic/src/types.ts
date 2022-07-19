@@ -15,7 +15,7 @@ export interface IApperComponent {
   behavior?: IBehaviorCreator | IBehaviorCreator[];
 }
 
-export interface ComponentGroup {
+export interface ComponentCategory {
   name: string;
   components: IApperComponent[];
 }

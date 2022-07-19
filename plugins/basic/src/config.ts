@@ -1,15 +1,8 @@
-import { Page } from "./components/Layout/Page";
-import { ComponentGroup } from "./types";
+import { Form } from "./components/Form";
+import { Layout } from "./components/Layout";
+import { ComponentCategory } from "./types";
 
-export const groups: ComponentGroup[] = [
-  {
-    name: "Layout",
-    components: [
-      Page,
-    ]
-  },
-  {
-    name: "Form",
-    components: []
-  }
+export const categories: ComponentCategory[] = [
+  Layout,
+  Form,
 ]
