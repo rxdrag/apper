@@ -3,6 +3,7 @@ import { IDesignerComponents, DnFC, DnComponent } from "@designable/react"
 export interface Material {
   name: string;
   component: DnFC<any> | DnComponent<any>;
+  xComponent: React.FC<any> | React.Component;
 }
 
 export interface MaterialGroup {

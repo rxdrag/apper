@@ -1,16 +1,16 @@
-import { IBehaviorCreator, IResourceCreator } from "@designable/core";
+import { IBehaviorCreator, IDesignerLocales, IResourceCreator } from "@designable/core";
 
-export type ApFC<P = {}> = React.FC<P> & {
-  Resource?: IResourceCreator;
-  Behavior?: IBehaviorCreator;
-}
-
-export interface ApMaterial {
+export interface IApperComponent {
   name: string;
-  component: ApFC<any>;
+  isPredefined?: boolean;
+  xComponent?: React.FC<any>;
+  xDesigner?: React.FC<any>;
+  resource?: IResourceCreator | IResourceCreator[];
+  behavior?: IBehaviorCreator | IBehaviorCreator[];
 }
 
-export interface ApMaterialGroup {
-  title: string;
-  materials: ApMaterial[];
+export interface ComponentCategory {
+  name: string;
+  locales: IDesignerLocales;
+  components: IApperComponent[];
 }

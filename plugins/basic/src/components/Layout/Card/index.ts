@@ -1,6 +1,6 @@
 import { IApperComponent } from "src/types"
 import { Card as AntdCard } from 'antd'
-import { CardDesigner } from "./preview"
+import { CardDesigner } from "./designer"
 import { schema } from "./schema"
 import { locales } from "./locales"
 

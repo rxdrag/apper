@@ -1,27 +1,29 @@
 import { MaterialGroup } from "./model";
-import { ApFC, ApMaterialGroup } from "./types";
 import { DnFC } from "@designable/react";
 import { createBehavior, createResource } from '@designable/core'
-import { Card, Rate, createVoidFieldSchema } from '@designable/formily-antd'
+import { createVoidFieldSchema } from '@designable/formily-antd'
 import React from "react";
-import { Card as AntdCard } from 'antd'
+import { ComponentCategory } from "./types";
 
-declare const window: Window & { materials: ApMaterialGroup[] };
+declare const window: Window & { materials: ComponentCategory[] };
 
 export interface LoadedData {
   scripts: HTMLScriptElement[];
-  groups?: ApMaterialGroup[];
+  categories?: ComponentCategory[];
 }
 
-export function transMaterialGroups(groups: ApMaterialGroup[]): MaterialGroup[] {
-  return groups.map(
-    group =>
-    ({
-      ...group,
-      materials: group.materials.map(
-        material => ({ ...material, component: transComponment(material.component) })
-      )
-    })
+export function transMaterialGroups(categories: ComponentCategory[]): MaterialGroup[] {
+  return categories.map(
+    category =>
+    {
+      return {
+        title: `${category.name}.title`,
+        materials: category.components.map(
+          material => ({ ...material, component: transComponment(material.component) })
+        )
+      }
+    }
+
   )
 }
 
@@ -62,7 +64,7 @@ export function loadNormailModule(url: string): Promise<LoadedData> {
     loadJS(indexJs, true)
       .then((script) => {
         loadedData.scripts.push(script);
-        loadedData.groups = window.materials
+        loadedData.categories = window.materials
         window.materials = undefined
         resolve(loadedData);
       })
@@ -91,7 +93,7 @@ export function loadDebugModule(url: string): Promise<LoadedData> {
         loadJS(indexJs, true)
           .then((script) => {
             loadedData.scripts.push(script);
-            loadedData.groups = window.materials
+            loadedData.categories = window.materials
             window.materials = undefined
             resolve(loadedData);
           })

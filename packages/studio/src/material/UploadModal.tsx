@@ -29,7 +29,7 @@ export const UploadModal: React.FC<IUploadModalProps> = memo((props: IUploadModa
               ...materialStore.modules,
               {
                 ...form.getFieldsValue(),
-                groups: transMaterialGroups(data.groups),
+                groups: transMaterialGroups(data.categories),
               },
             ];
             setIsModalVisible(false);
