@@ -4,5 +4,5 @@ import { ComponentCategory } from "./types";
 
 export const categories: ComponentCategory[] = [
   Layout,
-  Form,
+  //Form,
 ]

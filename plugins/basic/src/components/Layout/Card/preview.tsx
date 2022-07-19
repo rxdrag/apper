@@ -1,8 +1,5 @@
 import React from 'react'
 import { Card as AntdCard } from 'antd'
-
-import { createBehavior, createResource } from '@designable/core'
-import { DnFC } from '@designable/react'
 import { locales } from './locales'
 import { schema } from './schema'
 import { ApFC } from 'src/types'
