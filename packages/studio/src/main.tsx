@@ -46,27 +46,21 @@ const App = observer(() => {
 
 ).then((modules) => modules.forEach((module) => module.load()));
 */
-  console.log("app 刷新", materialStore.modules)
   const engine = useMemo(
-    () => {
-      console.log("创建 Engine")
-      const egn = createDesigner({
-        shortcuts: [
-          new Shortcut({
-            codes: [
-              [KeyCode.Meta, KeyCode.S],
-              [KeyCode.Control, KeyCode.S],
-            ],
-            handler(ctx) {
-              saveSchema(ctx.engine)
-            },
-          }),
-        ],
-        rootComponentName: 'Form',
-      })
-      egn.init()
-      return egn
-    },
+    () => createDesigner({
+      shortcuts: [
+        new Shortcut({
+          codes: [
+            [KeyCode.Meta, KeyCode.S],
+            [KeyCode.Control, KeyCode.S],
+          ],
+          handler(ctx) {
+            saveSchema(ctx.engine)
+          },
+        }),
+      ],
+      rootComponentName: 'Form',
+    }),
     []
   )
 
