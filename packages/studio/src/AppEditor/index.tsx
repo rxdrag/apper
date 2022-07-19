@@ -1,6 +1,5 @@
 import 'antd/dist/antd.less'
 import React, { useMemo } from 'react'
-import ReactDOM from 'react-dom'
 import {
   SettingsForm,
   setNpmCDNRegistry,
@@ -36,7 +35,7 @@ import { Designer, Workspace } from './containers'
 
 setNpmCDNRegistry('//unpkg.com')
 
-const App = observer(() => {
+const AppEditor = observer(() => {
 
   /*
   Promise.all(
@@ -124,6 +123,7 @@ const App = observer(() => {
   )
 })
 
-ReactDOM.render(<App />, document.getElementById('root'))
+export default AppEditor;
+
 
 

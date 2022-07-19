@@ -11,7 +11,7 @@ export default {
     children: false,
   },
   entry: {
-    playground: path.resolve(__dirname, '../src/main'),
+    playground: path.resolve(__dirname, '../src/index'),
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
