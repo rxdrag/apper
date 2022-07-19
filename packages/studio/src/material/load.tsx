@@ -3,7 +3,8 @@ import { DnFC } from "@designable/react";
 import { createBehavior, createResource } from '@designable/core'
 import { createVoidFieldSchema } from '@designable/formily-antd'
 import React from "react";
-import { ComponentCategory } from "./types";
+import { ComponentCategory, IApperComponent } from "./types";
+import { GlobalRegistry } from '@designable/core'
 
 declare const window: Window & { materials: ComponentCategory[] };
 
@@ -14,12 +15,12 @@ export interface LoadedData {
 
 export function transMaterialGroups(categories: ComponentCategory[]): MaterialGroup[] {
   return categories.map(
-    category =>
-    {
+    category => {
+      GlobalRegistry.registerDesignerLocales(category.locales)
       return {
         title: `${category.name}.title`,
         materials: category.components.map(
-          material => ({ ...material, component: transComponment(material.component) })
+          material => ({ ...material, xComponent: material.xComponent, component: transComponment(material) })
         )
       }
     }
@@ -27,21 +28,20 @@ export function transMaterialGroups(categories: ComponentCategory[]): MaterialGr
   )
 }
 
-function transComponment(material: ApFC<any>): DnFC<any> {
-  console.log("(material.Behavior.designerProps", createVoidFieldSchema((material.Behavior.designerProps as any).propsSchema))
-  console.log((material.Behavior.designerProps as any).propsSchema)
+function transComponment(material: IApperComponent): DnFC<any> {
+
   const Behavior = createBehavior({
-    ...material.Behavior,
+    ...material.behavior,
     designerProps: {
-      ...material.Behavior.designerProps,
-      propsSchema: createVoidFieldSchema((material.Behavior.designerProps as any).propsSchema),
+      ...material.behavior.designerProps,
+      propsSchema: createVoidFieldSchema((material.behavior.designerProps as any).propsSchema),
     },
     selector: (node) => node.props['x-component'] === 'Card',
   })
-  const Resource = createResource(material.Resource)
+  const Resource = createResource(material.resource)
 
   const dnfc: DnFC<any> = (props) => {
-    const Componet = material
+    const Componet = material.xDesigner
     return (
       <Componet
         {...props}

@@ -5,8 +5,8 @@ export interface IApperComponent {
   isPredefined?: boolean;
   xComponent?: React.FC<any>;
   xDesigner?: React.FC<any>;
-  resource?: IResourceCreator | IResourceCreator[];
-  behavior?: IBehaviorCreator | IBehaviorCreator[];
+  resource?: IResourceCreator;
+  behavior?: IBehaviorCreator;
 }
 
 export interface ComponentCategory {

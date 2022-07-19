@@ -1,8 +1,12 @@
 export const locales = {
   'zh-CN': {
-    title: '布局',
+    Layout: {
+      title: '布局2',
+    }
   },
   'en-US': {
-    title: 'Layout',
+    Layout: {
+      title: 'Layout',
+    }
   }
 }
