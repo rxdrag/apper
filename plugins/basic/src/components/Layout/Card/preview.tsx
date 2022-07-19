@@ -1,10 +1,7 @@
 import React from 'react'
 import { Card as AntdCard } from 'antd'
-import { locales } from './locales'
-import { schema } from './schema'
-import { ApFC } from 'src/types'
 
-export const Card: ApFC<React.ComponentProps<typeof AntdCard>> = (props) => {
+export const CardDesigner: React.FC<React.ComponentProps<typeof AntdCard>> = (props) => {
   return (
     <AntdCard
       {...props}
@@ -17,31 +14,4 @@ export const Card: ApFC<React.ComponentProps<typeof AntdCard>> = (props) => {
       {props.children}
     </AntdCard>
   )
-}
-
-Card.Behavior = {
-  name: 'Card',
-  extends: ['Field'],
-  selector: (node) => node.props['x-component'] === 'Card',
-  designerProps: {
-    droppable: true,
-    propsSchema: schema,
-  },
-  designerLocales: locales,
-}
-
-Card.Resource = {
-  icon: 'CardSource',
-  elements: [
-    {
-      componentName: 'Field',
-      props: {
-        type: 'void',
-        'x-component': 'Card',
-        'x-component-props': {
-          title: 'Title',
-        },
-      },
-    },
-  ],
 }

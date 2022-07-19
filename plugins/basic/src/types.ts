@@ -1,10 +1,4 @@
-import { IBehaviorCreator, IDesignerLocales, IDesignerProps, IResourceCreator, TreeNode } from "@designable/core";
-
-export type ApFC<P = {}> = React.FC<P> & {
-  Resource?: IResourceCreator;
-  Behavior?: IBehaviorCreator;
-}
-
+import { IBehaviorCreator, IResourceCreator } from "@designable/core";
 
 export interface IApperComponent {
   name: string;
