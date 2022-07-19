@@ -1,15 +1,15 @@
-import { getMaterials } from "./formily";
-import { MaterialGroup } from "./model"
+import { groups } from "./config";
+import { ComponentGroup } from "./types";
 
-export * from "./formily"
+export * from "./config"
 
-declare const window: Window & { materials: MaterialGroup[] };
+declare const window: Window & { materials: ComponentGroup[] };
 
 (function () {
   // if(window.materials){
   //   console.error("Has material not finished! load error", window.materials)
   // }else{
-  window.materials = getMaterials().groups
-  console.log("plug in 中", getMaterials().groups)
+  window.materials = groups
+  console.log("plug in 中", groups)
   // }
 })()

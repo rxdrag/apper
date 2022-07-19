@@ -14,3 +14,8 @@ export interface IApperComponent {
   resource?: IResourceCreator | IResourceCreator[];
   behavior?: IBehaviorCreator | IBehaviorCreator[];
 }
+
+export interface ComponentGroup {
+  name: string;
+  components: IApperComponent[];
+}
