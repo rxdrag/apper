@@ -37,9 +37,7 @@ const AppList = () => {
           </Card>
         </Col>
         <Col span={6}>
-          <Card title="Card title" bordered={false}>
-            Card content
-          </Card>
+          <AppCard />
         </Col>
       </Row>
       <Row className="app-row" gutter={24}>
