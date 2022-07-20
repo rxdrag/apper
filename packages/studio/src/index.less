@@ -3,9 +3,12 @@
   flex-flow: column;
   height: 100vh;
   .header{
+    z-index: 10;
     display: flex;
     background-color: #fff;
     align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    //box-shadow: -8px 8px 14px 0 rgb(25 42 70 / 11%);
     .logo{
       display: flex;
       align-items: center;
@@ -14,6 +17,11 @@
       svg{
         margin-right: 16px;
       }
+    }
+
+    .logo-divider{
+      height: 40px;
+      margin-left: 16px;
     }
   }
   .content{
