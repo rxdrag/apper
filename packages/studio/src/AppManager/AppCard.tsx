@@ -1,7 +1,8 @@
 import { SettingOutlined, EditOutlined, EllipsisOutlined, SendOutlined, DeleteOutlined, DownloadOutlined } from "@ant-design/icons"
 import { Card, Dropdown, Menu } from "antd"
 import Meta from "antd/lib/card/Meta"
-import React from "react"
+import React, { memo, useCallback } from "react"
+import {useNavigate} from "react-router-dom"
 
 const menu = (
   <Menu>
@@ -16,7 +17,13 @@ const menu = (
   </Menu>
 );
 
-const AppCard = () => {
+const AppCard = memo(() => {
+  const navigate = useNavigate();
+  const handleEdit = useCallback(()=>{
+    navigate("/design-app/xxx")
+    // window.open("/design-app/xxx")
+  }, [navigate])
+  
   return (
     <Card
       className="hover-float app-card"
@@ -27,13 +34,14 @@ const AppCard = () => {
         />
       }
       actions={[
-        <SendOutlined key="view"/>,
-        <EditOutlined key="edit" />,
+        <SendOutlined key="view" />,
+        <EditOutlined key="edit" onClick={handleEdit} />,
         <DownloadOutlined key="download" />,
         <Dropdown overlay={menu} placement="bottomRight" arrow trigger={['click']}>
           <EllipsisOutlined key="ellipsis" />
         </Dropdown>,
       ]}
+
     >
       <Meta
         title="Card title"
@@ -41,6 +49,7 @@ const AppCard = () => {
       />
     </Card>
   )
-}
+})
 
 export default AppCard;
+
