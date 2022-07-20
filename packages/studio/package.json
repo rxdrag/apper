@@ -13,6 +13,7 @@
   "devDependencies": {},
   "dependencies": {
     "@designable/formily-antd": "^1.0.0-beta.45",
-    "array-move": "^4.0.0"
+    "array-move": "^4.0.0",
+    "react-router-dom": "^6.3.0"
   }
 }
