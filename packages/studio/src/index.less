@@ -52,6 +52,7 @@
     display: flex;
     flex-flow: column;
     flex: 1;
+    overflow: auto;
     .app-manage-bar{
       padding: @contentPadding;
       height: 64px;
@@ -70,10 +71,15 @@
         }
       }
     }
-    .apps-block{
+    .content-inner{
+      overflow: auto;
       padding: @contentPadding;
       flex:1;
-      overflow: auto;
+      display: flex;
+      flex-flow: column;
+      .apps-block{
+        flex: 1;
+      }
     }
   }
 
