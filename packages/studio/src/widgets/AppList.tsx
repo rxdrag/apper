@@ -4,7 +4,7 @@ import React from "react"
 const AppList = () => {
   return (
     <div className="apps-block">
-      <Row className="app-row" gutter={32}>
+      <Row className="app-row" gutter={24}>
         <Col span={6}>
           <Card title="Card title" bordered={false}>
             Card content
@@ -26,7 +26,7 @@ const AppList = () => {
           </Card>
         </Col>
       </Row>
-      <Row className="app-row" gutter={32}>
+      <Row className="app-row" gutter={24}>
         <Col span={6}>
           <Card title="Card title" bordered={false}>
             Card content
@@ -48,7 +48,7 @@ const AppList = () => {
           </Card>
         </Col>
       </Row>
-      <Row className="app-row"  gutter={32}>
+      <Row className="app-row"  gutter={24}>
         <Col span={6}>
           <Card title="Card title" bordered={false}>
             Card content
