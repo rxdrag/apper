@@ -4,33 +4,37 @@ import { Header } from "antd/lib/layout/layout"
 import React, { useCallback } from "react"
 import { memo } from "react"
 import AvatarMenu from "../AppManager/AvatarMenu"
-
+import { useNavigate } from "react-router-dom"
 
 const ConifgHeader = memo(() => {
+  const navigate = useNavigate()
+  const handleBack = useCallback(()=>{
+    navigate("/")
+  }, []);
   const onChange = useCallback((key: string) => {
     console.log(key);
   }, []);
 
   return (
     <Header className="header">
-      <HomeOutlined />
+      <Button className="no-border" shape="circle" onClick={handleBack}><HomeOutlined /></Button>
       <Divider type='vertical' />
-      <div>CRM管理</div>
+      <div style={{ marginLeft: "4px" }}>CRM管理</div>
       <Menu
         className="app-config-menu"
         mode="horizontal"
         defaultSelectedKeys={['2']}
         items={[
           {
-            key:1,
+            key: 1,
             label: "基础配置",
           },
           {
-            key:2,
+            key: 2,
             label: "应用设计",
           },
           {
-            key:3,
+            key: 3,
             label: "权限管理",
           },
         ]}
