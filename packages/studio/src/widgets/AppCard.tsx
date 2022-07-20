@@ -1,4 +1,4 @@
-import { SettingOutlined, EditOutlined, EllipsisOutlined, SendOutlined, DeleteOutlined } from "@ant-design/icons"
+import { SettingOutlined, EditOutlined, EllipsisOutlined, SendOutlined, DeleteOutlined, DownloadOutlined } from "@ant-design/icons"
 import { Card, Dropdown, Menu } from "antd"
 import Meta from "antd/lib/card/Meta"
 import React from "react"
@@ -26,8 +26,9 @@ const AppCard = () => {
         />
       }
       actions={[
-        <SendOutlined />,
+        <SendOutlined key="view"/>,
         <EditOutlined key="edit" />,
+        <DownloadOutlined key="download" />,
         <Dropdown overlay={menu} placement="bottomRight" arrow trigger={['click']}>
           <EllipsisOutlined key="ellipsis" />
         </Dropdown>,
