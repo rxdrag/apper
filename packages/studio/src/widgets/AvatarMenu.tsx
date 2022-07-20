@@ -1,10 +1,10 @@
 import { UserOutlined } from "@ant-design/icons"
-import { Avatar } from "antd"
+import { Avatar, Space } from "antd"
 import React from "react"
 
-const AvatarMenu = ()=>{
+const AvatarMenu = () => {
   return (
-    <Avatar src="https://joeschmoe.io/api/v1/random" icon={<UserOutlined />} />
+    <Avatar className="avatar" src="https://joeschmoe.io/api/v1/random" icon={<UserOutlined />} />
   )
 }
 
