@@ -1,13 +1,17 @@
 import { AppstoreOutlined, QuestionCircleOutlined, GithubOutlined } from "@ant-design/icons"
 import { Divider, Space, Button } from "antd"
 import { Header } from "antd/lib/layout/layout"
-import React from "react"
+import React, { memo } from "react"
 import SvgIcon from "../common/SvgIcon"
 import AvatarMenu from "./AvatarMenu"
+import clx from "classnames"
 
-const AppHeader = () => {
+const AppHeader = memo((props: {
+  scrolled: boolean
+}) => {
+  const { scrolled } = props;
   return (
-    <Header className="header float">
+    <Header className={clx("header", { ["float"]: scrolled })}>
       <div className='logo'>
         <svg style={{ width: "40px", height: "40px" }} viewBox="0 0 24 24">
           <defs>
@@ -60,6 +64,6 @@ const AppHeader = () => {
       </Space>
     </Header>
   )
-}
+})
 
 export default AppHeader
