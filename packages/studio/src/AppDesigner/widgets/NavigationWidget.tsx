@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { memo, useCallback } from 'react'
 import { ArrowLeftOutlined, DeploymentUnitOutlined, FileOutlined, MenuOutlined, PartitionOutlined, SettingOutlined } from '@ant-design/icons'
 import { Breadcrumb, Button, Divider, Dropdown, Menu, Space } from 'antd'
+import { useNavigate } from "react-router-dom"
 
 // const logo = {
 //   dark: '//img.alicdn.com/imgextra/i2/O1CN01NTUDi81fHLQvZCPnc_!!6000000003981-55-tps-1141-150.svg',
@@ -51,10 +52,15 @@ const menu = (
   />
 );
 
-export const NavigationWidget: React.FC = () => {
+export const NavigationWidget: React.FC = memo(() => {
+  const navigate = useNavigate()
+  const handleBack = useCallback(() => {
+    navigate("/config-app/xxx")
+  }, []);
+
   return (
     <div style={{ display: 'flex', alignItems: 'center', fontSize: 14, paddingLeft: "8px" }}>
-      <Button className='no-border' shape='circle'>
+      <Button className='no-border' shape='circle' onClick={handleBack}>
         <ArrowLeftOutlined />
       </Button>
       {/* <svg style={{ width: "24px", height: "24px" }} viewBox="0 0 24 24">
@@ -79,4 +85,4 @@ export const NavigationWidget: React.FC = () => {
       </Breadcrumb>
     </div>
   )
-}
+})
