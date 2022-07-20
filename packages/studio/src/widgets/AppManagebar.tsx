@@ -11,7 +11,7 @@ const AppManagebar = () => {
         className="search"
         placeholder="请输入应用名称或关键字"
         suffix={
-          <SearchOutlined className="search-icon" />
+          <SearchOutlined className="search-icon"  />
         }
       />
       <Space>
