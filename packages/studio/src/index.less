@@ -1,11 +1,18 @@
 @borderColor:rgba(0, 0, 0, 0.06);
 @contentPadding:0 160px;
+@appManageBarHeight: 64px;
+@floatBoxShadow:-8px 8px 14px 0 rgb(25 42 70 / 11%);
 
 .rx-studio{
   display: flex;
   flex-flow: column;
-  height: 100vh;
+  min-height: 100vh;
+  overflow-x: hidden;
   .header{
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    left: 0;
     z-index: 10;
     display: flex;
     background-color: #fff;
@@ -47,25 +54,34 @@
       cursor: pointer;
     }
   }
+  .float{
+    box-shadow: @floatBoxShadow;
+  }
+
+  .hover-float:hover{
+    box-shadow: @floatBoxShadow;
+    transition: all 0.3s;
+  }
+
   .content{
     height: 0;
     display: flex;
     flex-flow: column;
     flex: 1;
-    overflow: auto;
+    margin-top: 64px;
     .app-manage-bar{
+      //position: fixed;
       height: 64px;
+      width: 100vw;
+      z-index: 1;
       padding: @contentPadding;
+      margin: 16px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
       .search{
         width: 240px;
         border-radius: 16px;
-        :hover{
-          box-shadow: -8px 8px 14px 0 rgb(25 42 70 / 11%);
-        }
-        
         .search-icon{
           color: rgba(0,0,0,.45);
         }
@@ -76,7 +92,6 @@
       }
     }
     .content-inner{
-      overflow: auto;
       padding: @contentPadding;
       flex:1;
       display: flex;
@@ -85,24 +100,27 @@
         flex: 1;
         .app-row{
           margin-bottom: 24px;
+          // .app-card{
+          //   transition: all 0.3s;
+          // }
         }
       }
     }
   }
+}
 
-  ::-webkit-scrollbar {
-    display: block;
-    width: 0.3rem;
-    height: 0.3rem;
-  }
+::-webkit-scrollbar {
+  display: block;
+  width: 0.3rem;
+  height: 0.3rem;
+}
 
-  ::-webkit-scrollbar-track {
-    border-radius: 0;
-  }
+::-webkit-scrollbar-track {
+  border-radius: 0;
+}
 
-  ::-webkit-scrollbar-thumb {
-    border-radius: 0.2rem;
-    background: rgba(0, 0, 0, 0.3);
-    transition: all .2s;
-  }
+::-webkit-scrollbar-thumb {
+  border-radius: 0.2rem;
+  background: rgba(0, 0, 0, 0.3);
+  transition: all .2s;
 }

@@ -8,15 +8,15 @@ const AppManagebar = () => {
   return (
     <div className="app-manage-bar">
       <Input
-        className="search"
+        className="search hover-float"
         placeholder="请输入应用名称或关键字"
         suffix={
           <SearchOutlined className="search-icon"  />
         }
       />
       <Space className="actions">
-        <Button icon={<ImportOutlined />}>导入应用</Button>
-        <Button type="primary" icon={<PlusOutlined />}>创建应用</Button>
+        <Button className="hover-float" icon={<ImportOutlined />}>导入应用</Button>
+        <Button className="hover-float" type="primary" icon={<PlusOutlined />}>创建应用</Button>
       </Space>
     </div>
   )

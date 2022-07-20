@@ -7,7 +7,7 @@ import AvatarMenu from "./AvatarMenu"
 
 const AppHeader = () => {
   return (
-    <Header className="header">
+    <Header className="header float">
       <div className='logo'>
         <svg style={{ width: "40px", height: "40px" }} viewBox="0 0 24 24">
           <defs>

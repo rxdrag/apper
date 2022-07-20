@@ -19,6 +19,7 @@ const menu = (
 const AppCard = () => {
   return (
     <Card
+      className="hover-float app-card"
       cover={
         <img
           alt="example"
