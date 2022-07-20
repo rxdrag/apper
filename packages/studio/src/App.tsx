@@ -2,6 +2,7 @@ import { AppstoreOutlined, GithubOutlined, QuestionCircleOutlined } from '@ant-d
 import { Button, Divider, Layout, Space } from 'antd';
 import React from 'react';
 import SvgIcon from './common/SvgIcon';
+import AppManagebar from './widgets/AppManagebar';
 import AvatarMenu from './widgets/AvatarMenu';
 const { Header, Content, Footer } = Layout;
 
@@ -60,7 +61,7 @@ const App = () => (
       </Space>
     </Header>
     <Content className='content'>
-
+      <AppManagebar />
     </Content>
     <Footer
       style={{
