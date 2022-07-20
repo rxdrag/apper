@@ -1,15 +1,22 @@
 import { Layout } from 'antd';
-import React, { memo} from 'react';
+import React, { memo } from 'react';
 import AppManager from './AppManager';
-import AppFooter from './AppManager/AppFooter';
-import AppHeader from './AppManager/AppHeader';
-import AppList from './AppManager/AppList';
-import AppManagebar from './AppManager/AppManagebar';
-const { Content } = Layout;
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from './Login';
+import AppDesigner from './AppDesigner';
+import AppConfig from './AppConfig/index';
 
 const App = memo(() => {
   return (
-    <AppManager />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AppManager />} />
+        <Route path="/config-app/:appId" element={<AppConfig />} />
+        <Route path="/design-app/:appId" element={<AppDesigner />} />
+        <Route path="/model" element={<div>model 模块尚未并入</div>} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   )
 });
 

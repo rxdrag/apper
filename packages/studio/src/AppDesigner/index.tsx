@@ -35,7 +35,7 @@ import { Designer, Workspace } from './containers'
 
 setNpmCDNRegistry('//unpkg.com')
 
-const AppEditor = observer(() => {
+const AppDesigner = observer(() => {
 
   /*
   Promise.all(
@@ -123,7 +123,7 @@ const AppEditor = observer(() => {
   )
 })
 
-export default AppEditor;
+export default AppDesigner;
 
 
 
