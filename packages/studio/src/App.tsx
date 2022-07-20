@@ -1,7 +1,8 @@
-import Icon, { AppstoreOutlined, GithubOutlined, GoldOutlined, PartitionOutlined, QuestionCircleOutlined, UserOutlined } from '@ant-design/icons';
-import { Avatar, Breadcrumb, Button, Divider, Layout, Menu, Space } from 'antd';
+import { AppstoreOutlined, GithubOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import { Button, Divider, Layout, Space } from 'antd';
 import React from 'react';
 import SvgIcon from './common/SvgIcon';
+import AvatarMenu from './widgets/AvatarMenu';
 const { Header, Content, Footer } = Layout;
 
 const App = () => (
@@ -47,15 +48,15 @@ const App = () => (
       </Space>
       <Space>
         <Button className='min-button' size='large' shape="circle" icon={<QuestionCircleOutlined />} />
-        <Button 
-          className='min-button' 
-          size='large' 
-          shape="circle" 
-          icon={<GithubOutlined />} 
-          href = "https://github.com/rxdrag/apper"
-          target= "_blank"
+        <Button
+          className='min-button'
+          size='large'
+          shape="circle"
+          icon={<GithubOutlined />}
+          href="https://github.com/rxdrag/apper"
+          target="_blank"
         />
-        <Avatar src="https://joeschmoe.io/api/v1/random" icon={<UserOutlined />} />
+        <AvatarMenu />
       </Space>
     </Header>
     <Content className='content'>
