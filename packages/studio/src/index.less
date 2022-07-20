@@ -1,5 +1,5 @@
 @borderColor:rgba(0, 0, 0, 0.06);
-@contentPadding: 0 50px;
+@contentPadding:0 160px;
 
 .rx-studio{
   display: flex;
@@ -54,8 +54,8 @@
     flex: 1;
     overflow: auto;
     .app-manage-bar{
-      padding: @contentPadding;
       height: 64px;
+      padding: @contentPadding;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -70,6 +70,10 @@
           color: rgba(0,0,0,.45);
         }
       }
+
+      // .actions{
+      //   margin-right: 8px;
+      // }
     }
     .content-inner{
       overflow: auto;
@@ -79,6 +83,9 @@
       flex-flow: column;
       .apps-block{
         flex: 1;
+        .app-row{
+          margin-bottom: 32px;
+        }
       }
     }
   }

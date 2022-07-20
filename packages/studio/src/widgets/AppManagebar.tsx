@@ -14,7 +14,7 @@ const AppManagebar = () => {
           <SearchOutlined className="search-icon"  />
         }
       />
-      <Space>
+      <Space className="actions">
         <Button icon={<ImportOutlined />}>导入应用</Button>
         <Button type="primary" icon={<PlusOutlined />}>创建应用</Button>
       </Space>

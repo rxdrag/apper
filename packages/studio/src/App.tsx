@@ -1,12 +1,10 @@
-import { AppstoreOutlined, GithubOutlined, QuestionCircleOutlined } from '@ant-design/icons';
-import { Button, Divider, Layout, Space } from 'antd';
+import { Layout } from 'antd';
 import React from 'react';
-import SvgIcon from './common/SvgIcon';
 import AppFooter from './widgets/AppFooter';
 import AppHeader from './widgets/AppHeader';
+import AppList from './widgets/AppList';
 import AppManagebar from './widgets/AppManagebar';
-import AvatarMenu from './widgets/AvatarMenu';
-const { Header, Content } = Layout;
+const { Content } = Layout;
 
 const App = () => (
   <Layout className="rx-studio">
@@ -14,9 +12,7 @@ const App = () => (
     <Content className='content'>
       <AppManagebar />
       <div className='content-inner'>
-        <div className='apps-block'>
-
-        </div>
+        <AppList />
         <AppFooter />
       </div>
     </Content>
