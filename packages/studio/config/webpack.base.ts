@@ -16,6 +16,7 @@ export default {
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: '[name].[hash].bundle.js',
+    publicPath: '/',
   },
   resolve: {
     modules: ['node_modules'],
@@ -61,7 +62,7 @@ export default {
               modules: true,
               modifyVars: {
                 'root-entry-name': 'default'
-              }
+              },
             },
           },
         ],

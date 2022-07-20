@@ -4,6 +4,7 @@ import AppFooter from './AppFooter';
 import AppHeader from './AppHeader';
 import AppList from './AppList';
 import AppManagebar from './AppManagebar';
+
 const { Content } = Layout;
 
 const AppManager = memo(() => {

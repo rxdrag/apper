@@ -20,8 +20,8 @@ const menu = (
 const AppCard = memo(() => {
   const navigate = useNavigate();
   const handleEdit = useCallback(()=>{
-    navigate("/design-app/xxx")
-    // window.open("/design-app/xxx")
+    navigate("/config-app/xxx")
+    //window.open("/config-app/xxx")
   }, [navigate])
   
   return (

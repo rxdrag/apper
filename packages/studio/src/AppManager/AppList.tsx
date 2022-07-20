@@ -6,7 +6,7 @@ import AppCard from "./AppCard"
 
 const AppList = () => {
   return (
-    <div className="apps-block">
+    <div className="content-show-block">
       <Row className="app-row" gutter={24}>
         <Col span={6}>
           <AppCard />
