@@ -2,11 +2,15 @@ import { SettingOutlined, EditOutlined, EllipsisOutlined } from "@ant-design/ico
 import { Row, Col, Card, Avatar } from "antd"
 import Meta from "antd/lib/card/Meta"
 import React from "react"
+import AppCard from "./AppCard"
 
 const AppList = () => {
   return (
     <div className="apps-block">
       <Row className="app-row" gutter={24}>
+        <Col span={6}>
+          <AppCard />
+        </Col>
         <Col span={6}>
           <Card
             cover={
@@ -25,11 +29,6 @@ const AppList = () => {
               title="Card title"
               description="This is the description"
             />
-          </Card>
-        </Col>
-        <Col span={6}>
-          <Card title="Card title" bordered={false}>
-            Card content
           </Card>
         </Col>
         <Col span={6}>
