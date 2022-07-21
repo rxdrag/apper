@@ -1,7 +1,8 @@
 import React, { memo, useCallback } from 'react'
 import { ArrowLeftOutlined, DeploymentUnitOutlined, FileOutlined, PartitionOutlined, SettingOutlined } from '@ant-design/icons'
-import { Breadcrumb, Button, Divider, Menu } from 'antd'
+import { Breadcrumb, Button, Divider, Menu, Skeleton } from 'antd'
 import { useNavigate, useParams } from "react-router-dom"
+import { IApp } from '../../model';
 
 // const logo = {
 //   dark: '//img.alicdn.com/imgextra/i2/O1CN01NTUDi81fHLQvZCPnc_!!6000000003981-55-tps-1141-150.svg',
@@ -52,7 +53,13 @@ const menu = (
   />
 );
 
-export const NavigationWidget: React.FC = memo(() => {
+export const NavigationWidget = memo((
+  props: {
+    app?: IApp,
+    loading?: boolean
+  }
+) => {
+  const { app, loading } = props;
   const { appId } = useParams();
   const navigate = useNavigate()
   const handleBack = useCallback(() => {
@@ -78,12 +85,18 @@ export const NavigationWidget: React.FC = memo(() => {
         />
       </svg> */}
       <Divider type="vertical" />
-      <Breadcrumb>
-        <Breadcrumb.Item href="">
-          <span>外贸管理</span>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item>订单编辑</Breadcrumb.Item>
-      </Breadcrumb>
+      {
+        loading
+          ?
+          <Skeleton.Input active></Skeleton.Input>
+          :
+          <Breadcrumb>
+            <Breadcrumb.Item>
+              {app?.title}
+            </Breadcrumb.Item>
+            <Breadcrumb.Item>订单编辑</Breadcrumb.Item>
+          </Breadcrumb>
+      }
     </div>
   )
 })

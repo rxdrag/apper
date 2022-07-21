@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useCallback } from 'react';
 import { useEffect } from 'react';
 import { mockQueryRequest } from "./query";
-import { once, EVENT_DATA_CREATED, on, off, EVENT_DATA_REMOVED } from "./events";
+import { EVENT_DATA_CREATED, on, off, EVENT_DATA_REMOVED } from "./events";
 
 export function useQuery<T>(key: string): IQueryResponse<T> {
   const [data, setData] = useState<T>();

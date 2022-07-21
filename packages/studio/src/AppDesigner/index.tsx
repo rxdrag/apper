@@ -32,12 +32,17 @@ import { observer } from '@formily/reactive-react'
 import { materialStore } from './material/global'
 import { Designer, Workspace } from './containers'
 import { useParams } from 'react-router-dom'
+import { useApp } from '../hooks/useApp'
+import { useShowError } from '../hooks/useShowError'
 
 setNpmCDNRegistry('//unpkg.com')
 
 const AppDesigner = observer(() => {
   const { appId } = useParams();
-  
+  const { data: app, loading, error } = useApp(appId)
+
+  useShowError(error);
+
   /*
   Promise.all(
   Array.from({ length: 10 }).map((_, index) =>
@@ -68,7 +73,7 @@ const AppDesigner = observer(() => {
 
   return (
     <Designer engine={engine}>
-      <StudioPanel logo={<NavigationWidget />} actions={<ActionsWidget />}>
+      <StudioPanel logo={<NavigationWidget app= {app} loading= {loading} />} actions={<ActionsWidget />}>
         <CompositePanel>
           <CompositePanel.Item
             title="panels.Component"

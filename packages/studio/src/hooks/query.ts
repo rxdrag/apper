@@ -1,9 +1,11 @@
+import { getMockeData } from "./getMockeData";
+
 export function mockQueryRequest<T>(key: string): Promise<T> {
   return new Promise((resolve, reject) => {
-    const str = localStorage.getItem(key)
+    const data = getMockeData<T>(key)
     setTimeout(() => {
-      if (str) {
-        resolve(JSON.parse(str))
+      if (data) {
+        resolve(data)
       } else {
         resolve(undefined)
       }
