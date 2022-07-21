@@ -11,13 +11,14 @@ export interface IApp {
   title: string;
   description?: string;
   image?: IFile;
+  pages?: IPage[];
+  menus?: IMenu[];
 }
 
-export interface IDevice {
-  id: ID;
-  slug: string;
-  title: string;
-  image?: IFile;
+export enum Device {
+  PC = "Pc",
+  H5 = "H5",
+  Admin = "Admin"
 }
 
 export interface IPage {
