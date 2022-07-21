@@ -2,17 +2,24 @@ import { CloudUploadOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, UploadProps, Form, Input, Modal, message } from 'antd';
 import Dragger from 'antd/lib/upload/Dragger';
 import React, { memo, useState } from 'react';
-import { TextWidget } from '../AppDesigner/widgets';
+import { getMessage, TextWidget } from '../AppDesigner/widgets';
+import { IApp } from '../model';
 
 const CreateDialog = memo(() => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [form] = Form.useForm<IApp>();
 
   const showModal = () => {
     setIsModalVisible(true);
   };
 
   const handleOk = () => {
-    setIsModalVisible(false);
+    form.validateFields().then((formData) => {
+
+
+    }).catch((err) => {
+      console.error("form validate error", err);
+    });
   };
 
   const handleCancel = () => {
@@ -74,34 +81,35 @@ const CreateDialog = memo(() => {
           name="createApp"
           labelCol={{ span: 6 }}
           wrapperCol={{ span: 16 }}
-          initialValues={{ remember: true }}
+          initialValues={{ name: "New App" }}
+          form={form}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
           <Form.Item
-            label="应用名称"
+            label={getMessage("AppName")}
             name="name"
-            rules={[{ required: true, message: 'Please input your app name!' }]}
+            rules={[{ required: true, message: getMessage("Required") }]}
           >
             <Input />
           </Form.Item>
 
           <Form.Item
-            label="描述"
+            label={getMessage("Description")}
             name="description"
           >
             <Input.TextArea />
           </Form.Item>
 
           < Form.Item
-            label={"图片"}
+            label={getMessage("Image")}
             name="image"
             valuePropName="fileList"
             // 如果没有下面这一句会报错
             getValueFromEvent={normFile}
           >
-            <Dragger {...uploadProps} disabled>
+            <Dragger {...uploadProps}>
               <p className="ant-upload-drag-icon">
                 <CloudUploadOutlined />
               </p>

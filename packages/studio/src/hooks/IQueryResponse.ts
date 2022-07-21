@@ -1,5 +1,5 @@
 
-export interface IResponse<T> {
+export interface IQueryResponse<T> {
   loading?: boolean;
   revalidating?: boolean;
   error?: Error;

@@ -1,9 +1,9 @@
 import { ID } from "../model";
 import { STORAGE_KEY_MENUS, STORAGE_KEY_PAGES } from "./consts";
-import { IResponse } from "./IResponse";
+import { IQueryResponse } from "./IQueryResponse";
 import { IPage, IMenu } from './../model/index';
 
-export function useAppMenu(pageId: ID, deviceSlug: string): IResponse<IMenu> {
+export function useAppMenu(pageId: ID, deviceSlug: string): IQueryResponse<IMenu> {
   const menusStr = localStorage.getItem(STORAGE_KEY_MENUS)
   if (menusStr) {
     const allMenus: IMenu[] = JSON.parse(menusStr)

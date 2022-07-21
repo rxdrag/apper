@@ -1,9 +1,9 @@
 import { ID } from "../model";
 import { STORAGE_KEY_PAGES } from "./consts";
-import { IResponse } from "./IResponse";
+import { IQueryResponse } from "./IQueryResponse";
 import { IPage } from './../model/index';
 
-export function useAppPages(pageId: ID, deviceSlug: string): IResponse<IPage[]> {
+export function useAppPages(pageId: ID, deviceSlug: string): IQueryResponse<IPage[]> {
   const pagesStr = localStorage.getItem(STORAGE_KEY_PAGES)
   if (pagesStr) {
     const allPages: IPage[] = JSON.parse(pagesStr)

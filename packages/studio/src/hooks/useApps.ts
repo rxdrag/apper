@@ -1,8 +1,8 @@
 import { IApp } from "../model";
 import { STORAGE_KEY_APPS } from "./consts";
-import { IResponse } from "./IResponse";
-import { useRequest } from "./useRequest";
+import { IQueryResponse } from "./IQueryResponse";
+import { useQuery } from "./useQuery";
 
-export function useApps(): IResponse<IApp[]> {
-  return useRequest<IApp[]>(STORAGE_KEY_APPS)
+export function useApps(): IQueryResponse<IApp[]> {
+  return useQuery<IApp[]>(STORAGE_KEY_APPS)
 }

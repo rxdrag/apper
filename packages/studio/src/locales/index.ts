@@ -6,13 +6,17 @@ GlobalRegistry.registerDesignerLocales({
     Cancel: "取消",
     Settings: "设置",
     Delete: "删除",
-    App:"应用",
-    Engines:"引擎中心",
-    Model:"模型",
-    Template:"模板",
-    SystemConfig:"系统管理",
+    App: "应用",
+    Engines: "引擎中心",
+    Model: "模型",
+    Template: "模板",
+    SystemConfig: "系统管理",
     UploadHint1: "将文件拖拽到此处，或",
     UploadHint2: "点击上传",
+    Required: "必须输入",
+    Description: "描述",
+    Image: "图片",
+    AppName: "应用名称",
     sources: {
       Inputs: '输入控件',
       Layouts: '布局组件',
@@ -31,10 +35,10 @@ GlobalRegistry.registerDesignerLocales({
       RequiredUrl: "请输入调试地址",
       Upload: "上传",
       Debug: "调试",
-      LinkAddress: "链接地址"
+      LinkAddress: "链接地址",
     },
     appManager: {
-      SearchPlaceHolder:"请输入应用名称或关键字",
+      SearchPlaceHolder: "请输入应用名称或关键字",
       CreateApp: "创建应用",
       ImportApp: "导入应用"
     }
