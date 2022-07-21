@@ -1,6 +1,7 @@
 import { ImportOutlined, InfoCircleOutlined, PlusOutlined, SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space } from "antd";
 import React from "react";
+import CreateDialog from "./CreateDialog";
 
 const { Search } = Input;
 
@@ -16,7 +17,7 @@ const AppManagebar = () => {
       />
       <Space className="actions">
         <Button className="hover-float" icon={<ImportOutlined />}>导入应用</Button>
-        <Button className="hover-float" type="primary" icon={<PlusOutlined />}>创建应用</Button>
+        <CreateDialog />
       </Space>
     </div>
   )

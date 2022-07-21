@@ -1,5 +1,5 @@
 import { CloudUploadOutlined, PlusOutlined } from '@ant-design/icons';
-import { Button, Form, Input, message, Modal, Radio, RadioChangeEvent, Upload, UploadProps } from 'antd';
+import { Button, Form, Input, message, Modal, Radio, RadioChangeEvent, UploadProps } from 'antd';
 import React, { memo, useCallback, useState } from 'react';
 import { TextWidget } from "@designable/react"
 import Dragger from 'antd/lib/upload/Dragger';
@@ -11,7 +11,7 @@ export interface IUploadModalProps {
   onAdded: (module: MaterialModule) => void
 }
 
-export const UploadModal: React.FC<IUploadModalProps> = memo((props: IUploadModalProps) => {
+export const UploadDialog: React.FC<IUploadModalProps> = memo((props: IUploadModalProps) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [operationType, setOperationType] = useState(OperationType.Upload)
   const [form] = Form.useForm<MaterialModule>();
@@ -69,9 +69,6 @@ export const UploadModal: React.FC<IUploadModalProps> = memo((props: IUploadModa
     headers: {
       authorization: 'authorization-text',
     },
-    style: {
-      border: 0
-    },
     onChange(info) {
       if (info.file.status !== 'uploading') {
         console.log(info.file, info.fileList);
@@ -111,7 +108,7 @@ export const UploadModal: React.FC<IUploadModalProps> = memo((props: IUploadModa
         cancelText={<TextWidget>Cancel</TextWidget>}
       >
         <Form
-          name="basic"
+          name="upload-customized"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 12 }}
           initialValues={

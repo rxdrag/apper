@@ -2,7 +2,7 @@ import { Tabs } from "antd"
 import React, { memo, useEffect, useState } from "react"
 import { MaterialSearchWidget } from "./MaterialSearchWidget";
 import "./index.less"
-import { MaterialModal } from "./MaterialModal";
+import { MaterialDialog } from "./MaterialDialog";
 import { MaterialModule } from "./model";
 import { observer } from "@formily/reactive-react";
 import { materialStore } from "./global";
@@ -53,7 +53,7 @@ export const MaterialPanel: React.FC = observer(() => {
         size="small"
         className="materail-tabs"
         tabBarExtraContent={
-          <MaterialModal />
+          <MaterialDialog />
         }
         onChange={onChange}
       >

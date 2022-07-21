@@ -4,7 +4,7 @@ import { arrayMoveImmutable } from 'array-move';
 import React, { useCallback, useEffect, useState } from 'react';
 import { SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
 import "./index.less"
-import { UploadModal } from './UploadModal';
+import { UploadDialog } from './UploadDialog';
 import { MaterialModule } from './model';
 import { materialStore } from './global';
 
@@ -44,7 +44,7 @@ const columns = [
 const SortableItem = SortableElement((props) => <tr {...props} />);
 const SortableBody = SortableContainer((props) => <tbody {...props} />);
 
-export const MaterialModuleTable = () => {
+export const MaterialDialogTable = () => {
   const [dataSource, setDataSource] = useState([]);
 
   useEffect(()=>{
@@ -104,7 +104,7 @@ export const MaterialModuleTable = () => {
           },
         }}
       />
-      <UploadModal onAdded={handleAdded} />
+      <UploadDialog onAdded={handleAdded} />
     </>
   );
 };

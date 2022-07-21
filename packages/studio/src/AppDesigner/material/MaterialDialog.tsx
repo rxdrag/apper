@@ -1,10 +1,10 @@
 import { ToolOutlined } from '@ant-design/icons';
 import { Button, Modal } from 'antd';
 import React, { memo, useCallback, useState } from 'react';
-import { MaterialModuleTable } from './MaterialModuleTable';
+import { MaterialDialogTable } from './MaterialDialogTable';
 import { TextWidget } from "@designable/react"
 
-export const MaterialModal = memo(() => {
+export const MaterialDialog = memo(() => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = useCallback(() => {
@@ -35,7 +35,7 @@ export const MaterialModal = memo(() => {
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <MaterialModuleTable />
+        <MaterialDialogTable />
       </Modal>
     </>
   );

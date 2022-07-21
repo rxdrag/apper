@@ -28,7 +28,6 @@ import {
 import { ViewPanel, CompositePanel, WorkspacePanel, ToolbarPanel, ViewportPanel, SettingsPanel, StudioPanel } from './panels'
 import { MaterialPanel } from './material/MaterialPanel'
 import { convertMaterialsToComponents } from './material/model'
-import "./locales"
 import { observer } from '@formily/reactive-react'
 import { materialStore } from './material/global'
 import { Designer, Workspace } from './containers'
