@@ -101,13 +101,13 @@ const CreateDialog = memo(() => {
             // 如果没有下面这一句会报错
             getValueFromEvent={normFile}
           >
-            <Dragger {...uploadProps}>
+            <Dragger {...uploadProps} disabled>
               <p className="ant-upload-drag-icon">
                 <CloudUploadOutlined />
               </p>
               <p className="ant-upload-hint">
-                <TextWidget>materials.UploadHint1</TextWidget>
-                <a><TextWidget>materials.UploadHint2</TextWidget></a>
+                <TextWidget>UploadHint1</TextWidget>
+                <a><TextWidget>UploadHint2</TextWidget></a>
               </p>
             </Dragger>
           </Form.Item>

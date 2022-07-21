@@ -11,6 +11,8 @@ GlobalRegistry.registerDesignerLocales({
     Model:"模型",
     Template:"模板",
     SystemConfig:"系统管理",
+    UploadHint1: "将文件拖拽到此处，或",
+    UploadHint2: "点击上传",
     sources: {
       Inputs: '输入控件',
       Layouts: '布局组件',
@@ -25,8 +27,6 @@ GlobalRegistry.registerDesignerLocales({
       ComponentTypeName: "组件类型名称",
       OperationType: "操作类型",
       UploadFile: "上传文件",
-      UploadHint1: "将文件拖拽到此处，或",
-      UploadHint2: "点击上传",
       RequiredName: "请输入组件类型名称",
       RequiredUrl: "请输入调试地址",
       Upload: "上传",

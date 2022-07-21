@@ -1,18 +1,22 @@
 import { ID } from "../shared";
 
+export interface IFile{
+  thumbnail: string;
+}
+
 export interface IApp {
   id: ID;
   uuid: string;
   title: string;
   description?: string;
-  imageUrl?: string;
+  image?: IFile;
 }
 
 export interface IDevice {
   id: ID;
   slug: string;
   title: string;
-  imageUrl?: string;
+  image?: IFile;
 }
 
 export interface IPage {

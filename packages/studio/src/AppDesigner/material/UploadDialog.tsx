@@ -156,8 +156,8 @@ export const UploadDialog: React.FC<IUploadModalProps> = memo((props: IUploadMod
                   <CloudUploadOutlined />
                 </p>
                 <p className="ant-upload-hint">
-                  <TextWidget>materials.UploadHint1</TextWidget>
-                  <a><TextWidget>materials.UploadHint2</TextWidget></a>
+                  <TextWidget>UploadHint1</TextWidget>
+                  <a><TextWidget>UploadHint2</TextWidget></a>
                 </p>
               </Dragger>
             </Form.Item>
