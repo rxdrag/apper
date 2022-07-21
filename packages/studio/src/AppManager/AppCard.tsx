@@ -1,33 +1,30 @@
-import { SettingOutlined, EditOutlined, EllipsisOutlined, SendOutlined, DeleteOutlined, DownloadOutlined } from "@ant-design/icons"
+import { SettingOutlined, EditOutlined, EllipsisOutlined, SendOutlined, DeleteOutlined, DownloadOutlined, LoadingOutlined } from "@ant-design/icons"
 import { Card, Dropdown, Menu } from "antd"
 import Meta from "antd/lib/card/Meta"
 import React, { memo, useCallback } from "react"
 import { useNavigate } from "react-router-dom"
 import { TextWidget } from "../AppDesigner/widgets"
+import { useRemoveApp } from "../hooks/useRemoveApp"
 import { IApp } from "../model"
-
-const menu = (
-  <Menu>
-    <Menu.Item key="settings"
-      icon={<SettingOutlined />}
-    >
-      <TextWidget>Settings</TextWidget>
-    </Menu.Item>
-    <Menu.Item key="remove" icon={<DeleteOutlined />}>
-      <TextWidget>Delete</TextWidget>
-    </Menu.Item>
-  </Menu>
-);
+import { useShowError } from './../hooks/useShowError';
 
 const AppCard = memo((props: {
   app: IApp
 }) => {
   const { app } = props;
   const navigate = useNavigate();
+  const [remove, { loading, error }] = useRemoveApp();
+
+  useShowError(error)
+
   const handleEdit = useCallback(() => {
-    navigate("/config-app/xxx")
-    //window.open("/config-app/xxx")
+    navigate("/config-app/" + app.id)
   }, [navigate])
+
+  const handleRemove = useCallback(() => {
+    remove(app.id)
+  }, [])
+
 
   return (
     <Card
@@ -42,11 +39,26 @@ const AppCard = memo((props: {
         <SendOutlined key="view" />,
         <EditOutlined key="edit" onClick={handleEdit} />,
         <DownloadOutlined key="download" />,
-        <Dropdown overlay={menu} placement="bottomRight" arrow trigger={['click']}>
-          <EllipsisOutlined key="ellipsis" />
+        <Dropdown overlay={
+          <Menu>
+            <Menu.Item key="settings"
+              icon={<SettingOutlined />}
+            >
+              <TextWidget>Settings</TextWidget>
+            </Menu.Item>
+            <Menu.Item key="remove" icon={<DeleteOutlined />} onClick={handleRemove}>
+              <TextWidget>Delete</TextWidget>
+            </Menu.Item>
+          </Menu>
+        } placement="bottomRight" arrow trigger={['click']} disabled={loading}>
+          {
+            loading ?
+              <LoadingOutlined />
+              :
+              <EllipsisOutlined key="ellipsis" />
+          }
         </Dropdown>,
       ]}
-
     >
       <Meta
         title={app.title}

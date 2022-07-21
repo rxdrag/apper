@@ -4,7 +4,7 @@ var idSeed = new Date().getTime()
 export type ID = string;
 
 export function createId(): ID {
-  idSeed++
+  idSeed = new Date().getTime()
   return idSeed + ""
 }
 
