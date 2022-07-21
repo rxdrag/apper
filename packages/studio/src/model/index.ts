@@ -1,4 +1,4 @@
-export type ID = string;
+import { ID } from "../shared";
 
 export interface IApp {
   id: ID;
