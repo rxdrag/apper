@@ -3,11 +3,19 @@ import { Button, UploadProps, Form, Input, Modal, message } from 'antd';
 import Dragger from 'antd/lib/upload/Dragger';
 import React, { memo, useState } from 'react';
 import { getMessage, TextWidget } from '../AppDesigner/widgets';
-import { IApp } from '../model';
+import { useCreateApp } from '../hooks/useCreateApp';
+import { IAppInput } from '../model/input';
+import { useShowError } from './../hooks/useShowError';
 
 const CreateDialog = memo(() => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [form] = Form.useForm<IApp>();
+  const [form] = Form.useForm<IAppInput>();
+
+  const [create, { loading, error }] = useCreateApp(() => {
+    setIsModalVisible(false);
+  });
+
+  useShowError(error);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -15,7 +23,7 @@ const CreateDialog = memo(() => {
 
   const handleOk = () => {
     form.validateFields().then((formData) => {
-
+      create(formData)
 
     }).catch((err) => {
       console.error("form validate error", err);
@@ -73,6 +81,9 @@ const CreateDialog = memo(() => {
         title={<TextWidget>appManager.CreateApp</TextWidget>}
         okText={<TextWidget>Confirm</TextWidget>}
         cancelText={<TextWidget>Cancel</TextWidget>}
+        okButtonProps={{
+          loading: loading
+        }}
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
@@ -81,7 +92,7 @@ const CreateDialog = memo(() => {
           name="createApp"
           labelCol={{ span: 6 }}
           wrapperCol={{ span: 16 }}
-          initialValues={{ name: "New App" }}
+          initialValues={{ title: "New App" }}
           form={form}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
@@ -89,7 +100,7 @@ const CreateDialog = memo(() => {
         >
           <Form.Item
             label={getMessage("AppName")}
-            name="name"
+            name="title"
             rules={[{ required: true, message: getMessage("Required") }]}
           >
             <Input />

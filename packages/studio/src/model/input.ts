@@ -8,7 +8,7 @@ export interface IFileInput {
 export interface IAppInput {
   id?: ID;
   uuid?: string;
-  name: string;
+  title: string;
   description?: string;
   image?: IFileInput
 }
