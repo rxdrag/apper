@@ -5,10 +5,14 @@ import React, { useCallback } from "react"
 import { memo } from "react"
 import AvatarMenu from "../AppManager/AvatarMenu"
 import { useNavigate } from "react-router-dom"
+import { IApp } from "../model"
 
-const ConifgHeader = memo(() => {
+const ConifgHeader = memo((props: {
+  app?: IApp
+}) => {
+  const { app } = props;
   const navigate = useNavigate()
-  const handleBack = useCallback(()=>{
+  const handleBack = useCallback(() => {
     navigate("/")
   }, []);
   const onChange = useCallback((key: string) => {
@@ -19,7 +23,7 @@ const ConifgHeader = memo(() => {
     <Header className="header">
       <Button className="no-border" shape="circle" onClick={handleBack}><HomeOutlined /></Button>
       <Divider type='vertical' />
-      <div style={{ marginLeft: "4px" }}>CRM管理</div>
+      <div style={{ marginLeft: "4px" }}>{app?.title}</div>
       <Menu
         className="app-config-menu"
         mode="horizontal"

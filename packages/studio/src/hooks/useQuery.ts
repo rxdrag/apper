@@ -19,8 +19,8 @@ export function useQuery<T>(key: string): IQueryResponse<T> {
 
   const load = useCallback(() => {
     mockQueryRequest<T>(key)
-      .then(apps => {
-        setData(apps)
+      .then(data => {
+        setData(data)
         setLoading(false)
         setRevalidating(false)
       })

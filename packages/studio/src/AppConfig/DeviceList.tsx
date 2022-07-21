@@ -1,14 +1,15 @@
-import { SettingOutlined, EditOutlined, EllipsisOutlined } from "@ant-design/icons"
-import { Row, Col, Card, Button } from "antd"
+import { Row, Col, Card, Button, Skeleton } from "antd"
 import Meta from "antd/lib/card/Meta"
 import React, { useMemo } from "react"
 import { memo } from "react"
 import { getMessage } from "../AppDesigner/widgets"
-import { IDevice } from "../model"
-import { useParams } from 'react-router-dom';
+import { IApp, IDevice } from "../model"
 
-const DeviceList = memo(() => {
-  const { appId } = useParams();
+const DeviceList = memo((props: {
+  loading?: boolean,
+  app?: IApp
+}) => {
+  const { loading, app } = props;
   const list: IDevice[] = useMemo(() => [
     {
       id: "1",
@@ -43,39 +44,44 @@ const DeviceList = memo(() => {
     <div className="content-show-block">
       <div className="config-content">
         <h2>{getMessage("appManager.AppDesign")}</h2>
-        <Row className="app-row" gutter={24}>
-          {
-            list.map(device => {
-              return (
-                <Col span={6}>
-                  <Card
-                    cover={
-                      <img
-                        alt="example"
-                        src={device.image?.thumbUrl}
-                      />
-                    }
-                    actions={[
-                      <Button
-                        key="design"
-                        shape="round"
-                        type="primary"
-                        href={`/design-app/${device.slug}/${appId}`}
+        {
+          loading ?
+            <Skeleton active={true}></Skeleton>
+            :
+            <Row className="app-row" gutter={24}>
+              {
+                list.map(device => {
+                  return (
+                    <Col span={6}>
+                      <Card
+                        cover={
+                          <img
+                            alt="example"
+                            src={device.image?.thumbUrl}
+                          />
+                        }
+                        actions={[
+                          <Button
+                            key="design"
+                            shape="round"
+                            type="primary"
+                            href={`/design-app/${device.slug}/${app?.id}`}
+                          >
+                            {getMessage("appManager.ToDesign")}
+                          </Button>,
+                          <Button key="preview" shape="round" >{getMessage("appManager.ToPreview")}</Button>,
+                        ]}
                       >
-                        {getMessage("appManager.ToDesign")}
-                      </Button>,
-                      <Button key="preview" shape="round" >{getMessage("appManager.ToPreview")}</Button>,
-                    ]}
-                  >
-                    <Meta
-                      title={device.title}
-                    />
-                  </Card>
-                </Col>
-              )
-            })
-          }
-        </Row>
+                        <Meta
+                          title={device.title}
+                        />
+                      </Card>
+                    </Col>
+                  )
+                })
+              }
+            </Row>
+        }
       </div>
     </div>
   )

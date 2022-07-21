@@ -31,11 +31,13 @@ import { convertMaterialsToComponents } from './material/model'
 import { observer } from '@formily/reactive-react'
 import { materialStore } from './material/global'
 import { Designer, Workspace } from './containers'
+import { useParams } from 'react-router-dom'
 
 setNpmCDNRegistry('//unpkg.com')
 
 const AppDesigner = observer(() => {
-
+  const { appId } = useParams();
+  
   /*
   Promise.all(
   Array.from({ length: 10 }).map((_, index) =>
