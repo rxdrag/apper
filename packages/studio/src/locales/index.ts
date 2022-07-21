@@ -20,6 +20,9 @@ GlobalRegistry.registerDesignerLocales({
     panels: {
       Page: "页面",
       OutlinedTree: "大纲",
+      Menu: "菜单",
+      Model: "模型",
+      API: "接口"
     },
     sources: {
       Inputs: '输入控件',
