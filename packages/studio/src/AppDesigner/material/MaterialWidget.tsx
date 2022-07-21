@@ -41,7 +41,7 @@ import {
 const { TabPane } = Tabs;
 declare const window: Window & { materilaModules: MaterialModule[] };
 
-export const MaterialPanel: React.FC = observer(() => {
+export const MaterialWidget: React.FC = observer(() => {
   const onChange = (key: string) => {
     console.log(key);
   };

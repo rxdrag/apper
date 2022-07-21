@@ -17,6 +17,10 @@ GlobalRegistry.registerDesignerLocales({
     Description: "描述",
     Image: "图片",
     AppName: "应用名称",
+    panels: {
+      Page: "页面",
+      OutlinedTree: "大纲",
+    },
     sources: {
       Inputs: '输入控件',
       Layouts: '布局组件',

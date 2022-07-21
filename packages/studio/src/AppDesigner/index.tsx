@@ -26,7 +26,7 @@ import {
   Field,
 } from '@designable/formily-antd'
 import { ViewPanel, CompositePanel, WorkspacePanel, ToolbarPanel, ViewportPanel, SettingsPanel, StudioPanel } from './panels'
-import { MaterialPanel } from './material/MaterialPanel'
+import { MaterialWidget } from './material/MaterialWidget'
 import { convertMaterialsToComponents } from './material/model'
 import { observer } from '@formily/reactive-react'
 import { materialStore } from './material/global'
@@ -73,21 +73,21 @@ const AppDesigner = observer(() => {
 
   return (
     <Designer engine={engine}>
-      <StudioPanel logo={<NavigationWidget app= {app} loading= {loading} />} actions={<ActionsWidget />}>
-        <CompositePanel>
+      <StudioPanel logo={<NavigationWidget app={app} loading={loading} />} actions={<ActionsWidget />}>
+        <CompositePanel showNavTitle>
+          <CompositePanel.Item title="panels.Page" icon="Page">
+            <div style={{ overflow: "auto", height: "100%" }}>
+              <HistoryWidget />
+            </div>
+          </CompositePanel.Item>
           <CompositePanel.Item
             title="panels.Component"
             icon="Component"
           >
-            <MaterialPanel />
+            <MaterialWidget />
           </CompositePanel.Item>
           <CompositePanel.Item title="panels.OutlinedTree" icon="Outline">
             <OutlineTreeWidget />
-          </CompositePanel.Item>
-          <CompositePanel.Item title="panels.History" icon="History">
-            <div style={{ overflow: "auto", height: "100%" }}>
-              <HistoryWidget />
-            </div>
           </CompositePanel.Item>
         </CompositePanel>
         <Workspace id="form">
