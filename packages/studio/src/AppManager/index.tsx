@@ -1,9 +1,7 @@
 import { Layout } from 'antd';
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
-import AppFooter from './AppFooter';
 import AppHeader from './AppHeader';
-import AppList from './AppList';
-import AppManagebar from './AppManagebar';
+import AppsContent from './AppsContent';
 
 const { Content } = Layout;
 
@@ -30,11 +28,7 @@ const AppManager = memo(() => {
     <Layout className="rx-studio">
       <AppHeader scrolled = {scrolled}/>
       <Content ref={ref} className='content'>
-        <AppManagebar />
-        <div className='content-inner'>
-          <AppList />
-          <AppFooter />
-        </div>
+        <AppsContent />
       </Content>
     </Layout>
   )

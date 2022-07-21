@@ -4,6 +4,8 @@ export function mockRequest<T>(key: string): Promise<T> {
     setInterval(() => {
       if (str) {
         resolve(JSON.parse(str))
+      } else {
+        resolve(undefined)
       }
     }, 1000)
   })
