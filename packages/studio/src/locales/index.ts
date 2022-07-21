@@ -40,7 +40,13 @@ GlobalRegistry.registerDesignerLocales({
     appManager: {
       SearchPlaceHolder: "请输入应用名称或关键字",
       CreateApp: "创建应用",
-      ImportApp: "导入应用"
+      ImportApp: "导入应用",
+      AppDesign: "应用设计",
+      ToDesign: "去设计",
+      ToPreview: "去预览",
+      PCDesign: "PC设计",
+      H5Design: "H5设计",
+      AdminDesign: "管理端设计"
     }
   },
   'en-US': {
