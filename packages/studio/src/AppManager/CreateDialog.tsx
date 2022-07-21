@@ -24,7 +24,7 @@ const CreateDialog = memo(() => {
   const handleOk = () => {
     form.validateFields().then((formData) => {
       create(formData)
-
+      form.setFieldsValue({ title: "", description: "" })
     }).catch((err) => {
       console.error("form validate error", err);
     });
@@ -92,7 +92,7 @@ const CreateDialog = memo(() => {
           name="createApp"
           labelCol={{ span: 6 }}
           wrapperCol={{ span: 16 }}
-          initialValues={{ title: "New App" }}
+          initialValues={{ title: "", description: "" }}
           form={form}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
@@ -106,12 +106,12 @@ const CreateDialog = memo(() => {
             <Input />
           </Form.Item>
 
-          <Form.Item
+          {/* <Form.Item
             label={getMessage("Description")}
             name="description"
           >
             <Input.TextArea />
-          </Form.Item>
+          </Form.Item> */}
 
           < Form.Item
             label={getMessage("Image")}
