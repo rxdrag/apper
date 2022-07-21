@@ -7,7 +7,7 @@ import AppCard from "./AppCard"
 const AppList = () => {
   return (
     <div className="content-show-block">
-      <Row className="app-row" gutter={24}>
+      <Row gutter={[24, 24]}>
         <Col span={6}>
           <AppCard />
         </Col>
@@ -39,8 +39,6 @@ const AppList = () => {
         <Col span={6}>
           <AppCard />
         </Col>
-      </Row>
-      <Row className="app-row" gutter={24}>
         <Col span={6}>
           <Card title="Card title" bordered={false}>
             Card content
@@ -61,8 +59,6 @@ const AppList = () => {
             Card content
           </Card>
         </Col>
-      </Row>
-      <Row className="app-row" gutter={24}>
         <Col span={6}>
           <Card title="Card title" bordered={false}>
             Card content
