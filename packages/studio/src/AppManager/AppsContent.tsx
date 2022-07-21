@@ -31,7 +31,6 @@ const AppsContent = memo(() => {
   const { data, error, loading } = useApps();
   useShowError(error)
 
-  console.log(loading)
   return (
     <>
       <AppManagebar />
@@ -41,7 +40,7 @@ const AppsContent = memo(() => {
             ?
             <AppsSkeleton />
             :
-            <AppList />
+            <AppList apps={data || []} />
         }
         <AppFooter />
       </div>
