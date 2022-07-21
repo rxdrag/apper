@@ -4,6 +4,7 @@ import Meta from "antd/lib/card/Meta"
 import React, { memo, useCallback } from "react"
 import { useNavigate } from "react-router-dom"
 import { TextWidget } from "../AppDesigner/widgets"
+import { IApp } from "../model"
 
 const menu = (
   <Menu>
@@ -18,7 +19,10 @@ const menu = (
   </Menu>
 );
 
-const AppCard = memo(() => {
+const AppCard = memo((props: {
+  app: IApp
+}) => {
+  const { app } = props;
   const navigate = useNavigate();
   const handleEdit = useCallback(() => {
     navigate("/config-app/xxx")
@@ -45,8 +49,8 @@ const AppCard = memo(() => {
 
     >
       <Meta
-        title="瑞力欧门户"
-        description="This is the description, This is the description, This is the description, "
+        title={app.title}
+        description={app.description}
       />
     </Card>
   )

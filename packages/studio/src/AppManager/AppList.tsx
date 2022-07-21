@@ -17,7 +17,7 @@ const AppList = memo((props: {
               apps.map((app) => {
                 return (
                   <Col span={6} key={app.uuid}>
-                    <AppCard />
+                    <AppCard app={app} />
                   </Col>
                 )
               })
