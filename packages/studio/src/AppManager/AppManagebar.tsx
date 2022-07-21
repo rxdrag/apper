@@ -1,22 +1,24 @@
-import { ImportOutlined, InfoCircleOutlined, PlusOutlined, SearchOutlined } from "@ant-design/icons";
+import { ImportOutlined, SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space } from "antd";
 import React from "react";
+import { getMessage, TextWidget } from "../AppDesigner/widgets";
 import CreateDialog from "./CreateDialog";
-
-const { Search } = Input;
+import { GlobalRegistry } from '@designable/core'
 
 const AppManagebar = () => {
   return (
     <div className="app-manage-bar">
       <Input
         className="search hover-float"
-        placeholder="请输入应用名称或关键字"
+        placeholder={getMessage("appManager.SearchPlaceHolder")}
         suffix={
-          <SearchOutlined className="search-icon"  />
+          <SearchOutlined className="search-icon" />
         }
       />
       <Space className="actions">
-        <Button className="hover-float" icon={<ImportOutlined />}>导入应用</Button>
+        <Button className="hover-float" icon={<ImportOutlined />}>
+          <TextWidget>appManager.ImportApp</TextWidget>
+        </Button>
         <CreateDialog />
       </Space>
     </div>

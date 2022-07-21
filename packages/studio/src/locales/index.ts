@@ -4,6 +4,8 @@ GlobalRegistry.registerDesignerLocales({
   'zh-CN': {
     Confirm: "确定",
     Cancel: "取消",
+    Settings: "设置",
+    Delete: "删除",
     sources: {
       Inputs: '输入控件',
       Layouts: '布局组件',
@@ -16,16 +18,21 @@ GlobalRegistry.registerDesignerLocales({
       Add: "添加",
       Cuszomized: "自定义上传",
       ComponentTypeName: "组件类型名称",
-      OperationType:"操作类型",
-      UploadFile:"上传文件",
-      UploadHint1:"将文件拖拽到此处，或",
-      UploadHint2:"点击上传",
-      RequiredName:"请输入组件类型名称",
-      RequiredUrl:"请输入调试地址",
-      Upload:"上传",
-      Debug:"调试",
-      LinkAddress:"链接地址"
+      OperationType: "操作类型",
+      UploadFile: "上传文件",
+      UploadHint1: "将文件拖拽到此处，或",
+      UploadHint2: "点击上传",
+      RequiredName: "请输入组件类型名称",
+      RequiredUrl: "请输入调试地址",
+      Upload: "上传",
+      Debug: "调试",
+      LinkAddress: "链接地址"
     },
+    appManager: {
+      SearchPlaceHolder:"请输入应用名称或关键字",
+      CreateApp: "创建应用",
+      ImportApp: "导入应用"
+    }
   },
   'en-US': {
     sources: {

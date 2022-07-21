@@ -60,10 +60,10 @@ const CreateDialog = memo(() => {
         icon={<PlusOutlined />}
         onClick={showModal}
       >
-        创建应用
+        <TextWidget>appManager.CreateApp</TextWidget>
       </Button>
       <Modal
-        title="创建应用"
+        title={<TextWidget>appManager.CreateApp</TextWidget>}
         okText={<TextWidget>Confirm</TextWidget>}
         cancelText={<TextWidget>Cancel</TextWidget>}
         visible={isModalVisible}

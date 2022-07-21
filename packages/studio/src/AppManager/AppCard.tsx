@@ -2,28 +2,29 @@ import { SettingOutlined, EditOutlined, EllipsisOutlined, SendOutlined, DeleteOu
 import { Card, Dropdown, Menu } from "antd"
 import Meta from "antd/lib/card/Meta"
 import React, { memo, useCallback } from "react"
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { TextWidget } from "../AppDesigner/widgets"
 
 const menu = (
   <Menu>
     <Menu.Item key="settings"
       icon={<SettingOutlined />}
     >
-      设置
+      <TextWidget>Settings</TextWidget>
     </Menu.Item>
     <Menu.Item key="remove" icon={<DeleteOutlined />}>
-      删除
+      <TextWidget>Delete</TextWidget>
     </Menu.Item>
   </Menu>
 );
 
 const AppCard = memo(() => {
   const navigate = useNavigate();
-  const handleEdit = useCallback(()=>{
+  const handleEdit = useCallback(() => {
     navigate("/config-app/xxx")
     //window.open("/config-app/xxx")
   }, [navigate])
-  
+
   return (
     <Card
       className="hover-float app-card"
