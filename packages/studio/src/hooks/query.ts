@@ -7,6 +7,6 @@ export function mockQueryRequest<T>(key: string): Promise<T> {
       } else {
         resolve(undefined)
       }
-    }, 1000)
+    }, 500)
   })
 }

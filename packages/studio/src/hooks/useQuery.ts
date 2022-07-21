@@ -3,12 +3,20 @@ import { useState } from 'react';
 import { useCallback } from 'react';
 import { useEffect } from 'react';
 import { mockQueryRequest } from "./query";
+import { once, EVENT_DATA_CREATED, on, off } from "./events";
 
-export function useQuery<T>(key:string): IQueryResponse<T> {
+export function useQuery<T>(key: string): IQueryResponse<T> {
   const [data, setData] = useState<T>();
   const [loading, setLoading] = useState<boolean>();
   const [revalidating, setRevalidating] = useState<boolean>();
   const [error, setError] = useState<Error>();
+
+  const eventHandler = useCallback((event: CustomEvent) => {
+    console.log("ONCE Event", event)
+    if (event.detail === key) {
+      refresh()
+    }
+  }, []);
 
   const load = useCallback(() => {
     mockQueryRequest<T>(key)
@@ -26,7 +34,11 @@ export function useQuery<T>(key:string): IQueryResponse<T> {
 
   useEffect(() => {
     setLoading(true);
-    load()
+    load();
+    on(EVENT_DATA_CREATED, eventHandler);
+    return () => {
+      off(EVENT_DATA_CREATED, eventHandler);
+    }
   }, []);
 
   const refresh = useCallback(() => {

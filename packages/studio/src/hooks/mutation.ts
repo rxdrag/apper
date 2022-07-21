@@ -16,6 +16,6 @@ export function mockCreateRequest<T1, T2>(key: string, obj: T1): Promise<T2> {
         localStorage.setItem(key, JSON.stringify(newData))
       }
       resolve(obj as any)
-    }, 1000)
+    }, 500)
   })
 }
