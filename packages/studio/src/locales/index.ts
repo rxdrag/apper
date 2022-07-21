@@ -7,6 +7,7 @@ GlobalRegistry.registerDesignerLocales({
     Settings: "设置",
     Delete: "删除",
     App:"应用",
+    Engines:"引擎中心",
     Model:"模型",
     Template:"模板",
     SystemConfig:"系统管理",
