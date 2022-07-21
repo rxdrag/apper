@@ -1,11 +1,8 @@
 import { IApp } from "../model";
 import { STORAGE_KEY_APPS } from "./consts";
-import { IUseDataResponse } from "./IUseDataResponse";
+import { IResponse } from "./IResponse";
+import { useRequest } from "./useRequest";
 
-export function useApps(): IUseDataResponse<IApp[]> {
-  const appsStr = localStorage.getItem(STORAGE_KEY_APPS)
-  if(appsStr){
-    return {data:JSON.parse(appsStr)}
-  }
-  return {}
+export function useApps(): IResponse<IApp[]> {
+  return useRequest<IApp[]>(STORAGE_KEY_APPS)
 }

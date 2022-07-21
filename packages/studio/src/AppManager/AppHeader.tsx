@@ -5,7 +5,6 @@ import React, { memo } from "react"
 import SvgIcon from "../common/SvgIcon"
 import AvatarMenu from "./AvatarMenu"
 import clx from "classnames"
-import { TextWidget } from '@designable/react';
 import { getMessage } from "../AppDesigner/widgets"
 
 const AppHeader = memo((props: {
