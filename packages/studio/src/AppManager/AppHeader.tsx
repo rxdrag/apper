@@ -5,6 +5,8 @@ import React, { memo } from "react"
 import SvgIcon from "../common/SvgIcon"
 import AvatarMenu from "./AvatarMenu"
 import clx from "classnames"
+import { TextWidget } from '@designable/react';
+import { getMessage } from "../AppDesigner/widgets"
 
 const AppHeader = memo((props: {
   scrolled: boolean
@@ -38,7 +40,9 @@ const AppHeader = memo((props: {
             </svg>
           </SvgIcon>
 
-        }>模型</Button>
+        }>
+          {getMessage("App")}
+        </Button>
         <Button shape="round" className='nav-button' icon={
           <SvgIcon>
             <svg className='nav-icon' viewBox="0 0 24 24">
@@ -46,7 +50,9 @@ const AppHeader = memo((props: {
             </svg>
           </SvgIcon>
 
-        }>模板</Button>
+        }>
+          {getMessage("Template")}
+        </Button>
         <Button shape="round" className='nav-button' icon={
           <SvgIcon>
             <svg className='nav-icon' viewBox="0 0 24 24">
@@ -54,7 +60,9 @@ const AppHeader = memo((props: {
             </svg>
           </SvgIcon>
         }
-        >系统管理</Button>
+        >
+          {getMessage("SystemConfig")}
+        </Button>
         {/* <Button shape="round" className='nav-button'>文档</Button>
       <Button shape="round" className='nav-button'>Github</Button> */}
       </Space>

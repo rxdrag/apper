@@ -6,6 +6,10 @@ GlobalRegistry.registerDesignerLocales({
     Cancel: "取消",
     Settings: "设置",
     Delete: "删除",
+    App:"应用",
+    Model:"模型",
+    Template:"模板",
+    SystemConfig:"系统管理",
     sources: {
       Inputs: '输入控件',
       Layouts: '布局组件',
