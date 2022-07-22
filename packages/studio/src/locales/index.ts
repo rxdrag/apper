@@ -32,6 +32,10 @@ GlobalRegistry.registerDesignerLocales({
       Displays: '展示组件',
       Pages: '页面管理'
     },
+    pages: {
+      NewPage: "新建页面",
+      NewCategory: "新建分组"
+    },
     materials: {
       ModuleList: "物料管理",
       Add: "添加",

@@ -1,9 +1,9 @@
-import { DownOutlined } from '@ant-design/icons';
 import { Button, Tree } from 'antd';
 import SvgIcon from '../../../common/SvgIcon';
 import React from 'react';
 import "./index.less"
 import { DataNode } from 'antd/lib/tree';
+import { getMessage, TextWidget } from '../TextWidget';
 
 const { DirectoryTree } = Tree;
 
@@ -14,7 +14,7 @@ const treeData: DataNode[] = [
     isLeaf: true
   },
   {
-    title: 'parent 0',
+    title: '列表页',
     key: '0-1',
     children: [
       { title: 'leaf 0-0', key: '0-0-0', isLeaf: true },
@@ -22,7 +22,7 @@ const treeData: DataNode[] = [
     ],
   },
   {
-    title: 'parent 1',
+    title: '表单页',
     key: '0-2',
     children: [
       { title: 'leaf 1-0', key: '0-1-0', isLeaf: true },
@@ -39,19 +39,6 @@ const PageListWidget = () => {
     <div className='page-list-shell'>
       <div className="page-list-action">
         <Button
-          type='link'
-          icon={
-            <SvgIcon>
-              <svg style={{ width: '16px', height: '16px' }} viewBox="0 0 24 24">
-                <path fill="currentColor" d="M13.81 22H6C4.89 22 4 21.11 4 20V4C4 2.9 4.89 2 6 2H14L20 8V13.09C19.67 13.04 19.34 13 19 13S18.33 13.04 18 13.09V9H13V4H6V20H13.09C13.21 20.72 13.46 21.39 13.81 22M23 18H20V15H18V18H15V20H18V23H20V20H23V18Z" />
-              </svg>
-            </SvgIcon>
-          }
-        >
-          新建页面
-        </Button>
-        <Button
-          type='link'
           icon={
             <SvgIcon>
               <svg style={{ width: '16px', height: '16px' }} viewBox="0 0 24 24">
@@ -60,7 +47,19 @@ const PageListWidget = () => {
             </SvgIcon>
           }
         >
-          新建分组
+          {getMessage("pages.NewCategory")}
+        </Button>
+        <Button
+          type='primary'
+          icon={
+            <SvgIcon>
+              <svg style={{ width: '16px', height: '16px' }} viewBox="0 0 24 24">
+                <path fill="currentColor" d="M13.81 22H6C4.89 22 4 21.11 4 20V4C4 2.9 4.89 2 6 2H14L20 8V13.09C19.67 13.04 19.34 13 19 13S18.33 13.04 18 13.09V9H13V4H6V20H13.09C13.21 20.72 13.46 21.39 13.81 22M23 18H20V15H18V18H15V20H18V23H20V20H23V18Z" />
+              </svg>
+            </SvgIcon>
+          }
+        >
+          {getMessage("pages.NewPage")}
         </Button>
       </div>
       <DirectoryTree
