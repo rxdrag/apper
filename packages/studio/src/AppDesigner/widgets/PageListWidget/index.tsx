@@ -1,6 +1,6 @@
 import { Button, Tree } from 'antd';
 import SvgIcon from '../../../common/SvgIcon';
-import React from 'react';
+import React, { memo } from 'react';
 import "./index.less"
 import { DataNode } from 'antd/lib/tree';
 import { getMessage, TextWidget } from '../TextWidget';
@@ -9,7 +9,11 @@ const { DirectoryTree } = Tree;
 
 const treeData: DataNode[] = [
   {
-    title: '首页',
+    title:
+      <>
+        <div>首页</div>
+        <div>action</div>
+      </>,
     key: '0-0',
     isLeaf: true
   },
