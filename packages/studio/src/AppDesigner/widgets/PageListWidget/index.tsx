@@ -1,54 +1,35 @@
-import { DownOutlined, FileOutlined } from '@ant-design/icons';
-import { Button, Divider, Space, Tree } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import { Button, Tree } from 'antd';
 import SvgIcon from '../../../common/SvgIcon';
 import React from 'react';
 import "./index.less"
+import { DataNode } from 'antd/lib/tree';
 
-const treeData = [
+const { DirectoryTree } = Tree;
+
+const treeData: DataNode[] = [
   {
-    title: 'parent 1-0',
-    key: '0-0-0',
+    title: '首页',
+    key: '0-0',
+    isLeaf: true
+  },
+  {
+    title: 'parent 0',
+    key: '0-1',
     children: [
-      {
-        title: 'leaf',
-        key: '0-0-0-0',
-      },
-      {
-        title: 'leaf',
-        key: '0-0-0-1',
-      },
-      {
-        title: 'leaf',
-        key: '0-0-0-2',
-      },
+      { title: 'leaf 0-0', key: '0-0-0', isLeaf: true },
+      { title: 'leaf 0-1', key: '0-0-1', isLeaf: true },
     ],
   },
   {
-    title: 'parent 1-1',
-    key: '0-0-1',
+    title: 'parent 1',
+    key: '0-2',
     children: [
-      {
-        title: 'leaf',
-        key: '0-0-1-0',
-      },
-    ],
-  },
-  {
-    title: 'parent 1-2',
-    key: '0-0-2',
-    children: [
-      {
-        title: 'leaf',
-        key: '0-0-2-0',
-      },
-      {
-        title: 'leaf',
-        key: '0-0-2-1',
-      },
+      { title: 'leaf 1-0', key: '0-1-0', isLeaf: true },
+      { title: 'leaf 1-1', key: '0-1-1', isLeaf: true },
     ],
   },
 ];
-
 const PageListWidget = () => {
   const onSelect = (selectedKeys, info) => {
     console.log('selected', selectedKeys, info);
@@ -82,10 +63,9 @@ const PageListWidget = () => {
           新建分组
         </Button>
       </div>
-      <Tree
-        showLine
-        switcherIcon={<DownOutlined />}
-        defaultExpandedKeys={['0-0-0']}
+      <DirectoryTree
+        className='page-list-tree'
+        defaultExpandAll
         onSelect={onSelect}
         treeData={treeData}
       />
