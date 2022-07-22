@@ -64,6 +64,14 @@ const PageListWidget = () => {
       </div>
       <DirectoryTree
         className='page-list-tree'
+        // allowDrop={()=>{
+        //   return true
+        // }}
+        // draggable={
+        //   ()=>{
+        //     return true
+        //   }
+        // }
         defaultExpandAll
         onSelect={onSelect}
         treeData={treeData}
