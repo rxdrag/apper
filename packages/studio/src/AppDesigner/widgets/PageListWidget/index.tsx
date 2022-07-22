@@ -72,7 +72,7 @@ const PageListWidget = () => {
         //     return true
         //   }
         // }
-        defaultExpandAll
+        //defaultExpandAll
         onSelect={onSelect}
         treeData={treeData}
       />

@@ -25,13 +25,21 @@ export interface IPage {
   id: ID;
   title: string;
   schema: JSON;
-  device?: Device;
-  app?: IApp;
+  device: Device;
+  app: IApp;
+  category?: IPageCategory;
+}
+
+export interface IPageCategory {
+  id: ID;
+  title: string;
+  device: Device;
+  app: IApp;
 }
 
 export interface IMenu {
   id: ID;
   schema: JSON;
-  device?: Device;
-  app?: IApp;
+  device: Device;
+  app: IApp;
 }
