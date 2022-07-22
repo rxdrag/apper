@@ -4,16 +4,21 @@ import React, { memo } from 'react';
 import "./index.less"
 import { DataNode } from 'antd/lib/tree';
 import { getMessage, TextWidget } from '../TextWidget';
+import { EditOutlined } from '@ant-design/icons';
 
 const { DirectoryTree } = Tree;
 
 const treeData: DataNode[] = [
   {
     title:
-      <>
+      <div className='tree-node-label'>
         <div>首页</div>
-        <div>action</div>
-      </>,
+        <div>
+          <Button className='no-border' shape='circle' size='small'>
+            <EditOutlined />
+          </Button>
+        </div>
+      </div>,
     key: '0-0',
     isLeaf: true
   },
